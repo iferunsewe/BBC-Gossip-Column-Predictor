@@ -49,7 +49,6 @@ def structure_data(raw_text):
 def process_rows(rows):
     processed_rows = []
     errors = []
-    extra_features = set()
     
     for row in rows:
         try:
