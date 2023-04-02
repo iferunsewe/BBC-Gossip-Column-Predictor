@@ -24,7 +24,7 @@ def write_csv_file(file_path, fieldnames, data_rows):
       writer.writerow(row)
 
 def structure_data(raw_text):
-  prompt = f"Structure the following raw_text into json that includes fields 'player_name' and 'clubs_mentioned' and whichever ones you suggest: {raw_text}. The result should be an array of objects where each object contains the player_name and clubs_mentioned fields. Only include football clubs in the clubs_mentioned field and not international teams. Only include actual football players in the player_name field and not football managers."
+  prompt = f"Structure the following raw_text into json that includes fields 'player_name' and 'clubs_mentioned' and whichever fields you suggest: {raw_text}. The result should be an array of objects where each object contains the player_name and clubs_mentioned fields and all the other fields you suggest. Only include football clubs in the clubs_mentioned field and not international teams. Only include actual football players in the player_name field and not football managers."
   response = openai.Completion.create(
     engine="text-davinci-002",
     prompt=prompt,
@@ -33,8 +33,6 @@ def structure_data(raw_text):
     stop=None,
     temperature=0.5,
   )
-
-  print(f"Response: {response}")
 
   # Get the response text
   response_text = response.choices[0].text.replace("'", '"')
@@ -46,10 +44,11 @@ def structure_data(raw_text):
   print(f"Structured data: {structured_data}")
   return structured_data
 
-def process_rows(rows):
+def process_rows(rows, base_fieldnames):
     processed_rows = []
     errors = []
-    
+    extra_features = set()
+
     for row in rows:
         try:
             raw_text = row["raw_text"]
@@ -63,9 +62,19 @@ def process_rows(rows):
                 print(f"Data: {data}")
                 new_row = {
                     "date": row["date"],
+                    "raw_text": raw_text,
                     "player_name": data["player_name"],
-                    "clubs_mentioned": data["clubs_mentioned"],
+                    "clubs_mentioned": data["clubs_mentioned"]
                 }
+                
+                # Check for extra features
+                for key in data.keys():
+                    if key not in base_fieldnames:
+                        extra_features.add(key)
+                        new_row[key] = data[key]
+                        print(f"New extra feature: {key}")
+                        print(f"Updated extra features: {extra_features}")
+
                 print(f"New row: {new_row}")
                 processed_rows.append(new_row)
         except Exception as e:
@@ -73,7 +82,7 @@ def process_rows(rows):
             errors.append(error_info)
             print(f"Error: {error_info}")
 
-    return processed_rows, errors
+    return processed_rows, errors, extra_features
 
 
 if __name__ == "__main__":
@@ -85,15 +94,20 @@ if __name__ == "__main__":
 
     # Process each row in 'transfer_news_data.csv'
     print("Processing rows...")
-    output_rows, errors = process_rows(input_rows)
+    base_fieldnames = ["date", "raw_text", "player_name", "clubs_mentioned"]
+    output_rows, errors, extra_features = process_rows(input_rows, base_fieldnames)
 
     # Print errors
     print(f"Errors ({len(errors)}): {errors}")
 
+    # Print extra features
+    print(f"Extra features ({len(extra_features)}): {extra_features}")
+
     # Create the 'primary_dataset.csv' file
     print("Creating 'primary_dataset.csv'...")
-    output_fieldnames = ["date", "player_name", "clubs_mentioned"]
+    output_fieldnames = base_fieldnames + list(extra_features)
     write_csv_file("primary_dataset.csv", output_fieldnames, output_rows)
+
 
 
   # # Add any new suggested columns by GPT-3
