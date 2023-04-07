@@ -51,7 +51,7 @@ def build_article_csv(article_dates, new_file=True):
 
   mode = 'w' if new_file else 'a'  # determine whether to start a new file or append to an existing one
   # Open the CSV file for writing or appending
-  with open("articles2.csv", mode, newline="") as csvfile:
+  with open("../../data/transfer_rumors_articles.csv", mode, newline="") as csvfile:
     writer = csv.writer(csvfile)
 
     # Write headers to the file if it's a new file

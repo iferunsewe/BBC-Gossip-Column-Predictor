@@ -10,15 +10,15 @@ from datetime import datetime
 
 # Create or find the transfer_news_data.csv
 def create_csv():
-    if not os.path.isfile("transfer_news_data.csv"):
-        with open("transfer_news_data.csv", "w") as file:
+    if not os.path.isfile("../../data/transfer_news_data.csv"):
+        with open("../../data/transfer_news_data.csv", "w") as file:
             file.write("date,raw_text,source,source_url\n")
     else:
         print("transfer_news_data.csv already exists")
 
 # Read articles.csv and return the list of dates and links
 def get_articles(start_date=None):
-    articles = pd.read_csv("articles.csv")
+    articles = pd.read_csv("../../data/transfer_rumours_articles.csv")
     articles["Date"] = pd.to_datetime(articles["Date"])  # Convert the "Date" column to datetime64 data type
 
     if start_date:
@@ -59,15 +59,15 @@ def extract_data(soup, url):
 
 # Save the data to the csv file
 def save_data_to_csv(date, data_list):
-    with open("transfer_news_data.csv", "a", encoding='utf-8') as file:
+    with open("../../data/transfer_news_data.csv", "a", encoding='utf-8') as file:
         for text, source, source_url in data_list:
             cleaned_text = '"' + text.replace('\n', ' ').replace('"', '""') + '"'
             quoted_source_url = '"' + source_url.replace('"', '""') + '"'
             file.write(f"{date},{cleaned_text},{source},{quoted_source_url}\n")
 
 def get_latest_date_from_csv():
-    if os.path.isfile("transfer_news_data.csv"):
-        transfer_news_data = pd.read_csv("transfer_news_data.csv")
+    if os.path.isfile("../../data/transfer_news_data.csv"):
+        transfer_news_data = pd.read_csv("../../data/transfer_news_data.csv")
         if not transfer_news_data.empty:
             latest_date = max(pd.to_datetime(transfer_news_data["date"]))
             return latest_date

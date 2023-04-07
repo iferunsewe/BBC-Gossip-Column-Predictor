@@ -20,7 +20,7 @@ transfer_data = []
 id_counter = 385490
 
 # Create the CSV file
-with open("transfermarkt_data.csv", "w", newline="", encoding="utf-8") as csvfile:
+with open("../../data/transfermarkt_data.csv", "w", newline="", encoding="utf-8") as csvfile:
     fieldnames = ["id", "player_name", "player_age", "player_position", "club_left", "club_joined", "transfer_fee"]
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()

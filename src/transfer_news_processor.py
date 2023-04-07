@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     # Read the 'transfer_news_data.csv' file
     print("Reading 'transfer_news_data.csv'...")
-    input_rows = read_csv_file("transfer_news_data.csv")
+    input_rows = read_csv_file("../data/transfer_news_data.csv")
 
     # Process each row in 'transfer_news_data.csv'
     print("Processing rows...")
@@ -103,10 +103,10 @@ if __name__ == "__main__":
     # Print extra features
     print(f"Extra features ({len(extra_features)}): {extra_features}")
 
-    # Create the 'primary_dataset.csv' file
-    print("Creating 'primary_dataset.csv'...")
+    # Create the 'structured_dataset.csv' file
+    print("Creating 'structured_dataset.csv'...")
     output_fieldnames = base_fieldnames + list(extra_features)
-    write_csv_file("primary_dataset.csv", output_fieldnames, output_rows)
+    write_csv_file("../data/structured_dataset.csv", output_fieldnames, output_rows)
 
 
 

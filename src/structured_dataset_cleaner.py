@@ -42,8 +42,8 @@ def clean_dataset(input_rows):
     return cleaned_rows
 
 if __name__ == "__main__":
-    input_rows = read_csv_file("primary_dataset_with_news_id_2.csv")
+    input_rows = read_csv_file("../data/structured_data.csv")
     cleaned_rows = clean_dataset(input_rows)
 
     fieldnames = input_rows[0].keys()
-    write_csv_file("cleaned_primary_dataset.csv", fieldnames, cleaned_rows)
+    write_csv_file("../data/cleaned_structured_data.csv", fieldnames, cleaned_rows)
