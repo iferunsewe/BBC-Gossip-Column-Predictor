@@ -4,14 +4,15 @@ import datetime
 import calendar
 import time
 import random
+import os
 
 def build_article_dates(start_date=None, end_date=None):
     # Set the start and end dates
     if not start_date:
-      print("1. Use last date in articles.csv 2. Enter a start date in the format YYYY-MM-DD")
+      print("1. Use last date in transfer_rumours_articles.csv 2. Enter a start date in the format YYYY-MM-DD")
       option = input("> ")
       if option == "1":
-        with open("articles3.csv", "r") as csvfile:
+        with open("/../data/transfer_rumours_articles.csv", "r") as csvfile:
           reader = csv.reader(csvfile)
           rows = list(reader)
           last_row = rows[-1]
@@ -50,8 +51,12 @@ def build_article_csv(article_dates, new_file=True):
   print("Starting to build CSV file...")
 
   mode = 'w' if new_file else 'a'  # determine whether to start a new file or append to an existing one
+
+  script_dir = os.path.dirname(os.path.realpath(__file__))
+  data_dir = os.path.join(script_dir, '..', '..', 'data')
+  output_file = os.path.join(data_dir, 'transfer_rumours_articles.csv')
   # Open the CSV file for writing or appending
-  with open("../../data/transfer_rumors_articles.csv", mode, newline="") as csvfile:
+  with open(output_file, mode, newline="") as csvfile:
     writer = csv.writer(csvfile)
 
     # Write headers to the file if it's a new file
@@ -84,5 +89,5 @@ def build_article_csv(article_dates, new_file=True):
   print("CSV file generation complete.")
 
 if __name__ == "__main__":
-  article_dates = build_article_dates(datetime.date(2022, 3, 1), datetime.date(2022, 6, 1))
-  build_article_csv(article_dates, new_file=False)  # append to an existing file
+  article_dates = build_article_dates(datetime.date(2021, 6, 1), datetime.date(2022, 1, 31))
+  build_article_csv(article_dates, new_file=True)  # append to an existing file
