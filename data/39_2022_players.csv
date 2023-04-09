@@ -1,0 +1,616 @@
+id,name,full_name,age,nationality,team_name,season
+623,B. Mendy,Benjamin Mendy,28,France,Manchester City,2022
+630,F. Delph,Fabian Delph,33,England,Everton,2022
+883,Lee Grant,Lee Grant,39,England,Manchester United,2022
+897,M. Greenwood,Mason Will John Greenwood,21,England,Manchester United,2022
+2281,Gary Cahill,Gary Cahill,37,England,Bournemouth,2022
+2288,Daniel Noel Drinkwater,Daniel Noel Drinkwater,32,England,Chelsea,2022
+3398,Gaëtan Bong Songo,Gaëtan Bong Songo,34,Cameroon,Nottingham Forest,2022
+18826,Mark Noble,Mark Noble,35,England,West Ham,2022
+138411,L. Hughes,Liam John Hughes,21,Northern Ireland,Liverpool,2022
+158696,F. Burns,Finley Jack Burns,19,England,Manchester City,2022
+162517,L. Dendoncker,Lars Dendoncker,21,Belgium,Brighton,2022
+284247,H. Blair,Harvey Blair,19,England,Liverpool,2022
+284464,M. Cadogan,Maliq Anthony Cadogan,18,England,Crystal Palace,2022
+284530,B. Cover,Brandon Ashley Cover,19,England,Leicester,2022
+293162,J. Raymond,Jadan Raymond,19,England,Crystal Palace,2022
+293167,J. Sheridan,Joe Sheridan,19,England,Crystal Palace,2022
+305732,T. Wilson-Brown,Thomas Wilson-Brown,18,England,Leicester,2022
+344908,M. Vigor,Matthew Vigor,18,England,Crystal Palace,2022
+350590,T. Gidaree,Tarik Gidaree,19,England,Bournemouth,2022
+350627,J. Addae,Joshua Addae,,England,Crystal Palace,2022
+1093,E. Mwepu,Enock Mwepu,24,Zambia,Brighton,2022
+19308,L. Grabban,Lewis Grabban,34,England,Nottingham Forest,2022
+152976,Thomas Daniel Hill,Thomas Daniel Hill,20,England,Liverpool,2022
+152979,James Barry Norris,James Barry Norris,19,England,Liverpool,2022
+153429,T. Mengi,Teden Mambuene Mengi,20,England,Manchester United,2022
+216770,I. Hansen-Aarøen,Isak Hansen-Aarøen,18,Norway,Manchester United,2022
+278133,Oscar Bobb,Oscar Bobb,19,Norway,Manchester City,2022
+282136,N. Emeran,Noam Fritz Emeran,20,France,Manchester United,2022
+283289,A. Raikhy,Arjan Singh Raikhy,20,England,Aston Villa,2022
+284286,Isaac Mabaya,Isaac Mabaya,18,England,Liverpool,2022
+284361,R. Vítek,Radek Vítek,19,Czech Republic,Manchester United,2022
+284362,B. Hardley,Björn Bryan Hardley,20,Netherlands,Manchester United,2022
+284391,S. Murray,Sam Murray,18,England,Manchester United,2022
+284556,T. O&apos;Reilly,Tommi Dylan O'Reilly,19,England,Aston Villa,2022
+288106,Marc Jurado,Marc Jurado Gómez,18,Spain,Manchester United,2022
+288115,James Storer,James Storer,,England,Wolves,2022
+291022,Joshua Keeley,Joshua Keeley,19,Republic of Ireland,Tottenham,2022
+303010,D. Gore,Daniel Gore,18,England,Manchester United,2022
+312118,J. Feeney,Joshua Feeney,17,England,Aston Villa,2022
+328101,T. Fredricson,Tyler Fredricson,17,England,Manchester United,2022
+1131,A. Oko-Flex,Armstrong Echezolachukwu Inya Oko-Flex,21,Republic of Ireland,West Ham,2022
+1649,P. Cutrone,Patrick Cutrone,25,Italy,Wolves,2022
+153408,D. Oyegoke,Daniel Oladele Akinbiyi Oyegoke,20,England,Brentford,2022
+154807,Daniel Chesters,Daniel Chesters,20,England,West Ham,2022
+162114,D. Rankine,Dion Joseph Rankine,21,England,Chelsea,2022
+180866,Marcelo,Marcelo de Araújo Pitaluga Filho,20,Brazil,Liverpool,2022
+181796,J. Brooking,Joshua Royston Brooking,21,England,Chelsea,2022
+196000,B. Genesini,Brooklyn David Anthony Genesini,22,England,Bournemouth,2022
+284253,D. Corness,Dominic Corness,19,England,Liverpool,2022
+284406,A. Gilchrist,Alfie Gilchrist,20,England,Chelsea,2022
+284427,Lewis James Payne,Lewis James Payne,19,England,Southampton,2022
+284442,C. Webster,Charles Clive Webster,19,England,Chelsea,2022
+284459,M. Mothersille,Malik Maine Mothersille,20,England,Chelsea,2022
+284493,T. Adaramola,Omotayo Daniel Adaramola,19,Republic of Ireland,Crystal Palace,2022
+284539,H. Graczyk,Hubert Graczyk,19,England,Arsenal,2022
+284557,Z. Monlouis,Zane Monlouis,19,England,Arsenal,2022
+286764,Kaide Gordon,Kaide Gordon,19,England,Liverpool,2022
+287111,F. Mrozek,Fabian Mrozek,19,Poland,Liverpool,2022
+313245,M. Lewis-Skelly,Myles Anthony Lewis-Skelly,16,England,Arsenal,2022
+331563,M. Burstow,Mason Paul James Burstow,20,England,Chelsea,2022
+378,Alex Telles,Alex Nicolao Telles,31,Brazil,Manchester United,2022
+632,C. Gomes,Claudio Amarildo Gomes,23,France,Manchester City,2022
+855,João Cancelo,João Pedro Cavaco Cancelo,29,Portugal,Manchester City,2022
+946,K. Mbabu,Melingo Kevin Mbabu,28,Switzerland,Fulham,2022
+1166,T. Werner,Timo Werner,27,Germany,Chelsea,2022
+2298,C. Hudson-Odoi,Callum James Hudson-Odoi,23,England,Chelsea,2022
+2928,C. Benteke,Christian Benteke Liolo,33,Belgium,Crystal Palace,2022
+3008,M. Klich,Mateusz Andrzej Klich,33,Poland,Leeds,2022
+18770,E. Jakupovic,Eldin Jakupovic,39,Switzerland,Everton,2022
+18902,Kenedy,Robert Kenedy Nunes do Nascimento,27,Brazil,Chelsea,2022
+19043,T. Kongolo,Terence Kongolo,29,Netherlands,Fulham,2022
+19352,Sergi Canós,Sergi Canós Tenes,26,Spain,Brentford,2022
+20503,L. O&apos;Brien,Lewis John O'Brien,25,England,Nottingham Forest,2022
+50816,R. Laryea,Richmond Mamah Laryea,28,Canada,Nottingham Forest,2022
+61178,C. Ronan,Connor Patrick Ronan,25,Republic of Ireland,Wolves,2022
+70767,B. Ojeda,Braian Óscar Ojeda Rodríguez,23,Paraguay,Nottingham Forest,2022
+138804,M. Kovář,Matěj Kovář,23,Czech Republic,Manchester United,2022
+174918,L. Badé,Loïc Badé,23,France,Nottingham Forest,2022
+195717,Y. Mosquera,Yerson Mosquera Valdelamar,22,Colombia,Wolves,2022
+284405,B. Elliott,Benjamin Njongoue Elliott,21,England,Chelsea,2022
+583,João Félix,João Félix Sequeira,24,Portugal,Chelsea,2022
+645,R. Sterling,Raheem Shaquille Sterling,29,England,Chelsea,2022
+1465,P. Aubameyang,Pierre-Emerick Emiliano Franço Aubameyang,34,Gabon,Chelsea,2022
+1972,L. Karius,Loris Karius,30,Germany,Newcastle,2022
+2810,D. Zakaria,Denis Lemi Zakaria Lako Lado,27,Switzerland,Chelsea,2022
+18886,M. Dúbravka,Martin Dúbravka,34,Slovakia,Newcastle,2022
+69257,J. Furlong,Walter James Byrne Furlong,21,Republic of Ireland,Brighton,2022
+136723,N. Madueke,Chukwunonso Tristan Madueke,21,England,Chelsea,2022
+138822,A. Broja,Armando Broja,22,Albania,Chelsea,2022
+138935,C. Chukwuemeka,Carney Chibueze Chukwuemeka,20,England,Chelsea,2022
+151754,L. Clarkson,Leighton Owen Clarkson,22,England,Liverpool,2022
+274550,H. Vale,Harvey James Vale,20,England,Chelsea,2022
+284366,L. Chambers,Luke Chambers,19,England,Liverpool,2022
+284428,O. Giraud-Hutchinson,Omari Elijah Giraud-Hutchinson,20,Jamaica,Chelsea,2022
+284492,L. Hall,Lewis Kieran Hall,19,England,Chelsea,2022
+291476,D. Fofana,David Datro Fofana,21,Côte d'Ivoire,Chelsea,2022
+638,I. Poveda-Ocampo,Ian Carlo Poveda-Ocampo,23,England,Leeds,2022
+906,T. Chong,Tahith Jose Chong,24,Netherlands,Manchester United,2022
+17448,J. Smith,Jordan Clifford Smith,29,England,Nottingham Forest,2022
+17772,C. Goode,Charlie Goode,28,England,Brentford,2022
+18820,C. Coventry,Conor James Coventry,23,Republic of Ireland,West Ham,2022
+18885,K. Darlow,Karl Darlow,33,England,Newcastle,2022
+18972,A. Knockaert,Anthony Patrick Knockaert,32,France,Fulham,2022
+19831,T. Fosu,Tariqe Fosu,28,Ghana,Brentford,2022
+19866,J. Lowe,Jamal Akua Lowe,29,Jamaica,Bournemouth,2022
+68127,K. Watts,Kelland John William James Watts,24,England,Newcastle,2022
+126791,N. Broadhead,Nathan Paul Broadhead,25,Wales,Everton,2022
+138793,H. White,Harvey David White,22,England,Tottenham,2022
+151756,W. Dennis,William Jonathan Dennis,23,England,Bournemouth,2022
+163054,S. Shoretire,Shola Maxwell Shoretire,19,England,Manchester United,2022
+266203,J. Gordon,John-Kymani Linton Michael Gordon,20,England,Crystal Palace,2022
+278129,L. Mbete,Luke Mbete-Tabu,20,England,Manchester City,2022
+280672,E. Turns,Edward James Turns,21,Wales,Brighton,2022
+284500,T. Iroegbunam,Timothy Emeka Iroegbunam,20,England,Aston Villa,2022
+297187,L. Hjelde,Leo Fuhr Hjelde,20,Norway,Leeds,2022
+328808,M. Ebiowei,Malcolm Perewari Ebiowei,20,England,Crystal Palace,2022
+874,Cristiano Ronaldo,Cristiano Ronaldo dos Santos Aveiro,38,Portugal,Manchester United,2022
+2461,S. Rondón,José Salomón Rondón Giménez,34,Venezuela,Everton,2022
+18752,Hélder Costa,Hélder Wander Sousa de Azevedo e Costa,29,Angola,Leeds,2022
+19307,Léo Bonatini,Leonardo Bonatini Lohner Maia,29,Brazil,Wolves,2022
+40434,J. Valencia,César Joel Valencia Castillo,29,Ecuador,Brentford,2022
+152949,D. Simeu,Dynel Brown Kembo Simeu,21,England,Southampton,2022
+153407,N. Butler-Oyedeji,Nathan Jerome Chatoyer Butler-Oyedeji,20,England,Arsenal,2022
+158432,C. Campbell,Chem Campbell,21,Wales,Wolves,2022
+158698,J. Quansah,Jarell Amorin Quansah,20,England,Liverpool,2022
+180289,C. Saydee,Christian Saydee,21,England,Bournemouth,2022
+191971,J. Stansfield,Jay Stansfield,21,England,Fulham,2022
+270357,K. Phillips,Killian Phillips,21,Republic of Ireland,Crystal Palace,2022
+283290,K. McAteer,Kasey McAteer,22,England,Leicester,2022
+284059,L. Plange,Luke Elliot Plange,21,England,Crystal Palace,2022
+284266,L. Warrington,Lewis Wesley Warrington,21,England,Everton,2022
+284323,C. Savage,Charlie William Henry Savage,20,Wales,Manchester United,2022
+284423,R. Finnigan,Ryan James Finnigan,20,England,Southampton,2022
+284449,J. Rak-Sakyi,Jesurun Rak-Sakyi,21,England,Crystal Palace,2022
+339138,D. Taylor,Dale Taylor,20,Northern Ireland,Nottingham Forest,2022
+382163,O. Bevan,Owen Lucas Bevan,20,Wales,Bournemouth,2022
+172,D. Alli,Bamidele Jermaine Alli,27,England,Everton,2022
+925,Gonçalo Guedes,Gonçalo Manuel Ganchinho Guedes,27,Portugal,Wolves,2022
+1439,Héctor Bellerín,Héctor Bellerín Moruno,28,Spain,Arsenal,2022
+1853,Bruno Jordão,Bruno André Cavaco Jordão,25,Portugal,Wolves,2022
+2784,R. Rúnarsson,Rúnar Alex Rúnarsson,28,Iceland,Arsenal,2022
+2927,M. Batshuayi,Michy Batshuayi-Atunga,30,Belgium,Chelsea,2022
+3240,J. Gbamin,Jean-Philippe Gbamin,28,Côte d'Ivoire,Everton,2022
+18751,Ivan Cavaleiro,Ivan Ricardo Neves Abreu Cavaleiro,30,Portugal,Fulham,2022
+18948,N. Redmond,Nathan Daniel Jerome Redmond,29,England,Southampton,2022
+18978,F. Andone,Florin Andone,30,Romania,Brighton,2022
+49,T. Partey,Thomas Teye Partey,30,Ghana,Arsenal,2022
+641,O. Zinchenko,Oleksandr Volodymyrovych Zinchenko,27,Ukraine,Arsenal,2022
+643,Gabriel Jesus,Gabriel Fernando de Jesus,26,Brazil,Arsenal,2022
+1161,E. Smith Rowe,Emile Smith Rowe,23,England,Arsenal,2022
+1452,Mohamed Elneny,Mohamed Naser Elsayed Elneny,31,Egypt,Arsenal,2022
+1460,B. Saka,Bukayo Ayoyinka Saka,22,England,Arsenal,2022
+1464,G. Xhaka,Granit Xhaka,31,Switzerland,Arsenal,2022
+2289,Jorginho,Jorge Luiz Frello Filho,32,Italy,Arsenal,2022
+2597,T. Tomiyasu,Takehiro Tomiyasu,25,Japan,Arsenal,2022
+37127,M. Ødegaard,Martin Ødegaard,25,Norway,Arsenal,2022
+41725,Fábio Vieira,Fábio Daniel Ferreira Vieira,23,Portugal,Arsenal,2022
+127769,Gabriel Martinelli,Gabriel Teodoro Martinelli Silva,22,Brazil,Arsenal,2022
+167658,M. Smith,Matthew Gerrard Smith,23,England,Arsenal,2022
+278075,C. Cîrjan,Cătălin Ionuț Cîrjan,21,Romania,Arsenal,2022
+284439,L. Sousa,Lino da Cruz Sousa,18,England,Arsenal,2022
+284540,Mauro Bandeira,Mauro Gomes Bandeira,19,Portugal,Arsenal,2022
+309501,A. Cozier-Duberry,Amario Cozier-Duberry,18,England,Arsenal,2022
+309505,R. Walters,Reuell Walters,19,England,Arsenal,2022
+309507,B. Ibrahim,Bradley Ibrahim,19,England,Arsenal,2022
+313236,E. Nwaneri,Ethan Chidiebere Nwaneri,16,England,Arsenal,2022
+158,P. Gazzaniga,Paulo Dino Gazzaniga Farias,31,Argentina,Fulham,2022
+326,Allan,Allan Marques Loureiro,32,Brazil,Everton,2022
+662,T. Ndombélé,Tanguy Ndombélé Alvaro,27,France,Tottenham,2022
+842,N. Vlašić,Nikola Vlašić,26,Croatia,West Ham,2022
+1578,G. Lo Celso,Giovani Lo Celso,27,Argentina,Tottenham,2022
+1914,M. Sanson,Morgan Stéphane Sanson,29,France,Aston Villa,2022
+2061,Bryan Gil,Bryan Gil Salvatierra,22,Spain,Tottenham,2022
+2279,E. Ampadu,Ethan Kwame Colm Raymond Ampadu,23,Wales,Chelsea,2022
+2287,R. Barkley,Ross Barkley,30,England,Chelsea,2022
+2852,L. Augustinsson,Hans Carl Ludwig Augustinsson,29,Sweden,Aston Villa,2022
+3246,N. Pépé,Nicolas Pépé,28,Côte d'Ivoire,Arsenal,2022
+18942,Y. Valery,Yan Valery,24,Tunisia,Southampton,2022
+18949,Oriol Romeu,Oriol Romeu Vidal,32,Spain,Southampton,2022
+19309,J. Lolley,Joseph Lolley,31,England,Nottingham Forest,2022
+19964,S. Dembélé,Ben Siriki Dembélé,27,Scotland,Bournemouth,2022
+21636,F. Guilbert,Frédéric Guilbert,29,France,Aston Villa,2022
+46792,Pablo Marí,Pablo Marí Villar,30,Spain,Arsenal,2022
+47302,Diego Llorente,Diego Javier Llorente Ríos,30,Spain,Leeds,2022
+182,H. Winks,Harry Billy Winks,27,England,Tottenham,2022
+1117,K. Tierney,Kieran Tierney,26,Scotland,Arsenal,2022
+1440,R. Holding,Robert Samuel Holding,28,England,Arsenal,2022
+19959,B. White,Benjamin William White,26,England,Arsenal,2022
+20355,A. Ramsdale,Aaron Christopher Ramsdale,25,England,Arsenal,2022
+22090,W. Saliba,William Alain André Gabriel Saliba,22,France,Arsenal,2022
+22224,Gabriel Magalhães,Gabriel dos Santos Magalhães,26,Brazil,Arsenal,2022
+36922,S. van den Berg,Sepp van den Berg,22,Netherlands,Liverpool,2022
+50999,M. Turner,Matthew Charles Turner,29,USA,Arsenal,2022
+61431,J. Kiwior,Jakub Piotr Kiwior,23,Poland,Arsenal,2022
+138843,J. Hillson,James Andrew Hillson,22,England,Arsenal,2022
+138937,F. Marschall,Filip Marschall,20,England,Aston Villa,2022
+169295,K. Hein,Karl Jakob Hein,21,Estonia,Arsenal,2022
+181797,B. Humphreys,Bashir Humphreys,20,England,Chelsea,2022
+284457,L. Bogarde,Lamare Trenton Chansey Bogarde,19,Netherlands,Aston Villa,2022
+723,Joelinton,Joelinton Cassio Apolinário de Lira,27,Brazil,Newcastle,2022
+1463,J. Willock,Joseph George Willock,24,England,Newcastle,2022
+2507,M. Almirón,Miguel Ángel Almirón Rejala,29,Paraguay,Newcastle,2022
+2855,E. Krafth,Emil Henry Kristoffer Krafth,29,Sweden,Newcastle,2022
+2939,C. Wilson,Callum Eddie Graham Wilson,31,England,Newcastle,2022
+10135,Bruno Guimarães,Bruno Guimarães Rodriguez Moura,26,Brazil,Newcastle,2022
+18873,R. Fraser,Ryan Fraser,29,Scotland,Newcastle,2022
+18896,Javi Manquillo,Javier Manquillo Gaitán,29,Spain,Newcastle,2022
+18901,S. Longstaff,Sean David Longstaff,26,England,Newcastle,2022
+18903,M. Ritchie,Matthew Thomas Ritchie,34,Scotland,Newcastle,2022
+18941,M. Targett,Matthew Robert Targett,28,England,Newcastle,2022
+18961,D. Burn,Daniel Johnson Burn,31,England,Newcastle,2022
+19076,J. Lewis,Jamal Piaras Lewis,25,Northern Ireland,Newcastle,2022
+19163,J. Murphy,Jacob Kai Murphy,28,England,Newcastle,2022
+130419,M. Longstaff,Matthew Ben Longstaff,23,England,Newcastle,2022
+138787,A. Gordon,Anthony Michael Gordon,22,England,Newcastle,2022
+138908,E. Anderson,Elliot Anderson,21,Scotland,Newcastle,2022
+171058,H. Ashby,Harrison Charles Ashby,22,Scotland,Newcastle,2022
+284291,J. Turner-Cooke,Jay Turner-Cooke,20,England,Newcastle,2022
+328105,L. Miley,Lewis Miley,17,England,Newcastle,2022
+174,C. Eriksen,Christian Dannemann Eriksen,31,Denmark,Manchester United,2022
+742,R. Varane,Raphaël Xavier Varane,30,France,Manchester United,2022
+747,Casemiro,Carlos Henrique Casimiro,31,Brazil,Manchester United,2022
+882,David de Gea,David de Gea Quintana,33,Spain,Manchester United,2022
+886,Diogo Dalot,José Diogo Dalot Teixeira,24,Portugal,Manchester United,2022
+888,P. Jones,Phil Anthony Jones,31,England,Manchester United,2022
+889,V. Lindelöf,Victor Jörgen Nilsson Lindelöf,29,Sweden,Manchester United,2022
+891,L. Shaw,Luke Paul Hoare Shaw,28,England,Manchester United,2022
+905,Fred,Frederico Rodrigues de Paula Santos,30,Brazil,Manchester United,2022
+1159,M. Sabitzer,Marcel Sabitzer,29,Austria,Manchester United,2022
+1485,Bruno Fernandes,Bruno Miguel Borges Fernandes,29,Portugal,Manchester United,2022
+2467,Lisandro Martínez,Lisandro Martínez,25,Argentina,Manchester United,2022
+2930,J. Butland,Jack Butland,30,England,Manchester United,2022
+2931,T. Heaton,Thomas David Heaton,37,England,Manchester United,2022
+2935,H. Maguire,Jacob Harry Maguire,30,England,Manchester United,2022
+18846,A. Wan-Bissaka,Aaron Wan-Bissaka,26,England,Manchester United,2022
+20319,N. Bishop,Nathan James Bishop,24,England,Manchester United,2022
+37145,T. Malacia,Tyrell Johannes Chicco Malacia,24,Netherlands,Manchester United,2022
+138806,B. Williams,Brandon Paul Brian Williams,23,England,Manchester United,2022
+284363,R. Bennett,Rhys Joseph Wright Bennett,20,England,Manchester United,2022
+18,J. Sancho,Jadon Malik Sancho,23,England,Manchester United,2022
+133,C. Lenglet,Clément Nicolas Laurent Lenglet,28,France,Tottenham,2022
+159,H. Lloris,Hugo Hadrien Dominique Lloris,37,France,Tottenham,2022
+161,A. Whiteman,Alfie Malik Whiteman,25,England,Tottenham,2022
+164,B. Davies,Benjamin Thomas Davies,30,Wales,Tottenham,2022
+168,D. Sánchez,Davinson Sánchez Mina,27,Colombia,Tottenham,2022
+175,E. Dier,Eric Jeremy Edgar Dier,29,England,Tottenham,2022
+1566,Emerson,Emerson Aparecido Leite de Souza Junior,24,Brazil,Tottenham,2022
+18932,F. Forster,Fraser Gerard Forster,35,England,Tottenham,2022
+25416,W. Weghorst,Wout Weghorst,31,Netherlands,Manchester United,2022
+30776,C. Romero,Cristian Gabriel Romero,25,Argentina,Tottenham,2022
+47519,Pedro Porro,Pedro Antonio Porro Sauceda,24,Spain,Tottenham,2022
+60353,M. Paskotši,Maksim Paskotši,20,Estonia,Tottenham,2022
+149550,J. Tanganga,Japhet Manzambi Tanganga,24,England,Tottenham,2022
+153430,A. Elanga,Anthony David Junior Elanga,21,Sweden,Manchester United,2022
+154800,M. Fagan-Walcott,Malachi Michael Fagan-Walcott,21,England,Tottenham,2022
+156428,B. Austin,Brandon Anthony Austin,24,England,Tottenham,2022
+162607,M. Muir,Marqes Muir,21,England,Tottenham,2022
+284324,A. Garnacho,Alejandro Garnacho Ferreyra,19,Argentina,Manchester United,2022
+311817,A. Dorrington,Alfie Dorrington,18,England,Tottenham,2022
+533,R. Kristensen,Rasmus Nissen Kristensen,26,Denmark,Leeds,2022
+1150,T. Adams,Tyler Shaan Adams,24,USA,Leeds,2022
+1564,Junior Firpo,Héctor Junior Firpo Adames,27,Spain,Leeds,2022
+2048,M. Wöber,Maximilian Wöber,25,Austria,Leeds,2022
+19116,L. Ayling,Luke David Ayling,32,England,Leeds,2022
+19126,S. Dallas,Stuart Alan Dallas,32,Northern Ireland,Leeds,2022
+19127,A. Forshaw,Adam John Forshaw,32,England,Leeds,2022
+19128,J. Harrison,Jack David Harrison,27,England,Leeds,2022
+26238,R. Koch,Robin Leon Koch,27,Germany,Leeds,2022
+47341,Marc Roca,Marc Roca Junqué,27,Spain,Leeds,2022
+64003,P. Struijk,Pascal Augustus Struijk,24,Netherlands,Leeds,2022
+131278,C. Allen,Charlie Steven Allen,20,Northern Ireland,Leeds,2022
+273760,A. Miller,Amari Miquel Miller,21,England,Leeds,2022
+278235,K. Moore,Kristan Richard Moore,20,England,Leeds,2022
+278242,J. Chilokoa-Mullen,Jeremiah Chukwuedo Chilokoa-Mullen,19,Scotland,Leeds,2022
+282124,D. Gyabi,Darko Boateng Gyabi,19,England,Leeds,2022
+282903,D. van den Heuvel,Tristan Danique van den Heuvel,20,Netherlands,Leeds,2022
+296085,Diogo Monteiro,Diogo Pinheiro Monteiro,18,Portugal,Leeds,2022
+328089,A. Gray,Archie Gray,17,England,Leeds,2022
+334734,J. Debayo,James Boluwatife Debayo,18,England,Leeds,2022
+547,D. van de Beek,Donny van de Beek,26,Netherlands,Manchester United,2022
+903,S. McTominay,Scott Francis McTominay,27,Scotland,Manchester United,2022
+70078,F. Pellistri,Facundo Pellistri Rebollo,22,Uruguay,Manchester United,2022
+83,A. Danjuma,Arnaut Danjuma Adam Groeneveld,26,Netherlands,Tottenham,2022
+178,Lucas Moura,Lucas Rodrigues Moura da Silva,31,Brazil,Tottenham,2022
+180,O. Skipp,Oliver William Skipp,23,England,Tottenham,2022
+207,I. Perišić,Ivan Perišić,34,Croatia,Tottenham,2022
+253,A. Aréola,Alphonse Francis Aréola,30,France,West Ham,2022
+863,R. Bentancur,Rodrigo Bentancur Colmán,26,Uruguay,Tottenham,2022
+2413,Richarlison,Richarlison de Andrade,26,Brazil,Tottenham,2022
+2735,P. Højbjerg,Pierre-Emile Kordt Højbjerg,28,Denmark,Tottenham,2022
+2997,Ł. Fabiański,Łukasz Marek Fabiański,38,Poland,West Ham,2022
+18968,Y. Bissouma,Yves Bissouma,27,Mali,Tottenham,2022
+19032,R. Sessegnon,Kouassi Ryan Sessegnon,23,England,Tottenham,2022
+162148,M. Robson,Max Robson,21,England,Tottenham,2022
+162150,N. John,Nile Omari Mckenzie John,20,England,Tottenham,2022
+237129,P. Sarr,Pape Matar Sarr,21,Senegal,Tottenham,2022
+273757,A. Devine,Alfie Sean Devine,19,England,Tottenham,2022
+284414,R. Mundle,Romaine Lee Mundle,20,England,Tottenham,2022
+284415,Yago Santiago,Yago de Santiago Alonso,20,Spain,Tottenham,2022
+284418,K. Cesay,Kallum Xzeiba Tracey Cesay,21,Sierra Leone,Tottenham,2022
+293163,J. Donley,Jamie Donley,18,England,Tottenham,2022
+393195,W. Lankshear,William Lankshear,18,England,Tottenham,2022
+30435,D. Kulusevski,Dejan Kulusevski,23,Sweden,Tottenham,2022
+331009,C. Sayers,Charlie Sayers,19,England,Tottenham,2022
+130,Nélson Semedo,Nélson Cabral Semedo,30,Portugal,Wolves,2022
+665,M. Cornet,Gnaly Albert Maxwel Cornet,27,Côte d'Ivoire,West Ham,2022
+1590,José Sá,José Pedro Malheiro de Sá,30,Portugal,Wolves,2022
+18740,Jonny Castro,Jonathan Castro Otto,29,Spain,Wolves,2022
+18744,M. Kilman,Maximilian William Kilman,26,England,Wolves,2022
+18819,M. Antonio,Michail Gregory Antonio,33,Jamaica,West Ham,2022
+18947,M. Lemina,Mario René Junior Lemina,30,Gabon,Wolves,2022
+18955,D. Ings,Daniel William John Ings,31,England,West Ham,2022
+19147,C. Dawson,Craig Dawson,33,England,Wolves,2022
+19341,D. Bentley,Daniel Ian Bentley,30,England,Wolves,2022
+19361,S. Benrahma,Mohamed Saïd Benrahma,28,Algeria,West Ham,2022
+19428,J. Bowen,Jarrod Bowen,27,England,West Ham,2022
+21138,R. Aït-Nouri,Rayan Aït-Nouri,22,Algeria,Wolves,2022
+30544,G. Scamacca,Gianluca Scamacca,24,Italy,West Ham,2022
+41606,Toti,Tote António Gomes,24,Portugal,Wolves,2022
+144741,L. Moulden,Louie Moulden,21,England,Wolves,2022
+152957,L. Richards,Lewis Paul Jimmy Richards,22,Republic of Ireland,Wolves,2022
+157912,B. Traoré,Boubacar Traoré,22,Mali,Wolves,2022
+280687,Hugo Bueno,Hugo Bueno López,21,Spain,Wolves,2022
+284409,D. Mubama,Divin Saku Mubama,19,England,West Ham,2022
+147,Philippe Coutinho,Philippe Coutinho Correia,31,Brazil,Aston Villa,2022
+671,B. Traoré,Bertrand Isidore Traoré,28,Burkina Faso,Aston Villa,2022
+983,L. Bailey,Leon Patrick Bailey Butler,26,Jamaica,Aston Villa,2022
+1904,B. Kamara,Boubacar Bernard Kamara,24,France,Aston Villa,2022
+2724,L. Digne,Lucas Digne,30,France,Aston Villa,2022
+2922,L. Dendoncker,Leander Dendoncker,28,Belgium,Aston Villa,2022
+13489,J. Durán,Jhon Jader Durán Palacio,20,Colombia,Aston Villa,2022
+18959,Robert Sánchez,Robert Lynch Sánchez,26,Spain,Brighton,2022
+18960,J. Steele,Jason Sean Steele,33,England,Brighton,2022
+19071,E. Buendía,Emiliano Buendía Stati,27,Argentina,Aston Villa,2022
+19191,J.  McGinn,John McGinn,29,Scotland,Aston Villa,2022
+19192,J. Ramsey,Jacob Matthew Ramsey,22,England,Aston Villa,2022
+19265,A. Webster,Adam Harry Webster,28,England,Brighton,2022
+19366,O. Watkins,Oliver George Arthur Watkins,28,England,Aston Villa,2022
+47522,Douglas Luiz,Douglas Luiz Soares de Paulo,25,Brazil,Aston Villa,2022
+138815,T. Lamptey,Tariq Kwame Nii-Lante Lamptey,23,Ghana,Brighton,2022
+167663,T. McGill,Thomas Peter Wayne McGill,23,Canada,Brighton,2022
+278123,S. Revan,Sebastian Revan,20,England,Aston Villa,2022
+284523,S. Swinkels,Sil Laurentius Swinkels,19,Netherlands,Aston Villa,2022
+312260,K. Young,Kadan Young,17,England,Aston Villa,2022
+295,A. Lallana,Adam David Lallana,35,England,Brighton,2022
+537,J. Veltman,Joël Ivo Veltman,31,Netherlands,Brighton,2022
+6716,A. Mac Allister,Alexis Mac Allister,25,Argentina,Brighton,2022
+18963,L. Dunk,Lewis Carl Dunk,32,England,Brighton,2022
+18970,P. Groß,Pascal Groß,32,Germany,Brighton,2022
+18973,S. March,Solomon Benjamin March,29,England,Brighton,2022
+38695,J. van Hecke,Jan Paul van Hecke,23,Netherlands,Brighton,2022
+40911,J. Moder,Jakub Piotr Moder,24,Poland,Brighton,2022
+46731,P. Estupiñán,Pervis Josué Estupiñán Tenorio,25,Ecuador,Brighton,2022
+70747,J. Enciso,Julio César Enciso Espínola,19,Paraguay,Brighton,2022
+106835,K. Mitoma,Kaoru Mitoma,26,Japan,Brighton,2022
+116117,M. Caicedo,Moisés Isaac Caicedo Corozo,22,Ecuador,Brighton,2022
+130423,B. Gilmour,Billy Clifford Gilmour,22,Scotland,Brighton,2022
+137220,A. Moran,Andrew Moran,20,Republic of Ireland,Brighton,2022
+152953,L. Colwill,Levi Lemar Samuels Colwill,20,England,Brighton,2022
+265820,Y. Ayari,Yasin Abbas Ayari,20,Sweden,Brighton,2022
+282254,O. Offiah,Odeluga Joshua Offiah,21,England,Brighton,2022
+296121,J. Hinchy,Jack Samuel Lawrence Hinchy,20,England,Brighton,2022
+305730,J. Hinshelwood,Jack Hinshelwood,18,England,Brighton,2022
+311334,F. Buonanotte,Facundo Valentín Buonanotte,19,Argentina,Brighton,2022
+263,L. Kurzawa,Layvin Kurzawa,31,France,Fulham,2022
+657,K. Tete,Kenny Joelle Tete,28,Netherlands,Fulham,2022
+1438,B. Leno,Bernd Leno,31,Germany,Fulham,2022
+2699,S. Ghoddos,Sayed Saman Ghoddos,30,Iran,Brentford,2022
+15908,M. Damsgaard,Mikkel Krogh Damsgaard,23,Denmark,Brentford,2022
+19145,T. Adarabioyo,Abdul-Nasir Oluwatosin Oluwadoyinsolami Adarabioyo,26,England,Fulham,2022
+19657,M. Rodák,Marek Rodák,27,Slovakia,Fulham,2022
+19974,I. Toney,Ivan Benjamin Elijah Toney,27,England,Brentford,2022
+20110,S. Baptiste,Shandon Baptiste,25,Grenada,Brentford,2022
+20589,B. Mbeumo,Bryan Tetsadong Marceau Mbeumo,24,Cameroon,Brentford,2022
+20649,Y. Wissa,Yoane Wissa,27,Congo DR,Brentford,2022
+25073,V. Janelt,Vitaly Janelt,25,Germany,Brentford,2022
+106725,K. Lewis-Potter,Keane William Lewis-Potter,22,England,Brentford,2022
+153261,N. Young-Coombes,Nathan Young-Coombes,20,England,Brentford,2022
+153420,G. Wickens,George Alexander Wickens,22,England,Fulham,2022
+178077,K. Schade,Kevin Schade,22,Germany,Brentford,2022
+215873,A. Gilbert,Alexander George Henry Gilbert,22,Republic of Ireland,Brentford,2022
+263538,E. Yarmolyuk,Ehor Yarmolyuk,19,Ukraine,Brentford,2022
+284474,M. Olakigbe,Michael Oluwakorede Olakigbe,19,England,Brentford,2022
+382925,R. Trevitt,Ryan Trevitt,20,England,Brentford,2022
+190,Cédric Soares,Cédric Ricardo Alves Soares,32,Portugal,Fulham,2022
+697,M. Solomon,Manor Solomon,24,Israel,Fulham,2022
+899,Andreas Pereira,Andreas Hugo Hoelgebaum Pereira,27,Brazil,Fulham,2022
+2823,S. Lukić,Saša Lukić,27,Serbia,Fulham,2022
+18814,I. Diop,Issa Laye Lucas Jean Diop,26,France,Fulham,2022
+18962,S. Duffy,Shane Patrick Michael Duffy,31,Republic of Ireland,Fulham,2022
+19023,T. Ream,Timothy Michael Ream,36,USA,Fulham,2022
+19025,T. Cairney,Tom Cairney,32,Scotland,Fulham,2022
+19027,N. Kebano,Neeskens Kebano,31,Congo DR,Fulham,2022
+19221,H. Wilson,Harry Wilson,26,Wales,Fulham,2022
+19480,H. Reed,Harrison James Reed,28,England,Fulham,2022
+19549,A. Robinson,Antonee Robinson,26,USA,Fulham,2022
+41104,João Palhinha,João Maria Lobo Alves Palhinha Gonçalves,28,Portugal,Fulham,2022
+129707,T. Francois,Tyrese Jay Francois,23,Australia,Fulham,2022
+284471,S. Parkes,Stefan Charles Earl Parkes,19,England,Fulham,2022
+284475,L. Harris,Luke Bernard Harris,18,Wales,Fulham,2022
+288121,L. D&apos;Auria-Henry,Luciano Paul D'Auria-Henry,21,England,Fulham,2022
+327736,C. Robinson,Charlie James Robinson,19,England,Fulham,2022
+15799,F. Onyeka,Ogochukwu  Frank Onyeka,25,Nigeria,Brentford,2022
+19362,J. Dasilva,Pelenda Joshua Tunga Dasilva,25,England,Brentford,2022
+30407,C. Nørgaard,Christian Thers Nørgaard,29,Denmark,Brentford,2022
+47438,M. Jensen,Mathias Jensen,27,Denmark,Brentford,2022
+80,E. Dennis,Emmanuel Bonaventure Dennis,26,Nigeria,Nottingham Forest,2022
+371,Felipe,Felipe Augusto de Almeida Monteiro,34,Brazil,Nottingham Forest,2022
+900,J. Lingard,Jesse Ellis Lingard,31,England,Nottingham Forest,2022
+2807,R. Freuler,Remo Marco Freuler,31,Switzerland,Nottingham Forest,2022
+2991,C. Kouyaté,Cheikhou Kouyaté,34,Senegal,Nottingham Forest,2022
+8598,T. Awoniyi,Taiwo Micheal Awoniyi,26,Nigeria,Nottingham Forest,2022
+9926,Gustavo Scarpa,Gustavo Henrique Furtado Scarpa,29,Brazil,Nottingham Forest,2022
+18746,M. Gibbs-White,Morgan Anthony Gibbs-White,23,England,Nottingham Forest,2022
+18884,S. Surridge,Samuel William Surridge,25,England,Nottingham Forest,2022
+18904,J. Shelvey,Jonjo Shelvey,31,England,Nottingham Forest,2022
+18996,H. Arter,Harry Nicholas Arter,34,Republic of Ireland,Nottingham Forest,2022
+19299,J. Colback,Jack Raymond Colback,34,England,Nottingham Forest,2022
+19305,R. Yates,Ryan James Yates,26,England,Nottingham Forest,2022
+24882,O. Mangala,Orel Johnson Mangala,25,Belgium,Nottingham Forest,2022
+40401,Cafú,Carlos Miguel Ribeiro Dias,30,Portugal,Nottingham Forest,2022
+129712,A. Mighten,Alexander Cole Mighten,21,England,Nottingham Forest,2022
+275170,Danilo,Danilo dos Santos de Oliveira,22,Brazil,Nottingham Forest,2022
+325967,O. Hammond,Oliver Jack Hammond,21,Wales,Nottingham Forest,2022
+327603,A. Gibson-Hammond,Alex Gibson-Hammond,21,England,Nottingham Forest,2022
+329357,Z. Abbott,Zach Abbott,17,England,Nottingham Forest,2022
+19495,N. Collins,Nathan Michael Collins,22,Republic of Ireland,Wolves,2022
+284237,D. Lembikisa,Dexter Joeng Woo Lembikisa,20,Jamaica,Wolves,2022
+894,A. Young,Ashley Simon Young,38,England,Aston Villa,2022
+19016,C. Chambers,Calum Chambers,28,England,Aston Villa,2022
+19174,J. Steer,Jed John Steer,31,England,Aston Villa,2022
+19179,T. Mings,Tyrone Deon Mings,30,England,Aston Villa,2022
+19298,M. Cash,Matthew Stuart Cash,26,Poland,Aston Villa,2022
+19354,E. Konsa,Ezri Konsa Ngoyo,26,England,Aston Villa,2022
+21090,Diego Carlos,Diego Carlos Santos Silva,30,Brazil,Aston Villa,2022
+47547,Álex Moreno,Alexandre Moreno Lopera,30,Spain,Aston Villa,2022
+148270,O. Zych,Oliwier Zych,19,Poland,Aston Villa,2022
+284390,J. Wright,James Wright,19,England,Aston Villa,2022
+1605,Daniel Podence,Daniel Castelo Podence,28,Portugal,Wolves,2022
+2056,Pablo Sarabia,Pablo Sarabia García,31,Spain,Wolves,2022
+2676,Rúben Neves,Rúben Diogo da Silva Neves,26,Portugal,Wolves,2022
+2677,João Moutinho,João Filipe Iria Santos Moutinho,37,Portugal,Wolves,2022
+41621,Matheus Nunes,Matheus Luiz Nunes,25,Portugal,Wolves,2022
+195103,João Gomes,João Victor Gomes da Silva,22,Brazil,Wolves,2022
+1427,A. Lokonga,Albert-Mboyo Sambi Lokonga,24,Belgium,Crystal Palace,2022
+2729,J. Andersen,Joachim Christian Andersen,27,Denmark,Crystal Palace,2022
+3339,C. Doucouré,Cheick Oumar Doucouré,23,Mali,Crystal Palace,2022
+18806,W. Hughes,William James Hughes,28,England,Crystal Palace,2022
+18843,J. Schlupp,Jeffrey Schlupp,31,Ghana,Crystal Palace,2022
+18844,J. Tomkins,James Oliver Charles Tomkins,34,England,Crystal Palace,2022
+18849,J. McArthur,James McFarlane McArthur,36,Scotland,Crystal Palace,2022
+18852,L. Milivojević,Luka Milivojević,32,Serbia,Crystal Palace,2022
+18853,J. Riedewald,Jaïro Jocquim Riedewald,27,Netherlands,Crystal Palace,2022
+18862,N. Clyne,Nathaniel Edwin Clyne,32,England,Crystal Palace,2022
+19586,E. Eze,Eberechi Oluchi Eze,25,England,Crystal Palace,2022
+19617,M. Olise,Michael Akpovie Olise,22,France,Crystal Palace,2022
+67971,M. Guéhi,Addji Keaninkin Marc-Israel Guéhi,23,England,Crystal Palace,2022
+106086,K. Balmer,Kofi Balmer,23,Northern Ireland,Crystal Palace,2022
+126949,C. Richards,Christopher Jeffrey Richards,23,USA,Crystal Palace,2022
+127605,N. Ferguson,Nathan Kirk-Patrick Ferguson,23,England,Crystal Palace,2022
+152418,N. Ahamada,Naouirou Mohamed Ahamada,21,France,Crystal Palace,2022
+284551,J. Wells-Morrison,Jack Campbell Wells-Morrison,19,England,Crystal Palace,2022
+301295,K. Rodney,Kaden Kai Rodney,19,England,Crystal Palace,2022
+304320,D. Ozoh,David Ikechukwu Ozoh,18,England,Crystal Palace,2022
+182201,T. Mitchell,Tyrick Kwon Mitchell,24,England,Crystal Palace,2022
+18835,Guaita,Vicente Guaita Panadero,36,Spain,Crystal Palace,2022
+18847,J. Ward,Joel Edward Philip Ward,34,England,Crystal Palace,2022
+19143,S. Johnstone,Samuel Luke Johnstone,30,England,Crystal Palace,2022
+284446,F. Potts,Freddie Potts,20,England,West Ham,2022
+284549,J. Whitworth,Joseph Charles Whitworth,19,England,Crystal Palace,2022
+284554,O.Goodman,Owen Olamidayo Goodman,20,England,Crystal Palace,2022
+327730,O. Scarles,Oliver Scarles,18,England,West Ham,2022
+1135,O. Édouard,Odsonne Édouard,25,France,Crystal Palace,2022
+3247,W. Zaha,Dazet Wilfried Armel Zaha,31,Côte d'Ivoire,Crystal Palace,2022
+3428,J. Ayew,Jordan Pierre Ayew,32,Ghana,Crystal Palace,2022
+25927,J. Mateta,Jean-Philippe Mateta,26,France,Crystal Palace,2022
+313636,Adler Nascimento,Adler Bruno Sá Nogueira de Nascimento,19,Portugal,Crystal Palace,2022
+935,Rodrigo,Rodrigo Moreno Machado,32,Spain,Leeds,2022
+2165,V. Mykolenko,Vitalii Mykolenko,24,Ukraine,Everton,2022
+2484,Y. Mina,Yerry Fernando Mina González,29,Colombia,Everton,2022
+2932,J. Pickford,Jordan Lee Pickford,29,England,Everton,2022
+2934,M. Keane,Michael Vincent Keane,30,England,Everton,2022
+2936,J. Tarkowski,James Alan Tarkowski,31,England,Everton,2022
+18858,A. Begović,Asmir Begović,36,Bosnia and Herzegovina,Everton,2022
+19073,B. Godfrey,Benjamin Matthew Godfrey,25,England,Everton,2022
+19134,P. Bamford,Patrick James Bamford,30,England,Leeds,2022
+19150,M. Holgate,Mason Anthony Holgate,27,England,Everton,2022
+20069,B. Crellin,William Francis Crellin,23,England,Everton,2022
+20224,A. Lonergan,Andrew Michael Lonergan,40,England,Everton,2022
+37161,L. Sinisterra,Luis Fernando Sinisterra Lucumí,24,Colombia,Leeds,2022
+37724,C. Summerville,Crysencio Jilbert Sylverio Cir Summerville,22,Netherlands,Leeds,2022
+90590,G. Rutter,Georginio Rutter,21,France,Leeds,2022
+138417,N. Patterson,Nathan Kenneth Patterson,22,Scotland,Everton,2022
+153400,S. Greenwood,Sam Greenwood,21,England,Leeds,2022
+162128,W. Gnonto,Degnand Wilfried Gnonto,20,Italy,Leeds,2022
+284408,S. Perkins,Sonny Tufail Perkins,19,England,Leeds,2022
+313059,Mateo Joseph,Mateo Joseph Fernández Regatillo,20,Spain,Leeds,2022
+1558,Joel Robles,Joel Robles Blázquez,33,Spain,Leeds,2022
+2734,P. Billing,Philip Anyanwu Billing,27,Denmark,Bournemouth,2022
+18878,J. Stanislas,Felix Junior Stanislas,34,England,Bournemouth,2022
+18883,D. Solanke,Dominic Ayodele Solanke-Mitchell,26,England,Bournemouth,2022
+19245,M. Tavernier,Marcus Joseph Tavernier,24,England,Bournemouth,2022
+19281,A. Semenyo,Antoine Serlom Semenyo,23,Ghana,Bournemouth,2022
+19482,J. Rothwell,Joseph Matthew Rothwell,28,England,Bournemouth,2022
+19804,K. Moore,Kieffer Roberto Francisco Moore,31,Wales,Bournemouth,2022
+20619,I. Meslier,Illan Stéphane Meslier,23,France,Leeds,2022
+31057,H. Traorè,Hamed Junior Traorè,23,Côte d'Ivoire,Bournemouth,2022
+39105,K. Klaesson,Kristoffer-August Sundquist Klaesson,23,Norway,Leeds,2022
+196855,J. Anthony,Jaidon Anthony,24,England,Bournemouth,2022
+278240,H. Christy,Harry Thomas Christy,20,England,Leeds,2022
+284797,D. Ouattara,Dango Aboubacar Faissal Ouattara,21,Burkina Faso,Bournemouth,2022
+334725,D. Sadi,Dominic Sadi,20,England,Bournemouth,2022
+347066,E. Pollock,Euan Pollock,21,England,Bournemouth,2022
+382160,D. Adu-Adjei,Daniel Adu-Adjei,18,England,Bournemouth,2022
+382167,J. Wadham,Jack Wadham,20,England,Bournemouth,2022
+382930,F. Okoh,Ferdinand Okoh,19,England,Bournemouth,2022
+390769,Michael Dacosta,Michael Dacosta Gonzales,18,Spain,Bournemouth,2022
+19118,L. Cooper,Liam David Ian Cooper,32,Scotland,Leeds,2022
+50739,B. Aaronson,Brenden Russell Aaronson,23,USA,Leeds,2022
+184,H. Kane,Harry Edward Kane,30,England,Tottenham,2022
+2937,D. Rice,Declan Rice,24,England,West Ham,2022
+18146,D. Ward,Daniel Ward,30,Wales,Leicester,2022
+18784,J. Maddison,James Daniel Maddison,27,England,Leicester,2022
+18836,W. Hennessey,Wayne Robert Hennessey,36,Wales,Nottingham Forest,2022
+18866,C. Mepham,Christopher James Mepham,26,Wales,Bournemouth,2022
+19004,B. De Cordova-Reid,Bobby Armani De Cordova-Reid,30,Jamaica,Fulham,2022
+19130,K. Phillips,Kalvin Mark Phillips,28,England,Manchester City,2022
+19329,D. James,Daniel Owen James,26,Wales,Fulham,2022
+19789,E. Pinnock,Ethan Rupert Pinnock,30,Jamaica,Brentford,2022
+129711,B. Johnson,Brennan Price Johnson,22,Wales,Nottingham Forest,2022
+138780,N. Williams,Neco Shay Williams,22,Wales,Nottingham Forest,2022
+76,M. Nakamba,Marvelous Nakamba,29,Zimbabwe,Aston Villa,2022
+279,L. Mbe Soh,Loïc Junior Mbe Soh,22,France,Nottingham Forest,2022
+1456,A. Maitland-Niles,Ainsley Cory Maitland-Niles,26,England,Southampton,2022
+18893,F. Fernández,Federico Fernández,34,Argentina,Newcastle,2022
+19350,L. Račić,Luka Račić,24,Denmark,Brentford,2022
+19356,E. Marcondes,Emiliano Marcondes Camargo Hansen,28,Denmark,Bournemouth,2022
+19860,M. Clarke,Matthew Edward Barkell Clarke,27,England,Brighton,2022
+22265,Nuno da Costa,Nuno Miguel da Costa Jóia,32,Cape Verde,Nottingham Forest,2022
+37440,H. Dervişoğlu,Halil İbrahim Dervişoğlu,24,Türkiye,Brentford,2022
+90494,N. Trott,Nathan Wallace Newman Trott,25,England,West Ham,2022
+137302,C. Archer,Cameron Desmond Archer,22,England,Aston Villa,2022
+153411,C. Drameh,Cody Callum Pierre Drameh,22,England,Leeds,2022
+156490,N. Nkounkou,Niels Patrick Nkounkou,23,France,Everton,2022
+195106,Rodrigo Muniz,Rodrigo Muniz Carvalho,22,Brazil,Fulham,2022
+231029,N. Tella,Nathan Adewale Temitayo Tella,24,England,Southampton,2022
+18777,M. Albrighton,Marc Kevin Albrighton,34,England,Leicester,2022
+18779,H. Choudhury,Hamza Dewan Choudhury,26,England,Leicester,2022
+18803,N. Chalobah,Nathaniel Nyakie Chalobah,29,England,Fulham,2022
+19173,M. Šarkić,Matija Šarkić,26,Montenegro,Wolves,2022
+19177,K. Hause,Kortney Paul Duncan Hause,28,England,Aston Villa,2022
+19182,A. Tuanzebe,Axel Tuanzebe,26,England,Manchester United,2022
+19185,K. Davis,Keinan Vincent Joseph Davis,25,England,Aston Villa,2022
+19393,J. Onomah,Joshua Oghenetega Peter Onomah,26,England,Fulham,2022
+19454,B. Pearson,Benjamin David Pearson,28,England,Bournemouth,2022
+19569,J. Gelhardt,Joseph Paul Gelhardt,21,England,Leeds,2022
+149564,L. Cundle,Luke James Cundle,21,England,Wolves,2022
+157997,A. Diallo,Amad Diallo Traoré,21,Côte d'Ivoire,Manchester United,2022
+161948,L. Delap,Liam Rory Delap,20,England,Manchester City,2022
+162590,T. Morton,Tyler Scott Morton,21,England,Liverpool,2022
+180560,H. Mejbri,Hannibal Mejbri,20,Tunisia,Manchester United,2022
+215874,T. Cannon,Thomas Christopher Cannon,21,Republic of Ireland,Everton,2022
+278128,J. Wilson-Esbrand,Joshua Darius Kamani Wilson-Esbrand,21,England,Manchester City,2022
+278232,P. Ekwah,Pierre-Emmanuel Ekwah Elimby,21,France,West Ham,2022
+311520,Marquinhos,Marcus Vinícius Oliveira Alencar,20,Brazil,Arsenal,2022
+566,Ferro,Francisco Reis Ferreira,26,Portugal,Vitesse,2022
+50242,A. Akman,Ali Akman,21,Türkiye,Eintracht Frankfurt,2022
+1370,A. Ayew,André Morgan Rami Ayew,34,Ghana,Nottingham Forest,2022
+2920,T. Castagne,Timothy Castagne,28,Belgium,Leicester,2022
+3421,D. Amartey,Daniel Amartey,29,Ghana,Leicester,2022
+8694,W. Faes,Wout Felix Lina Faes,25,Belgium,Leicester,2022
+17736,D. Iversen,Daniel Lønne Iversen,26,Denmark,Leicester,2022
+18771,Ricardo Pereira,Ricardo Domingos Barbosa Pereira,30,Portugal,Leicester,2022
+18772,J. Evans,Jonathan Grant Evans,35,Northern Ireland,Leicester,2022
+18776,Ç. Söyüncü,Çağlar Söyüncü,27,Türkiye,Leicester,2022
+18931,C. Wood,Christopher Grant Wood,32,New Zealand,Nottingham Forest,2022
+18936,R. Bertrand,Ryan Dominic Bertrand,34,England,Leicester,2022
+18943,J. Vestergaard,Jannik Vestergaard,31,Denmark,Leicester,2022
+18985,A. Smithies,Alexander Smithies,33,England,Leicester,2022
+19760,J. Justin,James Michael Justin,25,England,Leicester,2022
+19842,L. Taylor,Lyle James Alfred Taylor,33,Montserrat,Nottingham Forest,2022
+20079,H. Souttar,Harry James Souttar,25,Australia,Leicester,2022
+158710,V. Kristiansen,Victor Bernth Kristiansen,21,Denmark,Leicester,2022
+327602,D. Osong,Detlef Esapa Osong,19,England,Nottingham Forest,2022
+2114,M. Djenepo,Moussa Djenepo,25,Mali,Southampton,2022
+2938,J. Ward-Prowse,James Michael Edward Ward-Prowse,29,England,Southampton,2022
+2999,J. Bednarek,Jan Kacper Bednarek,27,Poland,Southampton,2022
+18945,S. Armstrong,Stuart Armstrong,31,Scotland,Southampton,2022
+18946,M. Elyounoussi,Mohamed Amine Elyounoussi,29,Norway,Southampton,2022
+19484,A. Armstrong,Adam James Armstrong,26,England,Southampton,2022
+19719,J. Bree,James Bree,26,England,Southampton,2022
+19825,J. Aribo,Joseph Oluwaseyi Temitope Ayodele-Aribo,27,Nigeria,Southampton,2022
+20557,I. Diallo,Ibrahima Diallo,24,France,Southampton,2022
+20600,R. Perraud,Romain Paul Jean-Michel Perraud,26,France,Southampton,2022
+25061,A. Bella-Kotchap,Armel Bella-Kotchap,22,Germany,Southampton,2022
+47480,M. Salisu,Mohammed Salisu Abdul Karim,24,Ghana,Southampton,2022
+158694,V. Livramento,Valentino Francisco Livramento,21,England,Southampton,2022
+195993,C. Alcaraz,Carlos Jonas Alcaraz,21,Argentina,Southampton,2022
+199837,K. Sulemana,Kamaldeen Sulemana,21,Ghana,Southampton,2022
+282125,R. Lavia,Roméo Lavia,19,Belgium,Southampton,2022
+284264,Juan Larios,Juan Larios López,19,Spain,Southampton,2022
+284424,D. Edwards,Diamond Diamond Lazane Edwards,20,England,Southampton,2022
+303462,K. Doyle,Kamari Doyle,18,England,Southampton,2022
+171,K. Walker-Peters,Kyle Leonardus Walker-Peters,26,England,Southampton,2022
+1902,D. Ćaleta-Car,Duje Ćaleta-Car,27,Croatia,Southampton,2022
+30476,Lyanco,Lyanco Evangelista Silveira Neves Vojnović,26,Brazil,Southampton,2022
+105971,G. Bazunu,Gavin Okeroghene Bazunu,21,Republic of Ireland,Southampton,2022
+1330,M. Oršić,Mislav Oršić,31,Croatia,Southampton,2022
+15812,P. Onuachu,Ebere Paul Onuachu,29,Nigeria,Southampton,2022
+18769,T. Walcott,Theo James Walcott,34,England,Southampton,2022
+19524,C. Adams,Ché Zach Everton Fred Adams,27,Scotland,Southampton,2022
+190686,S. Mara,Sékou Mara,21,France,Southampton,2022
+278085,S. Edozie,Samuel Ikechukwu Edozie,20,England,Southampton,2022
+303460,D. Ballard,Dominic Ballard,18,England,Southampton,2022
+330982,J. Morgan,Jimmy Jay Morgan,17,England,Southampton,2022
