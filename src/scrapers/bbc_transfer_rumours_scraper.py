@@ -4,7 +4,6 @@ import datetime
 import calendar
 import time
 import random
-import os
 import sys
 import os
 

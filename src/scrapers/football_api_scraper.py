@@ -1,6 +1,5 @@
 import os
 import requests
-import time
 import csv
 import sys
 

@@ -17,7 +17,6 @@ def get_articles(start_date=None):
         articles = articles[articles["date"] > start_date]
     return articles["date"].tolist(), articles["link"].tolist()
 
-
 def extract_data(soup, url):
     story_body = soup.find(class_="qa-story-body")
     transfer_rumours_header = soup.find("h1", text=lambda t: t and "Transfer rumours:" in t)
@@ -42,10 +41,12 @@ def extract_data(soup, url):
 def save_data_to_csv(date, data_list):
     formatted_date = date.strftime("%-d %B %Y")
     with open(get_data_file_path("transfer_news_data.csv"), "a", encoding='utf-8') as file:
+        current_row_count = sum(1 for line in open(get_data_file_path("transfer_news_data.csv"))) - 1
         for text, source, source_url in data_list:
+            current_row_count += 1
             cleaned_text = '"' + text.replace('\n', ' ').replace('"', '""') + '"'
             quoted_source_url = '"' + source_url.replace('"', '""') + '"'
-            file.write(f"{formatted_date},{cleaned_text},{source},{quoted_source_url}\n")
+            file.write(f"{current_row_count},{formatted_date},{cleaned_text},{source},{quoted_source_url}\n")
 
 def scrape_and_save_data(dates, links):
     for date, link in zip(dates, links):
@@ -63,7 +64,7 @@ def scrape_and_save_data(dates, links):
         time.sleep(sleep_time)
 
 def main():
-    create_csv("transfer_news_data.csv", ["date", "raw_text", "source", "source_url"])
+    create_csv("transfer_news_data.csv", ["id", "date", "raw_text", "source", "source_url"])
 
     latest_date = read_last_date_from_csv("transfer_news_data.csv")
     start_date = latest_date + pd.Timedelta(days=1) if latest_date else None
