@@ -126,7 +126,7 @@ def main():
         print("Please set the API_KEY and CX_ID environment variables")
         return
     
-    create_csv('transfer_rumours_articles.csv', ['Date', 'Link'])
+    create_csv('transfer_rumours_articles.csv', ['date', 'link'])
 
     query = "transfer rumours"
     article_dates = generate_article_dates()
