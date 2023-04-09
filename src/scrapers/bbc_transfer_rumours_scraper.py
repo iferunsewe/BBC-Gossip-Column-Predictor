@@ -1,35 +1,64 @@
-from googlesearch import search
+from googleapiclient.discovery import build
 import csv
 import datetime
 import calendar
 import time
 import random
 import os
+import sys
+import os
 
-def build_article_dates(start_date=None, end_date=None):
-    # Set the start and end dates
-    if not start_date:
-      print("1. Use last date in transfer_rumours_articles.csv 2. Enter a start date in the format YYYY-MM-DD")
-      option = input("> ")
-      if option == "1":
-        with open("/../data/transfer_rumours_articles.csv", "r") as csvfile:
-          reader = csv.reader(csvfile)
-          rows = list(reader)
-          last_row = rows[-1]
-          start_date = datetime.datetime.strptime(
-              last_row[0], "%d %B %Y").date() + datetime.timedelta(days=1)
-      elif option == "2":
-        start_date = input("> ")
-        start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d").date()
-      else:
-        print("Invalid option")
-        return
+# Add parent directory to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-    if not end_date:
-      print("Enter the end date in the format YYYY-MM-DD")
-      end_date = input("> ")
-      end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d").date()
+# Now you can import your module from the parent directory
+from utils import get_data_file_path, create_csv, read_last_date_from_csv
 
+def enter_date():
+    date = input("> ")
+    try:
+        date = datetime.datetime.strptime(date, '%Y-%m-%d').date()
+        return date
+    except ValueError:
+        print("Invalid date format. Please enter a date in the format YYYY-MM-DD")
+        return enter_date()
+    
+
+def enter_start_date():
+    while True:
+        print("1. Use last date in transfer_rumours_articles.csv 2. Enter a start date in the format YYYY-MM-DD")
+        option = input("> ")
+        if option == "1":
+            last_date = read_last_date_from_csv('transfer_rumours_articles.csv')
+            if last_date:
+                start_date = last_date + datetime.timedelta(days=1)
+                return start_date
+            else:
+                print("transfer_rumours_articles.csv is empty. Please enter a start date in the format YYYY-MM-DD")
+        elif option == "2":
+            start_date = enter_date()
+            return start_date
+        else:
+            print("Invalid option")
+
+  
+def enter_end_date(start_date):
+    while True:
+        print("Enter the end date in the format YYYY-MM-DD")
+        end_date = enter_date()
+        if end_date >= start_date:
+            return end_date
+        else:
+            print("End date must be after start date. Please try again.")
+
+def generate_article_dates():
+    start_date = enter_start_date()
+    end_date = enter_end_date(start_date)
+    article_dates = build_article_dates_list(start_date, end_date)
+    return article_dates
+
+
+def build_article_dates_list(start_date, end_date):
     # Create a list of month names
     month_names = [calendar.month_name[i] for i in range(1, 13)]
 
@@ -46,48 +75,64 @@ def build_article_dates(start_date=None, end_date=None):
 
     return article_dates
 
-def build_article_csv(article_dates, new_file=True):
-  query = "site:bbc.com/sport/ \"transfer rumours:\""
-  print("Starting to build CSV file...")
+def perform_search(service, query, cx_id):
+    search_params = {"q": query, "cx": cx_id, "num": 1}
+    response = service.cse().list(**search_params).execute()
+    return response
 
-  mode = 'w' if new_file else 'a'  # determine whether to start a new file or append to an existing one
 
-  script_dir = os.path.dirname(os.path.realpath(__file__))
-  data_dir = os.path.join(script_dir, '..', '..', 'data')
-  output_file = os.path.join(data_dir, 'transfer_rumours_articles.csv')
-  # Open the CSV file for writing or appending
-  with open(output_file, mode, newline="") as csvfile:
-    writer = csv.writer(csvfile)
+def process_search_result(response):
+    if "items" in response:
+        item = response["items"][0]
+        return item["link"]
+    else:
+        return None
 
-    # Write headers to the file if it's a new file
-    if new_file:
-      writer.writerow(["Date", "Link"])
+def sleep_between_searches(iteration):
+    if iteration % 8 == 7 or iteration % 9 == 8 or iteration % 10 == 9:
+        sleep_time = random.randint(180, 360)
+    else:
+        sleep_time = random.randint(5, 60)
+    print(f"Sleeping for {sleep_time} seconds...")
+    time.sleep(sleep_time)
 
-    search_count = 1
-    for date in article_dates:
-      if search_count % 8 == 0 and search_count % 9 == 0 and search_count % 10 == 0:
-        print("Skipping search due to cooldown period...")
-        cooldown_time = random.randint(180, 360)
-        print(f"Sleeping for {cooldown_time} seconds...")
-        time.sleep(cooldown_time)
-        continue
+def search_for_articles(api_key, cx_id, query, article_dates):
+    service = build("customsearch", "v1", developerKey=api_key)
 
-      search_query = f"{query} \"{date}\""
-      print(f"Searching for articles published on {date}...")
-      for url in search(search_query, num_results=1):
-        writer.writerow([date, url])
-        print(f"Article found: {url}")
-        break
+    with open(get_data_file_path('transfer_rumours_articles.csv'), 'a', newline="") as csvfile:
+        writer = csv.writer(csvfile)
 
-      # Randomize the sleep time between 5 and 30 seconds
-      sleep_time = random.randint(5, 30)
-      print(f"Sleeping for {sleep_time} seconds...")
-      time.sleep(sleep_time)
+        for i, date in enumerate(article_dates):
+            print(f"Searching for articles published on {date}...")
+            query_with_date = f"{query} \"{date}\""
+            response = perform_search(service, query_with_date, cx_id)
+            result_link = process_search_result(response)
 
-      search_count += 1
+            if result_link:
+                writer.writerow([date, result_link])
+                print(f"Article found: {result_link}")
+            else:
+                print(f"No articles found for {date}.")
 
-  print("CSV file generation complete.")
+            sleep_between_searches(i)
+
+    print("CSV file generation complete.")
+
+def main():
+    # Set up the search parameters
+    api_key = os.environ.get("GOOGLE_API_KEY")
+    cx_id = os.environ.get("CX_ID")
+    if not api_key or not cx_id:
+        print("Please set the API_KEY and CX_ID environment variables")
+        return
+    
+    create_csv('transfer_rumours_articles.csv', ['Date', 'Link'])
+
+    query = "transfer rumours"
+    article_dates = generate_article_dates()
+
+    # Search for articles and write results to CSV file
+    search_for_articles(api_key, cx_id, query, article_dates)
 
 if __name__ == "__main__":
-  article_dates = build_article_dates(datetime.date(2021, 6, 1), datetime.date(2022, 1, 31))
-  build_article_csv(article_dates, new_file=True)  # append to an existing file
+  main()
