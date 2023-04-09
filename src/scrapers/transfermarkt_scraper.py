@@ -8,15 +8,16 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import scrape_content, get_data_file_path
 
 # Process player data for a given row and h2_club
-def process_player_data(row, h2_club):
+def process_player_data(row, h2_club, table):
+
     # Extract player details from the row
     player_name = row.find_all("td")[0].find(class_="hide-for-small").text.strip()
     player_age = row.find(class_="alter-transfer-cell").text.strip()
     player_position = row.find(class_="pos-transfer-cell").text.strip()
 
     # Extract club information for the player
-    club_left = process_club_data(row, h2_club, "Left")
-    club_joined = process_club_data(row, h2_club, "Joined")
+    club_left = process_club_data(row, h2_club, "Left", table)
+    club_joined = process_club_data(row, h2_club, "Joined", table)
 
     # Extract market value for the player
     market_value = row.find(class_="rechts").text.strip()
@@ -31,8 +32,8 @@ def process_player_data(row, h2_club):
     }
 
 # Process club data for a given row
-def process_club_data(row, h2_club, cell_text):
-    club_cell = row.find("th", class_="verein-transfer-cell", text=cell_text)
+def process_club_data(row, h2_club, cell_text, table):
+    club_cell = table.find("th", class_="verein-transfer-cell", text=cell_text)
     club_link = row.find(class_="verein-flagge-transfer-cell").find("a")
 
     if club_cell and club_link:
@@ -60,7 +61,7 @@ def process_transfer_data(soup, season):
 
         # Iterate through each row and process player data
         for row in table_rows:
-            transfer = process_player_data(row, h2_club)
+            transfer = process_player_data(row, h2_club, table)
             transfer["season"] = season
             if transfer["club_left"] and transfer["club_joined"]:
                 transfer_data.append(transfer)
@@ -82,7 +83,7 @@ def save_transfer_data_to_csv(transfer_data, filename):
 def main():
     seasons = {
         "2021": "https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1/saison_id/2021",
-        "2022": "https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1/saison_id/2022"
+        "2022": "https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1/saison_id/2022",
     }
 
     all_transfer_data = []
