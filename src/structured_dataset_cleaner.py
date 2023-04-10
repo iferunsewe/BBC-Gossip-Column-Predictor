@@ -1,89 +1,135 @@
 import os
-from fuzzywuzzy import process
+import re
 import sys
 import datetime
+import pandas as pd
+from fuzzywuzzy import process
+import locationtagger
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils import read_csv_file, create_csv, write_csv_row
+from utils import get_data_file_path
 
-# Load player names and corresponding initials from CSV files
-def load_players_from_csv(season_2021_players, season_2022_players):
-    players = []
-    for player in season_2021_players + season_2022_players:
-        players.append((player['full_name'], player['name']))
-    return players
-
-# Check if the player name exists in the given data
-def is_actual_player(player_name, players, transfermarkt_data):
+def is_actual_player(player_name, football_api_players, transfermarkt_data):
     print(f"Checking if {player_name} is an actual player...")
-    player_initials = convert_to_initials(player_name)
-    all_names = [name for full_name, name in players] + [full_name for full_name, name in players] + [row['player_name'] for row in transfermarkt_data]
+    all_names = football_api_players['full_name'].tolist() + football_api_players['name'].tolist() + transfermarkt_data['player_name'].tolist()
 
-    match, score = process.extractOne(player_name, all_names)
+    if get_best_fuzzy_match(player_name, all_names) is None:
+        return False
+    else:
+        return True
+    
+def get_best_fuzzy_match(player_name, names_list):
+    match, score = process.extractOne(player_name, names_list)
     if score >= 90:
         print(f"Found match: {match} (score: {score})")
-        return True
+        return match
+    else:
+        return None
 
-    match_initials, score_initials = process.extractOne(player_initials, all_names)
-    if score_initials >= 90:
-        print(f"Found match with initials: {match_initials} (score: {score_initials})")
-        return True
+def get_api_row(player_name, football_api_players):
+    full_names = football_api_players['full_name'].tolist()
+    short_names = football_api_players['name'].tolist()
 
-    return False
+    best_full_name_match = get_best_fuzzy_match(player_name, full_names)
+    best_short_name_match = get_best_fuzzy_match(player_name, short_names)
 
-# Convert a full name into initials format
-def convert_to_initials(full_name):
-    name_parts = full_name.split()
-    first_name_initial = name_parts[0][0]
-    last_name = name_parts[-1]
-    return f"{first_name_initial}. {last_name}"
+    if best_full_name_match:
+        api_row = football_api_players.loc[football_api_players['full_name'] == best_full_name_match]
+    elif best_short_name_match:
+        api_row = football_api_players.loc[football_api_players['name'] == best_short_name_match]
+    else:
+        api_row = pd.DataFrame()
 
-def find_player_info(full_name, season_2021_players, season_2022_players):
-    for player in season_2021_players + season_2022_players:
-        if player['full_name'] == full_name:
-            return player
+    return api_row
+
+def map_to_football_api_position(position):
+    position_mapping = {
+        "Goalkeeper": "Goalkeeper",
+        "Centre-Back": "Defender",
+        "Left-Back": "Defender",
+        "Right-Back": "Defender",
+        "Defensive Midfield": "Midfielder",
+        "Central Midfield": "Midfielder",
+        "Attacking Midfield": "Midfielder",
+        "Left Midfield": "Midfielder",
+        "Right Midfield": "Midfielder",
+        "Centre-Forward": "Attacker",
+        "Left Winger": "Attacker",
+        "Right Winger": "Attacker",
+        "Second Striker": "Attacker",
+    }
+
+    return position_mapping.get(position, "Unknown")
+
+def get_player_data(player_name, transfermarkt_data, football_api_players):
+    player_data = {}
+    
+    transfermarkt_row = transfermarkt_data.loc[transfermarkt_data['player_name'] == player_name]
+    api_row = get_api_row(player_name, football_api_players)
+
+    if transfermarkt_row.empty and api_row.empty:
+        print(f"Could not find {player_name} in any dataset...")
+        return None
+
+    if not transfermarkt_row.empty:
+        print(f"Found {player_name} in Transfermarkt dataset...")
+        player_data['age'] = transfermarkt_row['player_age'].values[0]
+        player_data['position'] = map_to_football_api_position(transfermarkt_row['player_position'].values[0])
+        player_data['market_value'] = transfermarkt_row['market_value'].values[0]
+        print(f"Player data: {player_data}")
+
+    if not api_row.empty:
+        print(f"Found {player_name} in Football API dataset...")
+        player_data = update_player_data(player_data, api_row)
+        print(f"Player data: {player_data}")
+
+
+    return player_data
+
+
+def update_player_data(player_data, api_row):
+    if player_data.get('age') is None:
+        player_data['age'] = api_row['age'].values[0]
+
+    if player_data.get('position') is None:
+        player_data['position'] = api_row['position'].values[0]
+
+    if player_data.get('market_value') is None:
+        player_data['market_value'] = None
+
+    player_data['nationality'] = api_row['nationality'].values[0]
+
+    return player_data
+
+def find_age_in_text(text):
+    print(f"Finding age in text: {text}")
+    # Match patterns like "27-year-old" or "27 year old"
+    pattern1 = r"(\d{1,2})[-\s]?year[-\s]?old"
+    matches1 = re.findall(pattern1, text)
+    
+    if matches1:
+        return int(matches1[0])
+
+    # Match patterns like ", 27," or ", 27."
+    pattern2 = r"[A-Za-z\s]+, (\d{1,2})[.,]"
+    matches2 = re.findall(pattern2, text)
+    
+    if matches2:
+        return int(matches2[0])
+
     return None
 
+def find_nationality_in_text(raw_text):
+    print(f"Finding nationality in text: {raw_text}")
+    entities = locationtagger.find_locations(text=raw_text)
+    countries = entities.countries
 
-def find_transfermarkt_info(player_name, transfermarkt_data):
-    match, score = process.extractOne(player_name, [row['player_name'] for row in transfermarkt_data])
-    if score >= 90:
-        return next(row for row in transfermarkt_data if row['player_name'] == match)
-    return None
+    if len(countries) == 1:
+        return countries[0]
+    else:
+        return None
 
-# Get the player's age, nationality, position, and market value from the given data
-def get_player_info(players, player_name, season_2021_players, season_2022_players, transfermarkt_data):
-    player_initials = convert_to_initials(player_name)
 
-    for player in players:
-        full_name, name = player
-
-        _, score = process.extractOne(player_name, [full_name])
-        _, score_initials = process.extractOne(player_initials, [name])
-
-        if score >= 90 or score_initials >= 90:
-            player_info = find_player_info(full_name, season_2021_players, season_2022_players)
-            if player_info:
-                age, nationality, position = player_info['age'], player_info['nationality'], ""
-            else:
-                age, nationality, position = None, None, None
-
-            transfermarkt_info = find_transfermarkt_info(player_name, transfermarkt_data)
-            if transfermarkt_info:
-                if age is None:
-                    age = transfermarkt_info['player_age']
-                if nationality is None:
-                    nationality = transfermarkt_info['player_nationality']
-                position = transfermarkt_info['player_position']
-                market_value = transfermarkt_info['market_value']
-
-                return age, nationality, position, market_value
-
-            return age, nationality, position, None
-
-    return None, None, None, None
-
-# Calculate the number of days to the next transfer window from the given date
 def days_to_next_transfer_window(date_str):
     date = datetime.datetime.strptime(date_str, "%d %B %Y")
     year = date.year
@@ -103,74 +149,39 @@ def days_to_next_transfer_window(date_str):
 
     return days_to_next
 
-# Get the source of a row using its ID
-def get_source_from_id(id, input_rows):
-    for row in input_rows:
-        if row["id"] == id:
-            return row["source"]
-    return ""
 
-# Clean the dataset by removing duplicates, non-existent players, and rows with less than two clubs mentioned
-def clean_dataset(input_rows, transfer_news_data):
-    seen_rows = set()
-    season_2021_players = read_csv_file("../data/39_2021_players.csv")
-    season_2022_players = read_csv_file("../data/39_2022_players.csv")
+def clean_dataset(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
+    print("Cleaning dataset...")
 
-    transfermarkt_data = read_csv_file("transfermarkt_data.csv")
-    players = load_players_from_csv(season_2021_players, season_2022_players)
+    input_rows['is_actual_player'] = input_rows['player_name'].apply(lambda x: is_actual_player(x, football_api_players, transfermarkt_data))
+    cleaned_data = input_rows[input_rows['is_actual_player'] & (input_rows['clubs_mentioned'].str.count(',') >= 1)].drop(columns=['is_actual_player'])
 
-    output_path_filename = "cleaned_structured_data.csv"
-    csv_headers = [
-        "id", "date", "raw_text", "player_name", "clubs_mentioned",
-        "player_age", "player_nationality", "player_position", "time_to_transfer_window", "source", "market_value"
-    ]
-    create_csv(output_path_filename, csv_headers)
+    player_data_dicts = [x for x in cleaned_data['player_name'].apply(lambda x: get_player_data(x, transfermarkt_data, football_api_players)).tolist() if x is not None]
+    player_data_df = pd.DataFrame(player_data_dicts)
+    cleaned_data.reset_index(drop=True, inplace=True)
 
-    for row in input_rows:
-        print("========================================")
-        player_name = row["player_name"]
-        clubs_mentioned = row["clubs_mentioned"].split(", ")
-        print(f"Cleaning row for {player_name}...")
+    cleaned_data = pd.concat([cleaned_data, player_data_df], axis=1)
 
-        # Remove duplicates
-        row_data = tuple(row.items())
-        if row_data in seen_rows:
-            print("Duplicate row found, skipping...")
-            continue
-        seen_rows.add(row_data)
+    cleaned_data['age'] = cleaned_data.apply(lambda row: row['age'] if not pd.isnull(row['age']) else find_age_in_text(row['raw_text']), axis=1)
+    cleaned_data['nationality'] = cleaned_data.apply(lambda row: row['nationality'] if not pd.isnull(row['nationality']) else find_nationality_in_text(row['raw_text']), axis=1)
+    cleaned_data['time_to_transfer_window'] = cleaned_data['date'].apply(days_to_next_transfer_window)
+    cleaned_data = cleaned_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
 
-        # Only keep rows with actual football players in the "player_name" column
-        if not is_actual_player(player_name, players, transfermarkt_data):
-            print("Player not found, skipping...")
-            continue
+    output_path_filename = get_data_file_path("cleaned_structured_data.csv")
+    cleaned_data.to_csv(output_path_filename, index=False)
+    print(f"Cleaned dataset saved to {output_path_filename}")
 
-        # Only keep rows with 2 or more teams in the "clubs_mentioned" column
-        if len(clubs_mentioned) < 2:
-            print("Less than 2 clubs mentioned, skipping...")
-            continue
 
-        player_age, player_nationality, player_position, market_value = get_player_info(players, player_name, season_2021_players, season_2022_players, transfermarkt_data)
-        time_to_transfer_window = days_to_next_transfer_window(row["date"])
-        source = get_source_from_id(row["id"], transfer_news_data)
+def main():
+    print("Loading data...")
+    structured_data_rows = pd.read_csv(get_data_file_path("structured_data.csv"))
+    transfer_news_data = pd.read_csv(get_data_file_path("transfer_news_data.csv"))
+    football_api_players = pd.read_csv(get_data_file_path("football_api_players.csv"))
+    transfermarkt_data = pd.read_csv(get_data_file_path("transfermarkt_data.csv"))
 
-        new_row = {
-            "id": row["id"],
-            "date": row["date"],
-            "raw_text": row["raw_text"],
-            "player_name": player_name,
-            "clubs_mentioned": row["clubs_mentioned"],
-            "player_age": player_age,
-            "player_nationality": player_nationality,
-            "player_position": player_position,
-            "time_to_transfer_window": time_to_transfer_window,
-            "source": source,
-            "market_value": market_value
-        }
+    clean_dataset(structured_data_rows, transfer_news_data, football_api_players, transfermarkt_data)
 
-        print(f"Row is valid. Appending {player_name} to cleaned_structured_data.csv...")
-        write_csv_row(output_path_filename, csv_headers, new_row)
 
 if __name__ == "__main__":
-    structured_data_rows = read_csv_file("structured_data.csv")
-    transfer_news_data = read_csv_file("transfer_news_data.csv")
-    clean_dataset(structured_data_rows, transfer_news_data)
+    main()
+
