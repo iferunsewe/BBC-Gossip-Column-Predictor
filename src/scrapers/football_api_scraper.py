@@ -13,7 +13,8 @@ def get_player_data(response_data):
     age = response_data["player"]["age"]
     nationality = response_data["player"]["nationality"]
     team_name = response_data["statistics"][0]["team"]["name"]
-    return id, name, full_name, age, nationality, team_name
+    position = response_data["statistics"][0]["games"]["position"]
+    return id, name, full_name, age, nationality, team_name, position
 
 def fetch_players(url, headers):
     response = requests.get(url, headers=headers)
@@ -68,7 +69,7 @@ def player_exists_in_csv(file_name, player_id):
 
 def fetch_players_for_season(league_id, season):
     file_name = f"{league_id}_{season}_players.csv"
-    csv_headers = ["id", "name", "full_name", "age", "nationality", "team_name", "season"]
+    csv_headers = ["id", "name", "full_name", "age", "nationality", "team_name", "position", "season"]
     create_csv(file_name, csv_headers)
     players = get_players_by_league_season(league_id, season, file_name)
     print(f"Found {len(players)} players in {season} season.")
