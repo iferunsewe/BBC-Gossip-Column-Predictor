@@ -7,8 +7,12 @@ import sys
 # Add parent directory to sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils import read_csv_file, get_data_file_path, create_csv
+from utils import get_data_file_path, create_csv
 
+def read_csv_file(filename):
+  with open(get_data_file_path(filename), mode="r", encoding="utf-8") as infile:
+    reader = csv.DictReader(infile)
+    return list(reader)
 
 def load_api_key():
     api_key = os.getenv("OPENAI_API_KEY")
