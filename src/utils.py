@@ -32,8 +32,8 @@ def read_last_date_from_csv(filename):
 
 def create_csv(filename, headers):
     print(f"Creating {filename}...")
-    if not os.path.isfile(get_data_file_path(f"{filename}")):
-        with open(get_data_file_path(f"{filename}"), "w") as file:
+    if not os.path.isfile(get_data_file_path(filename)):
+        with open(get_data_file_path(filename), "w") as file:
             writer = csv.writer(file)
             writer.writerow(headers)
         return True
@@ -49,4 +49,3 @@ def scrape_content(url):
     soup = BeautifulSoup(page.content, "html.parser")
 
     return soup
-
