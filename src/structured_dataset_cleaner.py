@@ -1,4 +1,3 @@
-import csv
 import os
 from fuzzywuzzy import process
 import sys
@@ -7,12 +6,14 @@ import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import read_csv_file, create_csv, write_csv_row
 
+# Load player names and corresponding initials from CSV files
 def load_players_from_csv(season_2021_players, season_2022_players):
     players = []
     for player in season_2021_players + season_2022_players:
         players.append((player['full_name'], player['name']))
     return players
 
+# Check if the player name exists in the given data
 def is_actual_player(player_name, players, transfermarkt_data):
     print(f"Checking if {player_name} is an actual player...")
     player_initials = convert_to_initials(player_name)
@@ -30,39 +31,44 @@ def is_actual_player(player_name, players, transfermarkt_data):
 
     return False
 
+# Convert a full name into initials format
 def convert_to_initials(full_name):
     name_parts = full_name.split()
     first_name_initial = name_parts[0][0]
     last_name = name_parts[-1]
     return f"{first_name_initial}. {last_name}"
 
+def find_player_info(full_name, season_2021_players, season_2022_players):
+    for player in season_2021_players + season_2022_players:
+        if player['full_name'] == full_name:
+            return player
+    return None
 
+
+def find_transfermarkt_info(player_name, transfermarkt_data):
+    match, score = process.extractOne(player_name, [row['player_name'] for row in transfermarkt_data])
+    if score >= 90:
+        return next(row for row in transfermarkt_data if row['player_name'] == match)
+    return None
+
+# Get the player's age, nationality, position, and market value from the given data
 def get_player_info(players, player_name, season_2021_players, season_2022_players, transfermarkt_data):
     player_initials = convert_to_initials(player_name)
 
     for player in players:
         full_name, name = player
 
-        match, score = process.extractOne(player_name, [full_name])
-        match_initials, score_initials = process.extractOne(player_initials, [name])
+        _, score = process.extractOne(player_name, [full_name])
+        _, score_initials = process.extractOne(player_initials, [name])
 
         if score >= 90 or score_initials >= 90:
-            player_info = None
-            for p in season_2021_players + season_2022_players:
-                if p['full_name'] == full_name:
-                    player_info = p
-                    break
-
+            player_info = find_player_info(full_name, season_2021_players, season_2022_players)
             if player_info:
                 age, nationality, position = player_info['age'], player_info['nationality'], ""
             else:
                 age, nationality, position = None, None, None
 
-            transfermarkt_info = None
-            match, score = process.extractOne(player_name, [row['player_name'] for row in transfermarkt_data])
-            if score >= 90:
-                transfermarkt_info = next(row for row in transfermarkt_data if row['player_name'] == match)
-
+            transfermarkt_info = find_transfermarkt_info(player_name, transfermarkt_data)
             if transfermarkt_info:
                 if age is None:
                     age = transfermarkt_info['player_age']
@@ -77,8 +83,7 @@ def get_player_info(players, player_name, season_2021_players, season_2022_playe
 
     return None, None, None, None
 
-
-
+# Calculate the number of days to the next transfer window from the given date
 def days_to_next_transfer_window(date_str):
     date = datetime.datetime.strptime(date_str, "%d %B %Y")
     year = date.year
@@ -98,12 +103,14 @@ def days_to_next_transfer_window(date_str):
 
     return days_to_next
 
+# Get the source of a row using its ID
 def get_source_from_id(id, input_rows):
     for row in input_rows:
         if row["id"] == id:
             return row["source"]
     return ""
 
+# Clean the dataset by removing duplicates, non-existent players, and rows with less than two clubs mentioned
 def clean_dataset(input_rows, transfer_news_data):
     seen_rows = set()
     season_2021_players = read_csv_file("../data/39_2021_players.csv")
