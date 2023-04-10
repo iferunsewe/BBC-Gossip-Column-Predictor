@@ -25,10 +25,21 @@ def get_best_fuzzy_match(player_name, names_list):
         return match
     else:
         return None
+    
+def get_transfermarkt_row(player_name, transfermarkt_data):
+    player_names = transfermarkt_data['player_name'].tolist()
+    best_match = get_best_fuzzy_match(player_name, player_names)
+
+    if best_match:
+        transfermarkt_row = transfermarkt_data.loc[transfermarkt_data['player_name'] == best_match]
+    else:
+        transfermarkt_row = pd.DataFrame()
+
+    return transfermarkt_row
 
 def get_api_row(player_name, football_api_players):
     full_names = football_api_players['full_name'].tolist()
-    short_names = football_api_players['name'].tolist()
+    short_names = football_api_players['name'].tolist() 
 
     best_full_name_match = get_best_fuzzy_match(player_name, full_names)
     best_short_name_match = get_best_fuzzy_match(player_name, short_names)
@@ -42,62 +53,82 @@ def get_api_row(player_name, football_api_players):
 
     return api_row
 
-def map_to_football_api_position(position):
-    position_mapping = {
-        "Goalkeeper": "Goalkeeper",
-        "Centre-Back": "Defender",
-        "Left-Back": "Defender",
-        "Right-Back": "Defender",
-        "Defensive Midfield": "Midfielder",
-        "Central Midfield": "Midfielder",
-        "Attacking Midfield": "Midfielder",
-        "Left Midfield": "Midfielder",
-        "Right Midfield": "Midfielder",
-        "Centre-Forward": "Attacker",
-        "Left Winger": "Attacker",
-        "Right Winger": "Attacker",
-        "Second Striker": "Attacker",
-    }
+position_mapping = {
+    "Goalkeeper": "Goalkeeper",
+    "Centre-Back": "Defender",
+    "Left-Back": "Defender",
+    "Right-Back": "Defender",
+    "Defender": "Defender",
+    "Defensive Midfield": "Midfielder",
+    "Central Midfield": "Midfielder",
+    "Attacking Midfield": "Midfielder",
+    "Left Midfield": "Midfielder",
+    "Right Midfield": "Midfielder",
+    "Midfielder": "Midfielder",
+    "Playmaker": "Midfielder",
+    "Centre-Forward": "Attacker",
+    "Left Winger": "Attacker",
+    "Right Winger": "Attacker",
+    "Second Striker": "Attacker",
+    "Winger": "Attacker",
+    "Striker": "Attacker",
+    "Forward": "Attacker",
+}
 
+def map_to_football_api_position(position):
     return position_mapping.get(position, "Unknown")
 
-def get_player_data(player_name, transfermarkt_data, football_api_players):
-    player_data = {}
+def get_transfermarkt_data(player_name, transfermarkt_data):
+    transfermarkt_row = get_transfermarkt_row(player_name, transfermarkt_data)
     
-    transfermarkt_row = transfermarkt_data.loc[transfermarkt_data['player_name'] == player_name]
-    api_row = get_api_row(player_name, football_api_players)
-
-    if transfermarkt_row.empty and api_row.empty:
-        print(f"Could not find {player_name} in any dataset...")
+    if transfermarkt_row.empty:
+        print(f"{player_name} not found in Transfermarkt dataset")
         return None
 
-    if not transfermarkt_row.empty:
-        print(f"Found {player_name} in Transfermarkt dataset...")
-        player_data['age'] = transfermarkt_row['player_age'].values[0]
-        player_data['position'] = map_to_football_api_position(transfermarkt_row['player_position'].values[0])
-        player_data['market_value'] = transfermarkt_row['market_value'].values[0]
-        print(f"Player data: {player_data}")
-
-    if not api_row.empty:
-        print(f"Found {player_name} in Football API dataset...")
-        player_data = update_player_data(player_data, api_row)
-        print(f"Player data: {player_data}")
-
+    player_data = {
+        'age': transfermarkt_row['player_age'].values[0],
+        'position': map_to_football_api_position(transfermarkt_row['player_position'].values[0]),
+        'market_value': transfermarkt_row['market_value'].values[0]
+    }
+    print(f"Found {player_name} in Transfermarkt dataset: {player_data}")
 
     return player_data
 
 
-def update_player_data(player_data, api_row):
-    if player_data.get('age') is None:
-        player_data['age'] = api_row['age'].values[0]
+def get_api_data(player_name, football_api_players):
+    api_row = get_api_row(player_name, football_api_players)
 
-    if player_data.get('position') is None:
-        player_data['position'] = api_row['position'].values[0]
+    if api_row.empty:
+        print(f"{player_name} not found in Football API dataset")
+        return None
 
-    if player_data.get('market_value') is None:
-        player_data['market_value'] = None
+    player_data = {
+        'age': api_row['age'].values[0],
+        'position': api_row['position'].values[0],
+        'nationality': api_row['nationality'].values[0]
+    }
+    print(f"Found {player_name} in Football API dataset: {player_data}")
 
-    player_data['nationality'] = api_row['nationality'].values[0]
+    return player_data
+
+def merge_player_data(transfermarkt_data, api_data):
+    merged_data = {}
+
+    for key in ['age', 'position', 'market_value', 'nationality']:
+        merged_data[key] = transfermarkt_data.get(key) or api_data.get(key)
+
+    return merged_data
+
+def get_player_data(player_name, transfermarkt_data, football_api_players):
+    transfermarkt_player_data = get_transfermarkt_data(player_name, transfermarkt_data)
+    api_player_data = get_api_data(player_name, football_api_players)
+
+    if transfermarkt_player_data is None and api_player_data is None:
+        print(f"Could not find {player_name} in any dataset...")
+        return None
+
+    player_data = merge_player_data(transfermarkt_player_data or {}, api_player_data or {})
+    print(f"Final player data: {player_data}")
 
     return player_data
 
@@ -128,7 +159,15 @@ def find_nationality_in_text(raw_text):
         return countries[0]
     else:
         return None
-
+    
+def find_position_in_text(raw_text):
+    print(f"Finding position in text: {raw_text}")
+    positions = list(position_mapping.keys())
+    
+    for position in positions:
+        if position.lower() in raw_text.lower():
+            return map_to_football_api_position(position)
+    return None
 
 def days_to_next_transfer_window(date_str):
     date = datetime.datetime.strptime(date_str, "%d %B %Y")
@@ -149,7 +188,6 @@ def days_to_next_transfer_window(date_str):
 
     return days_to_next
 
-
 def clean_dataset(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
     print("Cleaning dataset...")
 
@@ -164,13 +202,13 @@ def clean_dataset(input_rows, transfer_news_data, football_api_players, transfer
 
     cleaned_data['age'] = cleaned_data.apply(lambda row: row['age'] if not pd.isnull(row['age']) else find_age_in_text(row['raw_text']), axis=1)
     cleaned_data['nationality'] = cleaned_data.apply(lambda row: row['nationality'] if not pd.isnull(row['nationality']) else find_nationality_in_text(row['raw_text']), axis=1)
+    cleaned_data['position'] = cleaned_data.apply(lambda row: row['position'] if not pd.isnull(row['position']) else find_position_in_text(row['raw_text']), axis=1)
     cleaned_data['time_to_transfer_window'] = cleaned_data['date'].apply(days_to_next_transfer_window)
     cleaned_data = cleaned_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
 
     output_path_filename = get_data_file_path("cleaned_structured_data.csv")
     cleaned_data.to_csv(output_path_filename, index=False)
     print(f"Cleaned dataset saved to {output_path_filename}")
-
 
 def main():
     print("Loading data...")
