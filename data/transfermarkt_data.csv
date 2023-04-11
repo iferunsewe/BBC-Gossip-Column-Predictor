@@ -1,17 +1,17 @@
 id,player_name,player_age,player_position,club_left,club_joined,market_value,season
-1,Ben White,23,Right-Back,Brighton,Arsenal FC,€50.00m,2021
+1,Ben White,23,Right-Back,Brighton & Hove Albion,Arsenal FC,€50.00m,2021
 2,Martin Ødegaard,22,Attacking Midfield,Real Madrid,Arsenal FC,€80.00m,2021
-3,Aaron Ramsdale,23,Goalkeeper,Sheff Utd,Arsenal FC,€38.00m,2021
+3,Aaron Ramsdale,23,Goalkeeper,Sheffield United,Arsenal FC,€38.00m,2021
 4,Takehiro Tomiyasu,22,Right-Back,Bologna,Arsenal FC,€25.00m,2021
 5,Albert Sambi Lokonga,21,Central Midfield,RSC Anderlecht,Arsenal FC,€15.00m,2021
 6,Nuno Tavares,21,Left-Back,Benfica,Arsenal FC,€18.00m,2021
 7,Auston Trusty,23,Centre-Back,Colorado,Arsenal FC,€9.00m,2021
-8,Mattéo Guendouzi,22,Central Midfield,Hertha BSC,Arsenal FC,€25.00m,2021
+8,Mattéo Guendouzi,22,Central Midfield,Hertha Berlin,Arsenal FC,€25.00m,2021
 9,Lucas Torreira,25,Defensive Midfield,Atlético Madrid,Arsenal FC,€15.00m,2021
 10,Dejan Iliev,26,Goalkeeper,SKF Sered,Arsenal FC,€300k,2021
 11,Sead Kolasinac,28,Left-Back,FC Schalke 04,Arsenal FC,€5.00m,2021
 12,William Saliba,20,Centre-Back,OGC Nice,Arsenal FC,€55.00m,2021
-13,Joe Willock,21,Central Midfield,Arsenal FC,Newcastle,€30.00m,2021
+13,Joe Willock,21,Central Midfield,Arsenal FC,Newcastle United,€30.00m,2021
 14,Lucas Torreira,25,Defensive Midfield,Arsenal FC,Fiorentina,€15.00m,2021
 15,Ainsley Maitland-Niles,24,Right Midfield,Arsenal FC,AS Roma,€8.00m,2021
 16,David Luiz,34,Centre-Back,Arsenal FC,Flamengo,€600k,2021
@@ -28,18 +28,18 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 27,Reiss Nelson,21,Right Winger,Arsenal FC,Feyenoord,€7.00m,2021
 28,William Saliba,20,Centre-Back,Arsenal FC,Marseille,€55.00m,2021
 29,Dejan Iliev,26,Goalkeeper,Arsenal FC,SKF Sered,€300k,2021
-30,Mathew Ryan,29,Goalkeeper,Arsenal FC,Brighton,€4.00m,2021
+30,Mathew Ryan,29,Goalkeeper,Arsenal FC,Brighton & Hove Albion,€4.00m,2021
 31,Martin Ødegaard,22,Attacking Midfield,Arsenal FC,Real Madrid,€80.00m,2021
 32,Dani Ceballos,24,Central Midfield,Arsenal FC,Real Madrid,€12.00m,2021
-33,Emiliano Buendía,24,Right Winger,Norwich,Aston Villa,€28.00m,2021
+33,Emiliano Buendía,24,Right Winger,Norwich City,Aston Villa,€28.00m,2021
 34,Leon Bailey,23,Left Winger,B. Leverkusen,Aston Villa,€25.00m,2021
 35,Lucas Digne,28,Left-Back,Everton,Aston Villa,€17.00m,2021
 36,Danny Ings,29,Centre-Forward,Southampton,Aston Villa,€16.00m,2021
 37,Calum Chambers,27,Centre-Back,Arsenal,Aston Villa,€8.00m,2021
-38,Ashley Young,35,Right-Back,Inter,Aston Villa,€1.00m,2021
+38,Ashley Young,35,Right-Back,Inter Milan,Aston Villa,€1.00m,2021
 39,Robin Olsen,32,Goalkeeper,AS Roma,Aston Villa,€2.00m,2021
 40,Philippe Coutinho,29,Left Winger,Barcelona,Aston Villa,€14.00m,2021
-41,Axel Tuanzebe,23,Centre-Back,Man Utd,Aston Villa,€6.00m,2021
+41,Axel Tuanzebe,23,Centre-Back,Manchester United,Aston Villa,€6.00m,2021
 42,Cameron Archer,19,Centre-Forward,Aston Villa U23,Aston Villa,€10.00m,2021
 43,Jaden Philogene,19,Left Winger,Aston Villa U23,Aston Villa,€2.50m,2021
 44,Tim Iroegbunam,18,Central Midfield,Aston Villa U23,Aston Villa,€4.00m,2021
@@ -48,27 +48,27 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 47,Ally Samatta,28,Centre-Forward,Fenerbahce,Aston Villa,€2.50m,2021
 48,Jed Steer,29,Goalkeeper,Luton,Aston Villa,€600k,2021
 49,Frédéric Guilbert,26,Right-Back,R. Strasbourg,Aston Villa,€5.00m,2021
-50,Matt Targett,26,Left-Back,Newcastle,Aston Villa,€15.00m,2021
+50,Matt Targett,26,Left-Back,Newcastle United,Aston Villa,€15.00m,2021
 51,Keinan Davis,24,Centre-Forward,Nottm Forest,Aston Villa,€3.00m,2021
-52,Conor Hourihane,31,Central Midfield,Sheff Utd,Aston Villa,€700k,2021
+52,Conor Hourihane,31,Central Midfield,Sheffield United,Aston Villa,€700k,2021
 53,Jaden Philogene,20,Left Winger,Stoke City,Aston Villa,€2.50m,2021
 54,Cameron Archer,20,Centre-Forward,Preston,Aston Villa,€10.00m,2021
-55,Jack Grealish,25,Left Winger,Aston Villa,Man City,€70.00m,2021
+55,Jack Grealish,25,Left Winger,Aston Villa,Manchester City,€70.00m,2021
 56,Ally Samatta,28,Centre-Forward,Aston Villa,Fenerbahce,€2.50m,2021
 57,Björn Engels,26,Centre-Back,Aston Villa,Royal Antwerp,€2.00m,2021
-58,Tom Heaton,35,Goalkeeper,Aston Villa,Man Utd,€600k,2021
-59,Matt Targett,26,Left-Back,Aston Villa,Newcastle,€15.00m,2021
+58,Tom Heaton,35,Goalkeeper,Aston Villa,Manchester United,€600k,2021
+59,Matt Targett,26,Left-Back,Aston Villa,Newcastle United,€15.00m,2021
 60,Jaden Philogene,19,Left Winger,Aston Villa,Stoke City,€2.50m,2021
 61,Frédéric Guilbert,26,Right-Back,Aston Villa,R. Strasbourg,€5.00m,2021
 62,Keinan Davis,23,Centre-Forward,Aston Villa,Nottm Forest,€3.00m,2021
-63,Conor Hourihane,30,Central Midfield,Aston Villa,Sheff Utd,€700k,2021
+63,Conor Hourihane,30,Central Midfield,Aston Villa,Sheffield United,€700k,2021
 64,Cameron Archer,20,Centre-Forward,Aston Villa,Preston,€10.00m,2021
 65,Wesley Moraes,24,Centre-Forward,Aston Villa,Club Brugge,€3.00m,2021
 66,Mahmoud Trezeguet,27,Left Winger,Aston Villa,Basaksehir,€10.50m,2021
 67,Jed Steer,29,Goalkeeper,Aston Villa,Luton,€600k,2021
 68,Anwar El Ghazi,26,Right Winger,Aston Villa,Everton,€8.00m,2021
 69,Wesley Moraes,25,Centre-Forward,Aston Villa,Internacional,€3.00m,2021
-70,Axel Tuanzebe,24,Centre-Back,Aston Villa,Man Utd,€6.00m,2021
+70,Axel Tuanzebe,24,Centre-Back,Aston Villa,Manchester United,€6.00m,2021
 71,Kristoffer Ajer,23,Centre-Back,Celtic,Brentford FC,€16.00m,2021
 72,Yoane Wissa,24,Left Winger,FC Lorient,Brentford FC,€15.00m,2021
 73,Frank Onyeka,23,Central Midfield,FC Midtjylland,Brentford FC,€9.00m,2021
@@ -77,7 +77,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 76,Jonas Lössl,32,Goalkeeper,FC Midtjylland,Brentford FC,€600k,2021
 77,Mads Bidstrup,20,Central Midfield,Brentford B,Brentford FC,€1.50m,2021
 78,Marcus Forss,22,Centre-Forward,Hull City,Brentford FC,€3.50m,2021
-79,Charlie Goode,26,Centre-Back,Sheff Utd,Brentford FC,€800k,2021
+79,Charlie Goode,26,Centre-Back,Sheffield United,Brentford FC,€800k,2021
 80,Julian Jeanvier,29,Centre-Back,Kasimpasa,Brentford FC,€800k,2021
 81,Ellery Balcombe,22,Goalkeeper,Bromley,Brentford FC,€300k,2021
 82,Dominic Thompson,21,Left-Back,Ipswich,Brentford FC,€1.80m,2021
@@ -96,7 +96,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 95,Ellery Balcombe,22,Goalkeeper,Brentford FC,Bromley,€300k,2021
 96,Patrik Gunnarsson,21,Goalkeeper,Brentford FC,Viking FK,€700k,2021
 97,Jan Zamburek,20,Central Midfield,Brentford FC,Viborg FF,€500k,2021
-98,Charlie Goode,26,Centre-Back,Brentford FC,Sheff Utd,€800k,2021
+98,Charlie Goode,26,Centre-Back,Brentford FC,Sheffield United,€800k,2021
 99,Joel Valencia,27,Right Winger,Brentford FC,Alcorcón,€400k,2021
 100,Mads Bidstrup,20,Central Midfield,Brentford FC,Nordsjaelland,€1.50m,2021
 101,Patrik Gunnarsson,20,Goalkeeper,Brentford FC,Viking FK,€700k,2021
@@ -113,7 +113,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 112,Taylor Richards,20,Central Midfield,Brighton U23,Brighton & Hove Albion,€400k,2021
 113,Taylor Richards,21,Central Midfield,Birmingham,Brighton & Hove Albion,€400k,2021
 114,Aaron Connolly,22,Centre-Forward,Middlesbrough,Brighton & Hove Albion,€5.00m,2021
-115,Jan Paul van Hecke,21,Centre-Back,Blackburn,Brighton & Hove Albion,€4.00m,2021
+115,Jan Paul van Hecke,21,Centre-Back,Blackburn Rovers,Brighton & Hove Albion,€4.00m,2021
 116,Moisés Caicedo,20,Defensive Midfield,Beerschot V.A.,Brighton & Hove Albion,€55.00m,2021
 117,Abdallah Sima,20,Right Winger,Stoke City,Brighton & Hove Albion,€7.00m,2021
 118,Christian Walton,26,Goalkeeper,Ipswich,Brighton & Hove Albion,€1.00m,2021
@@ -128,7 +128,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 127,Jan Mlakar,22,Centre-Forward,NK Maribor,Brighton & Hove Albion,€2.30m,2021
 128,Jürgen Locadia,27,Centre-Forward,Cincinnati,Brighton & Hove Albion,€1.80m,2021
 129,Ben White,23,Right-Back,Brighton & Hove Albion,Arsenal,€50.00m,2021
-130,Dan Burn,29,Centre-Back,Brighton & Hove Albion,Newcastle,€12.00m,2021
+130,Dan Burn,29,Centre-Back,Brighton & Hove Albion,Newcastle United,€12.00m,2021
 131,Percy Tau,27,Right Winger,Brighton & Hove Albion,El Ahly,€1.50m,2021
 132,Viktor Gyökeres,23,Centre-Forward,Brighton & Hove Albion,Coventry,€8.00m,2021
 133,Alireza Jahanbakhsh,27,Right Winger,Brighton & Hove Albion,Feyenoord,€3.00m,2021
@@ -150,7 +150,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 149,Christian Walton,25,Goalkeeper,Brighton & Hove Albion,Ipswich,€1.00m,2021
 150,Andi Zeqiri,22,Centre-Forward,Brighton & Hove Albion,FC Augsburg,€2.70m,2021
 151,Leo Östigard,22,Centre-Back,Brighton & Hove Albion,Genoa,€7.00m,2021
-152,Jan Paul van Hecke,21,Centre-Back,Brighton & Hove Albion,Blackburn,€4.00m,2021
+152,Jan Paul van Hecke,21,Centre-Back,Brighton & Hove Albion,Blackburn Rovers,€4.00m,2021
 153,Florin Andone,28,Centre-Forward,Brighton & Hove Albion,Cádiz CF,€1.00m,2021
 154,Leo Östigard,21,Centre-Back,Brighton & Hove Albion,Stoke City,€7.00m,2021
 155,Taylor Richards,21,Central Midfield,Brighton & Hove Albion,Birmingham,€400k,2021
@@ -164,12 +164,12 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 163,Wayne Hennessey,34,Goalkeeper,Crystal Palace,Burnley FC,€500k,2021
 164,Bobby Thomas,20,Centre-Back,Burnley U21,Burnley FC,€450k,2021
 165,Bailey Peacock-Farrell,25,Goalkeeper,Sheff Wed,Burnley FC,€900k,2021
-166,Chris Wood,30,Centre-Forward,Burnley FC,Newcastle,€10.00m,2021
-167,Ben Gibson,28,Centre-Back,Burnley FC,Norwich,€2.50m,2021
+166,Chris Wood,30,Centre-Forward,Burnley FC,Newcastle United,€10.00m,2021
+167,Ben Gibson,28,Centre-Back,Burnley FC,Norwich City,€2.50m,2021
 168,Josh Benson,21,Central Midfield,Burnley FC,Barnsley FC,€300k,2021
 169,Jimmy Dunne,23,Centre-Back,Burnley FC,QPR,€3.50m,2021
 170,Bailey Peacock-Farrell,24,Goalkeeper,Burnley FC,Sheff Wed,€900k,2021
-171,Romelu Lukaku,28,Centre-Forward,Inter,Chelsea FC,€40.00m,2021
+171,Romelu Lukaku,28,Centre-Forward,Inter Milan,Chelsea FC,€40.00m,2021
 172,Saúl Ñíguez,26,Central Midfield,Atlético Madrid,Chelsea FC,€10.00m,2021
 173,Marcus Bettinelli,29,Goalkeeper,Fulham,Chelsea FC,€2.00m,2021
 174,Trevoh Chalobah,21,Centre-Back,Chelsea U23,Chelsea FC,€22.00m,2021
@@ -178,7 +178,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 177,Kenedy,25,Left Winger,Flamengo,Chelsea FC,€3.00m,2021
 178,Kenedy,25,Left Winger,Granada CF,Chelsea FC,€3.00m,2021
 179,Danny Drinkwater,32,Central Midfield,Reading,Chelsea FC,€400k,2021
-180,Billy Gilmour,20,Central Midfield,Norwich,Chelsea FC,€9.00m,2021
+180,Billy Gilmour,20,Central Midfield,Norwich City,Chelsea FC,€9.00m,2021
 181,Lewis Baker,26,Central Midfield,Trabzonspor,Chelsea FC,€3.00m,2021
 182,Davide Zappacosta,29,Right-Back,Genoa,Chelsea FC,€7.00m,2021
 183,Danny Drinkwater,31,Central Midfield,Kasimpasa,Chelsea FC,€400k,2021
@@ -204,7 +204,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 203,Danilo Pantic,24,Attacking Midfield,Chelsea FC,Partizan,€800k,2021
 204,Izzy Brown,24,Second Striker,Chelsea FC,Preston,-,2021
 205,Lewis Baker,26,Central Midfield,Chelsea FC,Stoke City,€3.00m,2021
-206,Billy Gilmour,20,Central Midfield,Chelsea FC,Norwich,€9.00m,2021
+206,Billy Gilmour,20,Central Midfield,Chelsea FC,Norwich City,€9.00m,2021
 207,Ethan Ampadu,20,Centre-Back,Chelsea FC,Venezia,€9.00m,2021
 208,Danny Drinkwater,31,Central Midfield,Chelsea FC,Reading,€400k,2021
 209,Abdul-Rahman Baba,27,Left-Back,Chelsea FC,Reading,€1.80m,2021
@@ -243,13 +243,13 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 242,Asmir Begovic,34,Goalkeeper,Bournemouth,Everton FC,€1.00m,2021
 243,Andros Townsend,30,Right Winger,Crystal Palace,Everton FC,€2.50m,2021
 244,Andy Lonergan,37,Goalkeeper,West Brom,Everton FC,€200k,2021
-245,Dele Alli,25,Attacking Midfield,Tottenham,Everton FC,€11.00m,2021
+245,Dele Alli,25,Attacking Midfield,Tottenham Hotspur,Everton FC,€11.00m,2021
 246,Billy Crellin,21,Goalkeeper,Fleetwood,Everton FC,-,2021
-247,Donny van de Beek,24,Central Midfield,Man Utd,Everton FC,€17.00m,2021
+247,Donny van de Beek,24,Central Midfield,Manchester United,Everton FC,€17.00m,2021
 248,Anwar El Ghazi,26,Right Winger,Aston Villa,Everton FC,€8.00m,2021
 249,Cenk Tosun,30,Centre-Forward,Besiktas,Everton FC,€2.80m,2021
 250,Jonjoe Kenny,24,Right-Back,Celtic,Everton FC,€4.00m,2021
-251,Moise Kean,21,Centre-Forward,Paris SG,Everton FC,€20.00m,2021
+251,Moise Kean,21,Centre-Forward,Paris St-Germain,Everton FC,€20.00m,2021
 252,Lucas Digne,28,Left-Back,Everton FC,Aston Villa,€17.00m,2021
 253,James Rodríguez,30,Attacking Midfield,Everton FC,Al-Rayyan SC,€9.00m,2021
 254,Moise Kean,21,Centre-Forward,Everton FC,Juventus,€20.00m,2021
@@ -261,18 +261,18 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 260,Beni Baningime,22,Central Midfield,Everton FC,Heart of Midl.,€850k,2021
 261,Jean-Philippe Gbamin,26,Defensive Midfield,Everton FC,CSKA Moscow,€6.50m,2021
 262,Niels Nkounkou,20,Left-Back,Everton FC,Standard Liège,€3.00m,2021
-263,João Virgínia,21,Goalkeeper,Everton FC,Sporting CP,€700k,2021
-264,Donny van de Beek,25,Central Midfield,Everton FC,Man Utd,€17.00m,2021
+263,João Virgínia,21,Goalkeeper,Everton FC,Sporting Lisbon,€700k,2021
+264,Donny van de Beek,25,Central Midfield,Everton FC,Manchester United,€17.00m,2021
 265,Robin Olsen,31,Goalkeeper,Everton FC,AS Roma,€2.00m,2021
-266,Daniel James,23,Right Winger,Man Utd,Leeds United,€13.00m,2021
+266,Daniel James,23,Right Winger,Manchester United,Leeds United,€13.00m,2021
 267,Junior Firpo,24,Left-Back,Barcelona,Leeds United,€12.00m,2021
-268,Jack Harrison,24,Left Winger,Man City,Leeds United,€22.00m,2021
+268,Jack Harrison,24,Left Winger,Manchester City,Leeds United,€22.00m,2021
 269,Kristoffer Klaesson,20,Goalkeeper,Vålerenga,Leeds United,€2.00m,2021
 270,Charlie Cresswell,18,Centre-Back,Leeds U21,Leeds United,€5.00m,2021
 271,Cody Drameh,19,Right-Back,Leeds U21,Leeds United,€3.00m,2021
 272,Sam Greenwood,19,Attacking Midfield,Leeds U21,Leeds United,€4.00m,2021
 273,Crysencio Summerville,19,Right Winger,Leeds U21,Leeds United,€12.00m,2021
-274,Ian Poveda,22,Right Winger,Blackburn,Leeds United,€1.00m,2021
+274,Ian Poveda,22,Right Winger,Blackburn Rovers,Leeds United,€1.00m,2021
 275,Cody Drameh,20,Right-Back,Cardiff,Leeds United,€3.00m,2021
 276,Leif Davis,22,Left-Back,Bournemouth,Leeds United,€1.00m,2021
 277,Mateusz Bogusz,19,Attacking Midfield,UD Logroñés,Leeds United,€1.00m,2021
@@ -284,7 +284,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 283,Pablo Hernández,36,Attacking Midfield,Leeds United,Castellón,€100k,2021
 284,Cody Drameh,20,Right-Back,Leeds United,Cardiff,€3.00m,2021
 285,Leif Davis,21,Left-Back,Leeds United,Bournemouth,€1.00m,2021
-286,Ian Poveda,21,Right Winger,Leeds United,Blackburn,€1.00m,2021
+286,Ian Poveda,21,Right Winger,Leeds United,Blackburn Rovers,€1.00m,2021
 287,Kiko Casilla,34,Goalkeeper,Leeds United,Elche CF,€400k,2021
 288,Mateusz Bogusz,19,Attacking Midfield,Leeds United,UD Ibiza,€1.00m,2021
 289,Hélder Costa,27,Right Winger,Leeds United,Valencia,€3.50m,2021
@@ -293,7 +293,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 292,Jannik Vestergaard,29,Centre-Back,Southampton,Leicester City,€5.00m,2021
 293,Ryan Bertrand,31,Left-Back,Southampton,Leicester City,€1.00m,2021
 294,Ademola Lookman,23,Second Striker,RB Leipzig,Leicester City,€30.00m,2021
-295,Kiernan Dewsbury-Hall,22,Central Midfield,Leicester U21,Leicester City,€25.00m,2021
+295,Kiernan Dewsbury-Hall,22,Central Midfield,Leicester City,Leicester City,€25.00m,2021
 296,George Hirst,23,Centre-Forward,Portsmouth,Leicester City,€800k,2021
 297,Daniel Iversen,24,Goalkeeper,Preston,Leicester City,€2.00m,2021
 298,Filip Benkovic,23,Centre-Back,OH Leuven,Leicester City,€1.70m,2021
@@ -315,7 +315,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 314,Nathaniel Phillips,25,Centre-Back,Bournemouth,Liverpool FC,€6.00m,2021
 315,Sheyi Ojo,24,Right Winger,Millwall,Liverpool FC,€1.80m,2021
 316,Neco Williams,21,Right-Back,Fulham,Liverpool FC,€18.00m,2021
-317,Ben Davies,26,Centre-Back,Sheff Utd,Liverpool FC,€3.50m,2021
+317,Ben Davies,26,Centre-Back,Sheffield United,Liverpool FC,€3.50m,2021
 318,Rhys Williams,20,Centre-Back,Swansea,Liverpool FC,€3.00m,2021
 319,Ben Woodburn,22,Attacking Midfield,Heart of Midl.,Liverpool FC,€1.00m,2021
 320,Taiwo Awoniyi,23,Centre-Forward,Union Berlin,Liverpool FC,€20.00m,2021
@@ -327,10 +327,10 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 326,Taiwo Awoniyi,23,Centre-Forward,Liverpool FC,Union Berlin,€20.00m,2021
 327,Xherdan Shaqiri,29,Attacking Midfield,Liverpool FC,Olympique Lyon,€4.00m,2021
 328,Marko Grujić,25,Defensive Midfield,Liverpool FC,FC Porto,€9.00m,2021
-329,Georginio Wijnaldum,30,Central Midfield,Liverpool FC,Paris SG,€12.00m,2021
+329,Georginio Wijnaldum,30,Central Midfield,Liverpool FC,Paris St-Germain,€12.00m,2021
 330,Rhys Williams,20,Centre-Back,Liverpool FC,Swansea,€3.00m,2021
 331,Ben Woodburn,21,Attacking Midfield,Liverpool FC,Heart of Midl.,€1.00m,2021
-332,Ben Davies,26,Centre-Back,Liverpool FC,Sheff Utd,€3.50m,2021
+332,Ben Davies,26,Centre-Back,Liverpool FC,Sheffield United,€3.50m,2021
 333,Nathaniel Phillips,24,Centre-Back,Liverpool FC,Bournemouth,€6.00m,2021
 334,Neco Williams,20,Right-Back,Liverpool FC,Fulham,€18.00m,2021
 335,Sheyi Ojo,24,Right Winger,Liverpool FC,Millwall,€1.80m,2021
@@ -356,7 +356,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 355,Arijanet Muric,22,Goalkeeper,Willem II,Manchester City,€6.00m,2021
 356,Ferran Torres,21,Left Winger,Manchester City,Barcelona,€30.00m,2021
 357,Angeliño,24,Left-Back,Manchester City,RB Leipzig,€14.00m,2021
-358,Jack Harrison,24,Left Winger,Manchester City,Leeds,€22.00m,2021
+358,Jack Harrison,24,Left Winger,Manchester City,Leeds United,€22.00m,2021
 359,Lukas Nmecha,22,Centre-Forward,Manchester City,VfL Wolfsburg,€14.00m,2021
 360,Erik Palmer-Brown,24,Centre-Back,Manchester City,Troyes,€3.00m,2021
 361,Eric García,20,Centre-Back,Manchester City,Barcelona,€12.00m,2021
@@ -382,7 +382,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 381,Tom Heaton,35,Goalkeeper,Aston Villa,Manchester United,€600k,2021
 382,Anthony Elanga,19,Left Winger,Man Utd U23,Manchester United,€25.00m,2021
 383,Shola Shoretire,17,Right Winger,Man Utd U23,Manchester United,€4.00m,2021
-384,Brandon Williams,21,Left-Back,Norwich,Manchester United,€10.00m,2021
+384,Brandon Williams,21,Left-Back,Norwich City,Manchester United,€10.00m,2021
 385,Axel Tuanzebe,24,Centre-Back,Aston Villa,Manchester United,€6.00m,2021
 386,Teden Mengi,20,Centre-Back,Birmingham,Manchester United,€2.00m,2021
 387,Tahith Chong,22,Right Winger,Birmingham,Manchester United,€3.00m,2021
@@ -392,7 +392,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 391,Diogo Dalot,22,Right-Back,AC Milan,Manchester United,€35.00m,2021
 392,Donny van de Beek,25,Central Midfield,Everton,Manchester United,€17.00m,2021
 393,Andreas Pereira,25,Attacking Midfield,Lazio,Manchester United,€16.00m,2021
-394,Daniel James,23,Right Winger,Manchester United,Leeds,€13.00m,2021
+394,Daniel James,23,Right Winger,Manchester United,Leeds United,€13.00m,2021
 395,Andreas Pereira,25,Attacking Midfield,Manchester United,Flamengo,€16.00m,2021
 396,Axel Tuanzebe,24,Centre-Back,Manchester United,SSC Napoli,€6.00m,2021
 397,Joel Pereira,25,Goalkeeper,Manchester United,RKC Waalwijk,€300k,2021
@@ -402,12 +402,12 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 401,Axel Tuanzebe,23,Centre-Back,Manchester United,Aston Villa,€6.00m,2021
 402,Teden Mengi,19,Centre-Back,Manchester United,Birmingham,€2.00m,2021
 403,Amad Diallo,19,Right Winger,Manchester United,Rangers,€13.00m,2021
-404,Brandon Williams,20,Left-Back,Manchester United,Norwich,€10.00m,2021
+404,Brandon Williams,20,Left-Back,Manchester United,Norwich City,€10.00m,2021
 405,Donny van de Beek,24,Central Midfield,Manchester United,Everton,€17.00m,2021
 406,Bruno Guimarães,24,Defensive Midfield,Olympique Lyon,Newcastle United,€60.00m,2021
 407,Chris Wood,30,Centre-Forward,Burnley,Newcastle United,€10.00m,2021
 408,Joe Willock,21,Central Midfield,Arsenal,Newcastle United,€30.00m,2021
-409,Dan Burn,29,Centre-Back,Brighton,Newcastle United,€12.00m,2021
+409,Dan Burn,29,Centre-Back,Brighton & Hove Albion,Newcastle United,€12.00m,2021
 410,Kieran Trippier,31,Right-Back,Atlético Madrid,Newcastle United,€13.00m,2021
 411,Matt Targett,26,Left-Back,Aston Villa,Newcastle United,€15.00m,2021
 412,Matty Longstaff,22,Central Midfield,Mansfield Town,Newcastle United,€1.50m,2021
@@ -435,7 +435,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 434,Pierre Lees-Melou,28,Defensive Midfield,OGC Nice,Norwich City,€4.00m,2021
 435,Ozan Kabak,21,Centre-Back,FC Schalke 04,Norwich City,€10.00m,2021
 436,Mathias Normann,25,Defensive Midfield,Rostov,Norwich City,€7.50m,2021
-437,Brandon Williams,20,Left-Back,Man Utd,Norwich City,€10.00m,2021
+437,Brandon Williams,20,Left-Back,Manchester United,Norwich City,€10.00m,2021
 438,Billy Gilmour,20,Central Midfield,Chelsea,Norwich City,€9.00m,2021
 439,Jonathan Rowe,18,Attacking Midfield,Norwich U21,Norwich City,€500k,2021
 440,Rocky Bushiri,21,Centre-Back,KAS Eupen,Norwich City,€400k,2021
@@ -485,9 +485,9 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 484,Todd Cantwell,23,Left Midfield,Norwich City,Bournemouth,€8.00m,2021
 485,Xavi Quintillà,24,Left-Back,Norwich City,Villarreal,€1.00m,2021
 486,Dimitrios Giannoulis,25,Left-Back,Norwich City,PAOK Salonika,€4.00m,2021
-487,Brandon Williams,21,Left-Back,Norwich City,Man Utd,€10.00m,2021
+487,Brandon Williams,21,Left-Back,Norwich City,Manchester United,€10.00m,2021
 488,Billy Gilmour,20,Central Midfield,Norwich City,Chelsea,€9.00m,2021
-489,Adam Armstrong,24,Centre-Forward,Blackburn,Southampton FC,€12.00m,2021
+489,Adam Armstrong,24,Centre-Forward,Blackburn Rovers,Southampton FC,€12.00m,2021
 490,Romain Perraud,23,Left-Back,Stade Brestois,Southampton FC,€12.00m,2021
 491,Lyanco,24,Centre-Back,Torino,Southampton FC,€4.00m,2021
 492,Tino Livramento,18,Right-Back,Chelsea U23,Southampton FC,€25.00m,2021
@@ -499,7 +499,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 498,Mohamed Elyounoussi,26,Left Winger,Celtic,Southampton FC,€12.00m,2021
 499,Danny Ings,29,Centre-Forward,Southampton FC,Aston Villa,€16.00m,2021
 500,Jannik Vestergaard,29,Centre-Back,Southampton FC,Leicester,€5.00m,2021
-501,Angus Gunn,25,Goalkeeper,Southampton FC,Norwich,€3.00m,2021
+501,Angus Gunn,25,Goalkeeper,Southampton FC,Norwich City,€3.00m,2021
 502,Mario Lemina,27,Defensive Midfield,Southampton FC,OGC Nice,€10.00m,2021
 503,Michael Obafemi,21,Centre-Forward,Southampton FC,Swansea,€4.00m,2021
 504,Ryan Bertrand,31,Left-Back,Southampton FC,Leicester,€1.00m,2021
@@ -547,7 +547,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 546,Edo Kayembe,23,Defensive Midfield,KAS Eupen,Watford FC,€5.00m,2021
 547,Emmanuel Dennis,23,Centre-Forward,Club Brugge,Watford FC,€10.00m,2021
 548,Hassane Kamara,27,Left-Back,OGC Nice,Watford FC,€8.00m,2021
-549,Moussa Sissoko,32,Central Midfield,Tottenham,Watford FC,€3.50m,2021
+549,Moussa Sissoko,32,Central Midfield,Tottenham Hotspur,Watford FC,€3.50m,2021
 550,Yáser Asprilla,18,Attacking Midfield,Envigado,Watford FC,€3.00m,2021
 551,Samuel Kalu,24,Right Winger,G. Bordeaux,Watford FC,€3.00m,2021
 552,Ozan Tufan,26,Central Midfield,Fenerbahce,Watford FC,€3.20m,2021
@@ -555,7 +555,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 554,Joshua King,29,Centre-Forward,Everton,Watford FC,€6.00m,2021
 555,Kwadwo Baah,18,Left Winger,Rochdale,Watford FC,€400k,2021
 556,Ashley Fletcher,25,Centre-Forward,Middlesbrough,Watford FC,€800k,2021
-557,Danny Rose,30,Left-Back,Tottenham,Watford FC,€1.00m,2021
+557,Danny Rose,30,Left-Back,Tottenham Hotspur,Watford FC,€1.00m,2021
 558,Peter Etebo,25,Central Midfield,Stoke City,Watford FC,€1.50m,2021
 559,Juraj Kucka,34,Central Midfield,Parma,Watford FC,€1.50m,2021
 560,Kwasi Sibo,23,Central Midfield,UD Ibiza,Watford FC,€200k,2021
@@ -601,7 +601,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 600,Nikola Vlasic,23,Attacking Midfield,CSKA Moscow,West Ham United,€20.00m,2021
 601,Alex Kral,23,Defensive Midfield,Spartak Moscow,West Ham United,€5.50m,2021
 602,Craig Dawson,31,Centre-Back,Watford,West Ham United,€2.50m,2021
-603,Alphonse Areola,28,Goalkeeper,Paris SG,West Ham United,€8.00m,2021
+603,Alphonse Areola,28,Goalkeeper,Paris St-Germain,West Ham United,€8.00m,2021
 604,Frederik Alves,22,Centre-Back,Sunderland,West Ham United,€600k,2021
 605,Felipe Anderson,28,Right Winger,FC Porto,West Ham United,€15.00m,2021
 606,Conor Coventry,21,Defensive Midfield,Peterborough,West Ham United,€1.50m,2021
@@ -635,7 +635,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 634,Rúben Vinagre,22,Left-Back,Famalicão,Wolverhampton Wanderers,€5.00m,2021
 635,Oskar Buur,23,Right-Back,Grasshoppers,Wolverhampton Wanderers,€250k,2021
 636,Patrick Cutrone,23,Centre-Forward,Valencia,Wolverhampton Wanderers,€2.50m,2021
-637,Morgan Gibbs-White,22,Attacking Midfield,Sheff Utd,Wolverhampton Wanderers,€30.00m,2021
+637,Morgan Gibbs-White,22,Attacking Midfield,Sheffield United,Wolverhampton Wanderers,€30.00m,2021
 638,Leonardo Campana,21,Centre-Forward,Grasshoppers,Wolverhampton Wanderers,€3.00m,2021
 639,Connor Ronan,24,Central Midfield,St. Mirren,Wolverhampton Wanderers,€800k,2021
 640,Rafa Mir,24,Centre-Forward,Wolverhampton Wanderers,Sevilla FC,€10.00m,2021
@@ -647,7 +647,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 646,Leonardo Campana,21,Centre-Forward,Wolverhampton Wanderers,Miami,€3.00m,2021
 647,Hayao Kawabe,26,Central Midfield,Wolverhampton Wanderers,Grasshoppers,€2.00m,2021
 648,Sang-bin Jeong,19,Centre-Forward,Wolverhampton Wanderers,Grasshoppers,€2.00m,2021
-649,Morgan Gibbs-White,21,Attacking Midfield,Wolverhampton Wanderers,Sheff Utd,€30.00m,2021
+649,Morgan Gibbs-White,21,Attacking Midfield,Wolverhampton Wanderers,Sheffield United,€30.00m,2021
 650,Adama Traoré,26,Right Winger,Wolverhampton Wanderers,Barcelona,€12.00m,2021
 651,Bruno Jordão,23,Central Midfield,Wolverhampton Wanderers,Grasshoppers,€1.60m,2021
 652,Matija Sarkic,24,Goalkeeper,Wolverhampton Wanderers,Birmingham,€2.00m,2021
@@ -657,11 +657,11 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 656,Rayan Aït-Nouri,20,Left-Back,Wolverhampton Wanderers,Angers SCO,€22.00m,2021
 657,Willian José,29,Centre-Forward,Wolverhampton Wanderers,Real Sociedad,€7.00m,2021
 658,Bendegúz Bolla,21,Right-Back,Wolverhampton Wanderers,Grasshoppers,€2.70m,2021
-659,Gabriel Jesus,25,Centre-Forward,Man City,Arsenal FC,€75.00m,2022
-660,Oleksandr Zinchenko,25,Left-Back,Man City,Arsenal FC,€40.00m,2022
+659,Gabriel Jesus,25,Centre-Forward,Manchester City,Arsenal FC,€75.00m,2022
+660,Oleksandr Zinchenko,25,Left-Back,Manchester City,Arsenal FC,€40.00m,2022
 661,Fábio Vieira,22,Attacking Midfield,FC Porto,Arsenal FC,€27.00m,2022
 662,Jakub Kiwior,22,Centre-Back,Spezia Calcio,Arsenal FC,€20.00m,2022
-663,Leandro Trossard,28,Left Winger,Brighton,Arsenal FC,€30.00m,2022
+663,Leandro Trossard,28,Left Winger,Brighton & Hove Albion,Arsenal FC,€30.00m,2022
 664,Jorginho,31,Defensive Midfield,Chelsea,Arsenal FC,€35.00m,2022
 665,Matt Turner,28,Goalkeeper,New England,Arsenal FC,€5.00m,2022
 666,Marquinhos,19,Right Winger,São Paulo,Arsenal FC,€12.00m,2022
@@ -671,7 +671,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 670,Albert Sambi Lokonga,23,Central Midfield,Crystal Palace,Arsenal FC,€15.00m,2022
 671,Mattéo Guendouzi,23,Central Midfield,Marseille,Arsenal FC,€25.00m,2022
 672,William Saliba,21,Centre-Back,Marseille,Arsenal FC,€55.00m,2022
-673,Marquinhos,20,Right Winger,Norwich,Arsenal FC,€12.00m,2022
+673,Marquinhos,20,Right Winger,Norwich City,Arsenal FC,€12.00m,2022
 674,Lucas Torreira,26,Defensive Midfield,Fiorentina,Arsenal FC,€15.00m,2022
 675,Reiss Nelson,22,Right Winger,Feyenoord,Arsenal FC,€7.00m,2022
 676,Héctor Bellerín,27,Right-Back,Real Betis,Arsenal FC,€8.00m,2022
@@ -690,7 +690,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 689,Nicolas Pépé,27,Right Winger,Arsenal FC,OGC Nice,€22.00m,2022
 690,Ainsley Maitland-Niles,25,Right Midfield,Arsenal FC,Southampton,€8.00m,2022
 691,Pablo Marí,28,Centre-Back,Arsenal FC,Monza,€5.00m,2022
-692,Marquinhos,19,Right Winger,Arsenal FC,Norwich,€12.00m,2022
+692,Marquinhos,19,Right Winger,Arsenal FC,Norwich City,€12.00m,2022
 693,Albert Sambi Lokonga,23,Central Midfield,Arsenal FC,Crystal Palace,€15.00m,2022
 694,Folarin Balogun,21,Centre-Forward,Arsenal FC,Stade Reims,€25.00m,2022
 695,Cédric Soares,31,Right-Back,Arsenal FC,Fulham,€4.00m,2022
@@ -720,7 +720,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 719,Keinan Davis,25,Centre-Forward,Watford,Aston Villa,€3.00m,2022
 720,Kortney Hause,27,Centre-Back,Watford,Aston Villa,€2.80m,2022
 721,Carney Chukwuemeka,18,Central Midfield,Aston Villa,Chelsea,€15.00m,2022
-722,Matt Targett,26,Left-Back,Aston Villa,Newcastle,€15.00m,2022
+722,Matt Targett,26,Left-Back,Aston Villa,Newcastle United,€15.00m,2022
 723,Danny Ings,30,Centre-Forward,Aston Villa,West Ham,€16.00m,2022
 724,Mahmoud Trezeguet,27,Left Winger,Aston Villa,Trabzonspor,€10.50m,2022
 725,Anwar El Ghazi,27,Right Winger,Aston Villa,PSV Eindhoven,€8.00m,2022
@@ -747,7 +747,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 746,Marcus Tavernier,23,Central Midfield,Middlesbrough,AFC Bournemouth,€15.00m,2022
 747,Antoine Semenyo,23,Centre-Forward,Bristol City,AFC Bournemouth,€9.00m,2022
 748,Matías Viña,25,Left-Back,AS Roma,AFC Bournemouth,€6.00m,2022
-749,Joe Rothwell,27,Central Midfield,Blackburn,AFC Bournemouth,€3.50m,2022
+749,Joe Rothwell,27,Central Midfield,Blackburn Rovers,AFC Bournemouth,€3.50m,2022
 750,Darren Randolph,35,Goalkeeper,West Ham,AFC Bournemouth,€500k,2022
 751,Neto,33,Goalkeeper,Barcelona,AFC Bournemouth,€2.50m,2022
 752,Ryan Fredericks,29,Right-Back,West Ham,AFC Bournemouth,€2.00m,2022
@@ -792,7 +792,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 791,Charlie Goode,27,Centre-Back,Blackpool,Brentford FC,€800k,2022
 792,Halil Dervisoglu,22,Centre-Forward,Galatasaray,Brentford FC,€2.50m,2022
 793,Marcus Forss,23,Centre-Forward,Brentford FC,Middlesbrough,€3.50m,2022
-794,Christian Eriksen,30,Central Midfield,Brentford FC,Man Utd,€25.00m,2022
+794,Christian Eriksen,30,Central Midfield,Brentford FC,Manchester United,€25.00m,2022
 795,Julian Jeanvier,30,Centre-Back,Brentford FC,AJ Auxerre,€800k,2022
 796,Dominic Thompson,21,Left-Back,Brentford FC,Blackpool,€1.80m,2022
 797,Luka Racic,23,Centre-Back,Brentford FC,SönderjyskE,€250k,2022
@@ -830,7 +830,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 829,Taylor Richards,22,Central Midfield,QPR,Brighton & Hove Albion,€400k,2022
 830,Shane Duffy,31,Centre-Back,Fulham,Brighton & Hove Albion,€2.50m,2022
 831,Marc Cucurella,24,Left-Back,Brighton & Hove Albion,Chelsea,€40.00m,2022
-832,Yves Bissouma,25,Central Midfield,Brighton & Hove Albion,Tottenham,€25.00m,2022
+832,Yves Bissouma,25,Central Midfield,Brighton & Hove Albion,Tottenham Hotspur,€25.00m,2022
 833,Leandro Trossard,28,Left Winger,Brighton & Hove Albion,Arsenal,€30.00m,2022
 834,Neal Maupay,26,Centre-Forward,Brighton & Hove Albion,Everton,€13.00m,2022
 835,Leo Östigard,22,Centre-Back,Brighton & Hove Albion,SSC Napoli,€7.00m,2022
@@ -853,9 +853,9 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 852,Levi Colwill,20,Centre-Back,Brighton & Hove Albion,Chelsea U21,€16.00m,2022
 853,Enzo Fernández,22,Central Midfield,Benfica,Chelsea FC,€85.00m,2022
 854,Wesley Fofana,21,Centre-Back,Leicester,Chelsea FC,€65.00m,2022
-855,Mykhaylo Mudryk,22,Left Winger,Shakhtar D.,Chelsea FC,€60.00m,2022
-856,Marc Cucurella,24,Left-Back,Brighton,Chelsea FC,€40.00m,2022
-857,Raheem Sterling,27,Left Winger,Man City,Chelsea FC,€60.00m,2022
+855,Mykhaylo Mudryk,22,Left Winger,Shakhtar Donetsk,Chelsea FC,€60.00m,2022
+856,Marc Cucurella,24,Left-Back,Brighton & Hove Albion,Chelsea FC,€40.00m,2022
+857,Raheem Sterling,27,Left Winger,Manchester City,Chelsea FC,€60.00m,2022
 858,Benoît Badiashile,21,Centre-Back,Monaco,Chelsea FC,€40.00m,2022
 859,Kalidou Koulibaly,31,Centre-Back,SSC Napoli,Chelsea FC,€25.00m,2022
 860,Noni Madueke,20,Right Winger,PSV Eindhoven,Chelsea FC,€28.00m,2022
@@ -878,8 +878,8 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 877,Timo Werner,26,Centre-Forward,Chelsea FC,RB Leipzig,€25.00m,2022
 878,Emerson,28,Left-Back,Chelsea FC,West Ham,€12.00m,2022
 879,Jorginho,31,Defensive Midfield,Chelsea FC,Arsenal,€35.00m,2022
-880,Billy Gilmour,21,Central Midfield,Chelsea FC,Brighton,€9.00m,2022
-881,Romelu Lukaku,29,Centre-Forward,Chelsea FC,Inter,€40.00m,2022
+880,Billy Gilmour,21,Central Midfield,Chelsea FC,Brighton & Hove Albion,€9.00m,2022
+881,Romelu Lukaku,29,Centre-Forward,Chelsea FC,Inter Milan,€40.00m,2022
 882,Michy Batshuayi,28,Centre-Forward,Chelsea FC,Fenerbahce,€10.00m,2022
 883,Malang Sarr,23,Centre-Back,Chelsea FC,Monaco,€8.00m,2022
 884,Kenedy,26,Left Winger,Chelsea FC,Real Valladolid,€3.00m,2022
@@ -915,29 +915,29 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 914,Jaroslaw Jach,28,Centre-Back,Crystal Palace,Zaglebie Lubin,€400k,2022
 915,Luke Plange,19,Centre-Forward,Crystal Palace,RWDM,€1.20m,2022
 916,Remi Matthews,28,Goalkeeper,Crystal Palace,St. Johnstone,€350k,2022
-917,Jack Butland,29,Goalkeeper,Crystal Palace,Man Utd,€1.50m,2022
+917,Jack Butland,29,Goalkeeper,Crystal Palace,Manchester United,€1.50m,2022
 918,Malcolm Ebiowei,19,Right Winger,Crystal Palace,Hull City,€3.00m,2022
 919,Luke Plange,20,Centre-Forward,Crystal Palace,Lincoln City,€1.20m,2022
 920,Albert Sambi Lokonga,23,Central Midfield,Crystal Palace,Arsenal,€15.00m,2022
 921,Amadou Onana,20,Defensive Midfield,LOSC Lille,Everton FC,€42.00m,2022
 922,Dwight McNeil,22,Left Winger,Burnley,Everton FC,€18.00m,2022
-923,Neal Maupay,26,Centre-Forward,Brighton,Everton FC,€13.00m,2022
-924,James Garner,21,Defensive Midfield,Man Utd U21,Everton FC,€14.00m,2022
-925,Idrissa Gueye,32,Central Midfield,Paris SG,Everton FC,€8.00m,2022
+923,Neal Maupay,26,Centre-Forward,Brighton & Hove Albion,Everton FC,€13.00m,2022
+924,James Garner,21,Defensive Midfield,Manchester United,Everton FC,€14.00m,2022
+925,Idrissa Gueye,32,Central Midfield,Paris St-Germain,Everton FC,€8.00m,2022
 926,James Tarkowski,29,Centre-Back,Burnley,Everton FC,€22.00m,2022
 927,Conor Coady,29,Centre-Back,Wolves,Everton FC,€18.00m,2022
-928,Rúben Vinagre,23,Left-Back,Sporting CP,Everton FC,€5.00m,2022
+928,Rúben Vinagre,23,Left-Back,Sporting Lisbon,Everton FC,€5.00m,2022
 929,Ellis Simms,21,Centre-Forward,Everton U21,Everton FC,€4.00m,2022
 930,Niels Nkounkou,21,Left-Back,Standard Liège,Everton FC,€3.00m,2022
 931,Jean-Philippe Gbamin,26,Defensive Midfield,CSKA Moscow,Everton FC,€6.50m,2022
 932,Niels Nkounkou,22,Left-Back,Cardiff,Everton FC,€3.00m,2022
-933,João Virgínia,22,Goalkeeper,Sporting CP,Everton FC,€700k,2022
-934,Richarlison,25,Centre-Forward,Everton FC,Tottenham,€55.00m,2022
-935,Anthony Gordon,21,Left Winger,Everton FC,Newcastle,€40.00m,2022
+933,João Virgínia,22,Goalkeeper,Sporting Lisbon,Everton FC,€700k,2022
+934,Richarlison,25,Centre-Forward,Everton FC,Tottenham Hotspur,€55.00m,2022
+935,Anthony Gordon,21,Left Winger,Everton FC,Newcastle United,€40.00m,2022
 936,Eldin Jakupovic,38,Goalkeeper,Everton FC,LAFC,€200k,2022
 937,Salomón Rondón,33,Centre-Forward,Everton FC,River Plate,€2.00m,2022
 938,Cenk Tosun,31,Centre-Forward,Everton FC,Besiktas,€2.80m,2022
-939,Jonjoe Kenny,25,Right-Back,Everton FC,Hertha BSC,€4.00m,2022
+939,Jonjoe Kenny,25,Right-Back,Everton FC,Hertha Berlin,€4.00m,2022
 940,Allan,31,Defensive Midfield,Everton FC,Al-Wahda FC,€8.00m,2022
 941,Jean-Philippe Gbamin,26,Defensive Midfield,Everton FC,Trabzonspor,€6.50m,2022
 942,Dele Alli,26,Attacking Midfield,Everton FC,Besiktas,€11.00m,2022
@@ -947,20 +947,20 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 946,André Gomes,29,Central Midfield,Everton FC,LOSC Lille,€14.00m,2022
 947,João Virgínia,22,Goalkeeper,Everton FC,SC Cambuur,€700k,2022
 948,Anwar El Ghazi,27,Right Winger,Everton FC,Aston Villa,€8.00m,2022
-949,João Palhinha,26,Defensive Midfield,Sporting CP,Fulham FC,€35.00m,2022
+949,João Palhinha,26,Defensive Midfield,Sporting Lisbon,Fulham FC,€35.00m,2022
 950,Issa Diop,25,Centre-Back,West Ham,Fulham FC,€18.00m,2022
-951,Andreas Pereira,26,Attacking Midfield,Man Utd,Fulham FC,€16.00m,2022
+951,Andreas Pereira,26,Attacking Midfield,Manchester United,Fulham FC,€16.00m,2022
 952,Sasa Lukic,26,Central Midfield,Torino,Fulham FC,€13.00m,2022
 953,Kevin Mbabu,27,Right-Back,VfL Wolfsburg,Fulham FC,€5.00m,2022
 954,Carlos Vinícius,27,Centre-Forward,Benfica,Fulham FC,€5.00m,2022
 955,Bernd Leno,30,Goalkeeper,Arsenal,Fulham FC,€10.00m,2022
 956,Willian,34,Left Winger,Corinthians,Fulham FC,€3.00m,2022
-957,Shane Duffy,31,Centre-Back,Brighton,Fulham FC,€2.50m,2022
+957,Shane Duffy,31,Centre-Back,Brighton & Hove Albion,Fulham FC,€2.50m,2022
 958,Cédric Soares,31,Right-Back,Arsenal,Fulham FC,€4.00m,2022
-959,Daniel James,24,Right Winger,Leeds,Fulham FC,€13.00m,2022
-960,Shane Duffy,30,Centre-Back,Brighton,Fulham FC,€2.50m,2022
-961,Layvin Kurzawa,29,Left-Back,Paris SG,Fulham FC,€4.00m,2022
-962,Manor Solomon,23,Left Winger,Shakhtar D.,Fulham FC,€18.00m,2022
+959,Daniel James,24,Right Winger,Leeds United,Fulham FC,€13.00m,2022
+960,Shane Duffy,30,Centre-Back,Brighton & Hove Albion,Fulham FC,€2.50m,2022
+961,Layvin Kurzawa,29,Left-Back,Paris St-Germain,Fulham FC,€4.00m,2022
+962,Manor Solomon,23,Left Winger,Shakhtar Donetsk,Fulham FC,€18.00m,2022
 963,Tyrese Francois,22,Central Midfield,HNK Gorica,Fulham FC,€500k,2022
 964,Anthony Knockaert,31,Right Winger,Huddersfield,Fulham FC,€1.20m,2022
 965,Frank Anguissa,26,Central Midfield,SSC Napoli,Fulham FC,€40.00m,2022
@@ -984,8 +984,8 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 983,Steven Sessegnon,22,Right-Back,Fulham FC,Charlton,€500k,2022
 984,Rodrigo Muniz,21,Centre-Forward,Fulham FC,Middlesbrough,€5.00m,2022
 985,Kevin Mbabu,27,Right-Back,Fulham FC,Servette FC,€5.00m,2022
-986,Daniel James,25,Right Winger,Fulham FC,Leeds,€13.00m,2022
-987,Shane Duffy,31,Centre-Back,Fulham FC,Brighton,€2.50m,2022
+986,Daniel James,25,Right Winger,Fulham FC,Leeds United,€13.00m,2022
+987,Shane Duffy,31,Centre-Back,Fulham FC,Brighton & Hove Albion,€2.50m,2022
 988,Brenden Aaronson,21,Attacking Midfield,RB Salzburg,Leeds United,€30.00m,2022
 989,Georginio Rutter,20,Centre-Forward,TSG Hoffenheim,Leeds United,€22.00m,2022
 990,Luis Sinisterra,23,Left Winger,Feyenoord,Leeds United,€22.00m,2022
@@ -1009,7 +1009,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1008,Tyler Roberts,24,Centre-Forward,QPR,Leeds United,€4.00m,2022
 1009,Mateusz Bogusz,20,Attacking Midfield,UD Ibiza,Leeds United,€1.00m,2022
 1010,Raphinha,25,Right Winger,Leeds United,Barcelona,€50.00m,2022
-1011,Kalvin Phillips,26,Defensive Midfield,Leeds United,Man City,€35.00m,2022
+1011,Kalvin Phillips,26,Defensive Midfield,Leeds United,Manchester City,€35.00m,2022
 1012,Hélder Costa,28,Right Winger,Leeds United,Al-Ittihad Club,€3.50m,2022
 1013,Leif Davis,22,Left-Back,Leeds United,Ipswich,€1.00m,2022
 1014,Mateusz Bogusz,21,Attacking Midfield,Leeds United,LAFC,€1.00m,2022
@@ -1030,18 +1030,18 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1029,Harry Souttar,24,Centre-Back,Stoke City,Leicester City,€15.00m,2022
 1030,Victor Kristiansen,20,Left-Back,FC Copenhagen,Leicester City,€12.00m,2022
 1031,Alex Smithies,32,Goalkeeper,Cardiff,Leicester City,€600k,2022
-1032,Tetê,22,Right Winger,Shakhtar D.,Leicester City,€25.00m,2022
+1032,Tetê,22,Right Winger,Shakhtar Donetsk,Leicester City,€25.00m,2022
 1033,Dennis Praet,28,Central Midfield,Torino,Leicester City,€8.00m,2022
-1034,George Hirst,23,Centre-Forward,Blackburn,Leicester City,€800k,2022
+1034,George Hirst,23,Centre-Forward,Blackburn Rovers,Leicester City,€800k,2022
 1035,George Hirst,24,Centre-Forward,Ipswich,Leicester City,€800k,2022
 1036,Hamza Choudhury,25,Defensive Midfield,Watford,Leicester City,€5.00m,2022
-1037,Marc Albrighton,33,Right Midfield,West Brom,Leicester City,€2.00m,2022
+1037,Marc AlBrighton & Hove Albion,33,Right Midfield,West Brom,Leicester City,€2.00m,2022
 1038,Wesley Fofana,21,Centre-Back,Leicester City,Chelsea,€65.00m,2022
 1039,Kasper Schmeichel,35,Goalkeeper,Leicester City,OGC Nice,€2.50m,2022
 1040,George Hirst,23,Centre-Forward,Leicester City,Ipswich,€800k,2022
-1041,Marc Albrighton,33,Right Midfield,Leicester City,West Brom,€2.00m,2022
+1041,Marc AlBrighton & Hove Albion,33,Right Midfield,Leicester City,West Brom,€2.00m,2022
 1042,Ayoze Pérez,29,Second Striker,Leicester City,Real Betis,€6.00m,2022
-1043,George Hirst,23,Centre-Forward,Leicester City,Blackburn,€800k,2022
+1043,George Hirst,23,Centre-Forward,Leicester City,Blackburn Rovers,€800k,2022
 1044,Hamza Choudhury,24,Defensive Midfield,Leicester City,Watford,€5.00m,2022
 1045,Ademola Lookman,24,Second Striker,Leicester City,RB Leipzig,€30.00m,2022
 1046,Darwin Núñez,23,Centre-Forward,Benfica,Liverpool FC,€70.00m,2022
@@ -1063,7 +1063,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1062,Rhys Williams,21,Centre-Back,Liverpool FC,Blackpool,€3.00m,2022
 1063,Sepp van den Berg,20,Centre-Back,Liverpool FC,FC Schalke 04,€5.00m,2022
 1064,Erling Haaland,21,Centre-Forward,Bor. Dortmund,Manchester City,€170.00m,2022
-1065,Kalvin Phillips,26,Defensive Midfield,Leeds,Manchester City,€35.00m,2022
+1065,Kalvin Phillips,26,Defensive Midfield,Leeds United,Manchester City,€35.00m,2022
 1066,Manuel Akanji,27,Centre-Back,Bor. Dortmund,Manchester City,€30.00m,2022
 1067,Sergio Gómez,21,Left-Back,RSC Anderlecht,Manchester City,€15.00m,2022
 1068,Máximo Perrone,20,Defensive Midfield,Vélez Sarsfield,Manchester City,€10.00m,2022
@@ -1072,7 +1072,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1071,Nahuel Bustos,24,Centre-Forward,São Paulo,Manchester City,€3.00m,2022
 1072,Diego Rosa,20,Central Midfield,Vizela,Manchester City,€2.00m,2022
 1073,Zack Steffen,28,Goalkeeper,Middlesbrough,Manchester City,€4.50m,2022
-1074,Pedro Porro,22,Right-Back,Sporting CP,Manchester City,€35.00m,2022
+1074,Pedro Porro,22,Right-Back,Sporting Lisbon,Manchester City,€35.00m,2022
 1075,Julián Álvarez,22,Centre-Forward,River Plate,Manchester City,€50.00m,2022
 1076,Yangel Herrera,24,Central Midfield,Espanyol,Manchester City,€9.00m,2022
 1077,Yan Couto,20,Right-Back,SC Braga,Manchester City,€4.00m,2022
@@ -1089,7 +1089,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1088,Raheem Sterling,27,Left Winger,Manchester City,Chelsea,€60.00m,2022
 1089,Gabriel Jesus,25,Centre-Forward,Manchester City,Arsenal,€75.00m,2022
 1090,Oleksandr Zinchenko,25,Left-Back,Manchester City,Arsenal,€40.00m,2022
-1091,Pedro Porro,22,Right-Back,Manchester City,Sporting CP,€35.00m,2022
+1091,Pedro Porro,22,Right-Back,Manchester City,Sporting Lisbon,€35.00m,2022
 1092,Ko Itakura,25,Centre-Back,Manchester City,Bor. M'gladbach,€12.00m,2022
 1093,Arijanet Muric,23,Goalkeeper,Manchester City,Burnley,€6.00m,2022
 1094,Diego Rosa,20,Central Midfield,Manchester City,EC Bahia,€2.00m,2022
@@ -1111,15 +1111,15 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1110,Lisandro Martínez,24,Centre-Back,Ajax,Manchester United,€50.00m,2022
 1111,Tyrell Malacia,22,Left-Back,Feyenoord,Manchester United,€22.00m,2022
 1112,Wout Weghorst,30,Centre-Forward,Burnley,Manchester United,€14.00m,2022
-1113,Martin Dúbravka,33,Goalkeeper,Newcastle,Manchester United,€2.50m,2022
+1113,Martin Dúbravka,33,Goalkeeper,Newcastle United,Manchester United,€2.50m,2022
 1114,Christian Eriksen,30,Central Midfield,Brentford,Manchester United,€25.00m,2022
 1115,Jack Butland,29,Goalkeeper,Crystal Palace,Manchester United,€1.50m,2022
 1116,Marcel Sabitzer,28,Central Midfield,Bayern Munich,Manchester United,€20.00m,2022
-1117,Hannibal,19,Attacking Midfield,Man Utd U21,Manchester United,€8.00m,2022
-1118,Kobbie Mainoo,17,Central Midfield,Man Utd U21,Manchester United,€800k,2022
-1119,Zidane Iqbal,19,Central Midfield,Man Utd U21,Manchester United,€800k,2022
-1120,Álvaro Fernandez,19,Left-Back,Man Utd U21,Manchester United,€6.00m,2022
-1121,Alejandro Garnacho,18,Left Winger,Man Utd U21,Manchester United,€25.00m,2022
+1117,Hannibal,19,Attacking Midfield,Manchester United,Manchester United,€8.00m,2022
+1118,Kobbie Mainoo,17,Central Midfield,Manchester United,Manchester United,€800k,2022
+1119,Zidane Iqbal,19,Central Midfield,Manchester United,Manchester United,€800k,2022
+1120,Álvaro Fernandez,19,Left-Back,Manchester United,Manchester United,€6.00m,2022
+1121,Alejandro Garnacho,18,Left Winger,Manchester United,Manchester United,€25.00m,2022
 1122,Amad Diallo,20,Right Winger,Sunderland,Manchester United,€13.00m,2022
 1123,Hannibal,20,Attacking Midfield,Birmingham,Manchester United,€8.00m,2022
 1124,Álvaro Fernandez,20,Left-Back,Preston,Manchester United,€6.00m,2022
@@ -1145,7 +1145,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1144,Alex Telles,29,Left-Back,Manchester United,Sevilla FC,€12.00m,2022
 1145,Shola Shoretire,18,Right Winger,Manchester United,Bolton,€4.00m,2022
 1146,Álvaro Fernandez,19,Left-Back,Manchester United,Preston,€6.00m,2022
-1147,Martin Dúbravka,33,Goalkeeper,Manchester United,Newcastle,€2.50m,2022
+1147,Martin Dúbravka,33,Goalkeeper,Manchester United,Newcastle United,€2.50m,2022
 1148,Alexander Isak,22,Centre-Forward,Real Sociedad,Newcastle United,€50.00m,2022
 1149,Anthony Gordon,21,Left Winger,Everton,Newcastle United,€40.00m,2022
 1150,Sven Botman,22,Centre-Back,LOSC Lille,Newcastle United,€45.00m,2022
@@ -1158,12 +1158,12 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1157,Karl Darlow,32,Goalkeeper,Hull City,Newcastle United,€1.20m,2022
 1158,Matty Longstaff,22,Central Midfield,Colchester Utd.,Newcastle United,€1.50m,2022
 1159,Garang Kuol,18,Right Winger,Heart of Midl.,Newcastle United,€800k,2022
-1160,Martin Dúbravka,33,Goalkeeper,Man Utd,Newcastle United,€2.50m,2022
+1160,Martin Dúbravka,33,Goalkeeper,Manchester United,Newcastle United,€2.50m,2022
 1161,Kell Watts,23,Centre-Back,Peterborough,Newcastle United,€200k,2022
-1162,Ciaran Clark,33,Centre-Back,Sheff Utd,Newcastle United,€700k,2022
+1162,Ciaran Clark,33,Centre-Back,Sheffield United,Newcastle United,€700k,2022
 1163,Jeff Hendrick,31,Central Midfield,Reading,Newcastle United,€2.50m,2022
-1164,Isaac Hayden,28,Defensive Midfield,Norwich,Newcastle United,€4.00m,2022
-1165,Martin Dúbravka,33,Goalkeeper,Newcastle United,Man Utd,€2.50m,2022
+1164,Isaac Hayden,28,Defensive Midfield,Norwich City,Newcastle United,€4.00m,2022
+1165,Martin Dúbravka,33,Goalkeeper,Newcastle United,Manchester United,€2.50m,2022
 1166,Federico Fernández,33,Centre-Back,Newcastle United,Elche CF,€1.00m,2022
 1167,Dwight Gayle,32,Centre-Forward,Newcastle United,Stoke City,€900k,2022
 1168,Kell Watts,22,Centre-Back,Newcastle United,Peterborough,€200k,2022
@@ -1171,9 +1171,9 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1170,Jonjo Shelvey,30,Central Midfield,Newcastle United,Nottm Forest,€7.00m,2022
 1171,Chris Wood,31,Centre-Forward,Newcastle United,Nottm Forest,€10.00m,2022
 1172,Garang Kuol,18,Right Winger,Newcastle United,Heart of Midl.,€800k,2022
-1173,Isaac Hayden,27,Defensive Midfield,Newcastle United,Norwich,€4.00m,2022
+1173,Isaac Hayden,27,Defensive Midfield,Newcastle United,Norwich City,€4.00m,2022
 1174,Matty Longstaff,22,Central Midfield,Newcastle United,Colchester Utd.,€1.50m,2022
-1175,Ciaran Clark,32,Centre-Back,Newcastle United,Sheff Utd,€700k,2022
+1175,Ciaran Clark,32,Centre-Back,Newcastle United,Sheffield United,€700k,2022
 1176,Karl Darlow,32,Goalkeeper,Newcastle United,Hull City,€1.20m,2022
 1177,Jeff Hendrick,30,Central Midfield,Newcastle United,Reading,€2.50m,2022
 1178,Morgan Gibbs-White,22,Attacking Midfield,Wolves,Nottingham Forest,€30.00m,2022
@@ -1196,15 +1196,15 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1195,Brandon Aguilera,19,Attacking Midfield,LD Alajuelense,Nottingham Forest,€275k,2022
 1196,Wayne Hennessey,35,Goalkeeper,Burnley,Nottingham Forest,€500k,2022
 1197,Adnan Kanuric,22,Goalkeeper,FK Sarajevo,Nottingham Forest,€150k,2022
-1198,Jesse Lingard,29,Attacking Midfield,Man Utd,Nottingham Forest,€12.00m,2022
+1198,Jesse Lingard,29,Attacking Midfield,Manchester United,Nottingham Forest,€12.00m,2022
 1199,André Ayew,33,Left Winger,Al-Sadd SC,Nottingham Forest,€2.20m,2022
 1200,Gustavo Scarpa,28,Attacking Midfield,Palmeiras,Nottingham Forest,€12.00m,2022
 1201,Cheikhou Kouyaté,32,Defensive Midfield,Crystal Palace,Nottingham Forest,€3.00m,2022
-1202,Jonjo Shelvey,30,Central Midfield,Newcastle,Nottingham Forest,€7.00m,2022
-1203,Chris Wood,31,Centre-Forward,Newcastle,Nottingham Forest,€10.00m,2022
+1202,Jonjo Shelvey,30,Central Midfield,Newcastle United,Nottingham Forest,€7.00m,2022
+1203,Chris Wood,31,Centre-Forward,Newcastle United,Nottingham Forest,€10.00m,2022
 1204,Loïc Badé,22,Centre-Back,Rennes,Nottingham Forest,€10.00m,2022
-1205,Keylor Navas,36,Goalkeeper,Paris SG,Nottingham Forest,€5.00m,2022
-1206,Dean Henderson,25,Goalkeeper,Man Utd,Nottingham Forest,€22.00m,2022
+1205,Keylor Navas,36,Goalkeeper,Paris St-Germain,Nottingham Forest,€5.00m,2022
+1206,Dean Henderson,25,Goalkeeper,Manchester United,Nottingham Forest,€22.00m,2022
 1207,Nuno Da Costa,31,Centre-Forward,SM Caen,Nottingham Forest,€1.00m,2022
 1208,Jordan Smith,28,Goalkeeper,Huddersfield,Nottingham Forest,€300k,2022
 1209,Carl Jenkinson,30,Right-Back,Melbourne City,Nottingham Forest,€450k,2022
@@ -1219,7 +1219,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1218,Brice Samba,28,Goalkeeper,Nottingham Forest,Lens,€10.00m,2022
 1219,Lewis Grabban,34,Centre-Forward,Nottingham Forest,Al-Ahli SFC,€300k,2022
 1220,Joe Lolley,29,Right Winger,Nottingham Forest,Sydney FC,€1.80m,2022
-1221,Carl Jenkinson,30,Right-Back,Nottingham Forest,Newcastle,€450k,2022
+1221,Carl Jenkinson,30,Right-Back,Nottingham Forest,Newcastle United,€450k,2022
 1222,Tobias Figueiredo,28,Centre-Back,Nottingham Forest,Hull City,€2.00m,2022
 1223,Nikolas Ioannou,26,Left-Back,Nottingham Forest,Como,€550k,2022
 1224,Xande Silva,25,Right Winger,Nottingham Forest,Dijon,€800k,2022
@@ -1239,7 +1239,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1238,Alex Mighten,20,Left Winger,Nottingham Forest,Sheff Wed,€600k,2022
 1239,Brandon Aguilera,19,Attacking Midfield,Nottingham Forest,Guanacasteca,€275k,2022
 1240,Ui-jo Hwang,30,Centre-Forward,Nottingham Forest,FC Seoul,€5.00m,2022
-1241,Dean Henderson,26,Goalkeeper,Nottingham Forest,Man Utd,€22.00m,2022
+1241,Dean Henderson,26,Goalkeeper,Nottingham Forest,Manchester United,€22.00m,2022
 1242,Loïc Badé,22,Centre-Back,Nottingham Forest,Rennes,€10.00m,2022
 1243,Kamaldeen Sulemana,20,Left Winger,Rennes,Southampton FC,€22.00m,2022
 1244,Paul Onuachu,28,Centre-Forward,KRC Genk,Southampton FC,€17.00m,2022
@@ -1263,7 +1263,7 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1262,Dan N'Lundulu,24,Centre-Forward,Bolton,Southampton FC,€900k,2022
 1263,Jack Stephens,29,Centre-Back,Bournemouth,Southampton FC,€5.00m,2022
 1264,Oriol Romeu,30,Defensive Midfield,Southampton FC,Girona,€5.00m,2022
-1265,Fraser Forster,34,Goalkeeper,Southampton FC,Tottenham,€1.50m,2022
+1265,Fraser Forster,34,Goalkeeper,Southampton FC,Tottenham Hotspur,€1.50m,2022
 1266,Nathan Redmond,28,Right Winger,Southampton FC,Besiktas,€9.50m,2022
 1267,Harry Lewis,24,Goalkeeper,Southampton FC,Bradford,€300k,2022
 1268,Shane Long,35,Centre-Forward,Southampton FC,Reading,€300k,2022
@@ -1278,13 +1278,13 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1277,Ainsley Maitland-Niles,25,Right Midfield,Southampton FC,Arsenal,€8.00m,2022
 1278,Richarlison,25,Centre-Forward,Everton,Tottenham Hotspur,€55.00m,2022
 1279,Cristian Romero,24,Centre-Back,Atalanta BC,Tottenham Hotspur,€60.00m,2022
-1280,Yves Bissouma,25,Central Midfield,Brighton,Tottenham Hotspur,€25.00m,2022
+1280,Yves Bissouma,25,Central Midfield,Brighton & Hove Albion,Tottenham Hotspur,€25.00m,2022
 1281,Destiny Udogie,19,Left-Back,Udinese Calcio,Tottenham Hotspur,€22.00m,2022
 1282,Djed Spence,21,Right-Back,Middlesbrough,Tottenham Hotspur,€13.00m,2022
-1283,Pedro Porro,23,Right-Back,Sporting CP,Tottenham Hotspur,€35.00m,2022
+1283,Pedro Porro,23,Right-Back,Sporting Lisbon,Tottenham Hotspur,€35.00m,2022
 1284,Arnaut Danjuma,25,Left Winger,Villarreal,Tottenham Hotspur,€27.00m,2022
 1285,Fraser Forster,34,Goalkeeper,Southampton,Tottenham Hotspur,€1.50m,2022
-1286,Ivan Perisic,33,Left Midfield,Inter,Tottenham Hotspur,€10.00m,2022
+1286,Ivan Perisic,33,Left Midfield,Inter Milan,Tottenham Hotspur,€10.00m,2022
 1287,Clément Lenglet,27,Centre-Back,Barcelona,Tottenham Hotspur,€12.00m,2022
 1288,Pape Matar Sarr,19,Central Midfield,FC Metz,Tottenham Hotspur,€15.00m,2022
 1289,Tanguy Ndombélé,25,Central Midfield,Olympique Lyon,Tottenham Hotspur,€25.00m,2022
@@ -1310,9 +1310,9 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1309,Maxwel Cornet,25,Left Winger,Burnley,West Ham United,€15.00m,2022
 1310,Emerson,28,Left-Back,Chelsea,West Ham United,€12.00m,2022
 1311,Danny Ings,30,Centre-Forward,Aston Villa,West Ham United,€16.00m,2022
-1312,Thilo Kehrer,25,Centre-Back,Paris SG,West Ham United,€18.00m,2022
+1312,Thilo Kehrer,25,Centre-Back,Paris St-Germain,West Ham United,€18.00m,2022
 1313,Flynn Downes,23,Central Midfield,Swansea,West Ham United,€8.00m,2022
-1314,Alphonse Areola,29,Goalkeeper,Paris SG,West Ham United,€8.00m,2022
+1314,Alphonse Areola,29,Goalkeeper,Paris St-Germain,West Ham United,€8.00m,2022
 1315,Luizão,20,Centre-Back,São Paulo,West Ham United,€1.00m,2022
 1316,Nathan Trott,23,Goalkeeper,West Ham U21,West Ham United,€400k,2022
 1317,Conor Coventry,23,Defensive Midfield,Rotherham,West Ham United,€1.50m,2022
@@ -1325,16 +1325,16 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1324,Nathan Trott,23,Goalkeeper,West Ham United,Vejle BK,€400k,2022
 1325,Arthur Masuaku,28,Left-Back,West Ham United,Besiktas,€5.50m,2022
 1326,Nikola Vlasic,24,Attacking Midfield,West Ham United,Torino,€20.00m,2022
-1327,Alphonse Areola,29,Goalkeeper,West Ham United,Paris SG,€8.00m,2022
+1327,Alphonse Areola,29,Goalkeeper,West Ham United,Paris St-Germain,€8.00m,2022
 1328,Alex Kral,24,Defensive Midfield,West Ham United,Spartak Moscow,€5.50m,2022
-1329,Matheus Nunes,23,Central Midfield,Sporting CP,Wolverhampton Wanderers,€45.00m,2022
+1329,Matheus Nunes,23,Central Midfield,Sporting Lisbon,Wolverhampton Wanderers,€45.00m,2022
 1330,Gonçalo Guedes,25,Second Striker,Valencia,Wolverhampton Wanderers,€28.00m,2022
 1331,Nathan Collins,21,Centre-Back,Burnley,Wolverhampton Wanderers,€22.00m,2022
 1332,João Gomes,21,Central Midfield,Flamengo,Wolverhampton Wanderers,€15.00m,2022
 1333,Sasa Kalajdzic,25,Centre-Forward,VfB Stuttgart,Wolverhampton Wanderers,€18.00m,2022
 1334,Hee-chan Hwang,26,Centre-Forward,RB Leipzig,Wolverhampton Wanderers,€12.00m,2022
 1335,Mario Lemina,29,Defensive Midfield,OGC Nice,Wolverhampton Wanderers,€10.00m,2022
-1336,Pablo Sarabia,30,Right Winger,Paris SG,Wolverhampton Wanderers,€16.00m,2022
+1336,Pablo Sarabia,30,Right Winger,Paris St-Germain,Wolverhampton Wanderers,€16.00m,2022
 1337,Craig Dawson,32,Centre-Back,West Ham,Wolverhampton Wanderers,€2.50m,2022
 1338,Boubacar Traoré,21,Defensive Midfield,FC Metz,Wolverhampton Wanderers,€5.00m,2022
 1339,Daniel Bentley,29,Goalkeeper,Bristol City,Wolverhampton Wanderers,€1.80m,2022
@@ -1355,10 +1355,10 @@ id,player_name,player_age,player_position,club_left,club_joined,market_value,sea
 1354,Leonardo Campana,22,Centre-Forward,Miami,Wolverhampton Wanderers,€3.00m,2022
 1355,Patrick Cutrone,24,Centre-Forward,FC Empoli,Wolverhampton Wanderers,€2.50m,2022
 1356,Renat Dadashov,23,Centre-Forward,Tondela,Wolverhampton Wanderers,€1.00m,2022
-1357,Rúben Vinagre,23,Left-Back,Sporting CP,Wolverhampton Wanderers,€5.00m,2022
+1357,Rúben Vinagre,23,Left-Back,Sporting Lisbon,Wolverhampton Wanderers,€5.00m,2022
 1358,Morgan Gibbs-White,22,Attacking Midfield,Wolverhampton Wanderers,Nottm Forest,€30.00m,2022
 1359,Leander Dendoncker,27,Defensive Midfield,Wolverhampton Wanderers,Aston Villa,€17.00m,2022
-1360,Rúben Vinagre,23,Left-Back,Wolverhampton Wanderers,Sporting CP,€5.00m,2022
+1360,Rúben Vinagre,23,Left-Back,Wolverhampton Wanderers,Sporting Lisbon,€5.00m,2022
 1361,Leonardo Campana,22,Centre-Forward,Wolverhampton Wanderers,Miami,€3.00m,2022
 1362,Willy Boly,31,Centre-Back,Wolverhampton Wanderers,Nottm Forest,€4.00m,2022
 1363,Sang-bin Jeong,20,Centre-Forward,Wolverhampton Wanderers,Minnesota,€2.00m,2022
