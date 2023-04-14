@@ -28,7 +28,7 @@ def write_csv_row(filename, fieldnames, row):
         writer.writerow(row)
 
 def structure_data(raw_text):
-    prompt = f"Structure the following raw_text into json that includes fields 'player_name' and 'clubs_mentioned': {raw_text}. The result should be an array of objects where each object contains the player_name and clubs_mentioned fields and all the other fields you suggest. Only include football clubs in the clubs_mentioned field and not international teams. Only include actual football players in the player_name field and not football managers."
+    prompt = f"Structure the following raw_text into json that includes fields 'player_name' and 'clubs_mentioned': {raw_text}. The result should be an array of objects where each object contains the player_name and clubs_mentioned fields. Only include football clubs in the clubs_mentioned field and not international teams. Only include actual football players in the player_name field and not football managers."
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=prompt,
