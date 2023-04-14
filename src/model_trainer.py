@@ -8,18 +8,22 @@ from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder
 import utils
 from sklearn.impute import SimpleImputer
 
+# Load data from a CSV file
 def load_data(filename):
     return pd.read_csv(utils.get_data_file_path(filename))
 
+# Drop rows with missing veracity values
 def drop_na_veracity(data):
     return data.dropna(subset=['veracity'])
 
+# Convert clubs_mentioned column to a list of clubs
 def convert_clubs_mentioned(data):
     data = data.copy()
     data.loc[:, 'clubs_mentioned'] = data['clubs_mentioned'].apply(
         lambda x: eval(x) if x.startswith('[') else x.split(', '))
     return data
 
+# Clean market_value column by converting to numerical values
 def clean_market_value(value):
     if pd.isna(value) or value == '-':
         return np.nan
@@ -31,11 +35,13 @@ def clean_market_value(value):
         value = float(value.replace('k', '')) * 1_000
     return value
 
+# Process market_value column
 def process_market_value(data):
     data = data.copy()
     data[data.columns[data.columns.get_loc('market_value')]] = data['market_value'].apply(clean_market_value)
     return data
 
+# One-hot encode categorical columns
 def encode_columns(data, columns_to_encode):
     encoded_data = []
     for col in columns_to_encode:
@@ -51,11 +57,13 @@ def encode_columns(data, columns_to_encode):
         encoded_data.append(encoded_df)
     return encoded_data
 
+# Concatenate original data with encoded columns
 def concat_encoded_data(data, encoded_data):
     data.reset_index(drop=True, inplace=True)
     data_encoded = pd.concat([data] + encoded_data, axis=1)
     return data_encoded
 
+# Preprocess data: drop missing values, convert clubs_mentioned, process market_value, and one-hot encode categorical columns
 def preprocess_data(data):
     data = drop_na_veracity(data)
     data = convert_clubs_mentioned(data)
@@ -65,15 +73,18 @@ def preprocess_data(data):
     data_encoded = concat_encoded_data(data, encoded_data)
     return data_encoded
 
+# Drop unnecessary columns
 def drop_columns(data_encoded):
     return data_encoded.drop(['date', 'id', 'clubs_mentioned', 'nationality', 'position', 'source', 'veracity'], axis=1)
 
+# Get X (features) and y (target)
 def get_X_y(data, data_encoded):
     data = data.dropna(subset=['veracity'])
     X = drop_columns(data_encoded)
     y = data['veracity'].astype(int)
     return X, y
 
+# Impute missing values using mean imputation
 def impute_missing_values(X):
     imputer = SimpleImputer(strategy='mean')
     X_imputed = imputer.fit_transform(X)

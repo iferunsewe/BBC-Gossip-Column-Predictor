@@ -1,5 +1,5 @@
 import pandas as pd
-from fuzzywuzzy import fuzz, process
+from thefuzz import fuzz, process
 import os
 import sys
 

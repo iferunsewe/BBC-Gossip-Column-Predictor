@@ -3,7 +3,7 @@ import re
 import sys
 import datetime
 import pandas as pd
-from fuzzywuzzy import process
+from thefuzz import process
 import locationtagger
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
