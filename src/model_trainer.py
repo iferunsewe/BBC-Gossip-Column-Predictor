@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.metrics import accuracy_score, classification_report
 from xgboost import XGBClassifier
@@ -15,6 +15,7 @@ def drop_na_veracity(data):
     return data.dropna(subset=['veracity'])
 
 def convert_clubs_mentioned(data):
+    data = data.copy()
     data.loc[:, 'clubs_mentioned'] = data['clubs_mentioned'].apply(
         lambda x: eval(x) if x.startswith('[') else x.split(', '))
     return data
@@ -31,7 +32,8 @@ def clean_market_value(value):
     return value
 
 def process_market_value(data):
-    data.loc[:, 'market_value'] = data['market_value'].apply(clean_market_value)
+    data = data.copy()
+    data[data.columns[data.columns.get_loc('market_value')]] = data['market_value'].apply(clean_market_value)
     return data
 
 def encode_columns(data, columns_to_encode):
@@ -42,7 +44,7 @@ def encode_columns(data, columns_to_encode):
             encoded = mlb.fit_transform(data[col])
             encoded_df = pd.DataFrame(encoded, columns=mlb.classes_)
         else:
-            ohe = OneHotEncoder(sparse=False)
+            ohe = OneHotEncoder(sparse_output=False)
             encoded = ohe.fit_transform(data[[col]])
             encoded_df = pd.DataFrame(encoded, columns=ohe.get_feature_names_out([col]))
         
@@ -99,11 +101,23 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test):
     models = {
         'Random Forest': RandomForestClassifier(random_state=42),
         'AdaBoost': AdaBoostClassifier(random_state=42),
-        'XGBoost': XGBClassifier(random_state=42, use_label_encoder=False, eval_metric='mlogloss')
+        'XGBoost': XGBClassifier(random_state=42, eval_metric='mlogloss')
     }
 
+    # Using StratifiedKFold to maintain class distribution across folds
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
     for model_name, model in models.items():
-        accuracy, report = train_and_evaluate_model(model, X_train, X_test, y_train, y_test)
+        # Perform k-fold cross-validation and compute mean accuracy
+        cv_accuracy = np.mean(cross_val_score(model, X_train, y_train, cv=cv, scoring='accuracy'))
+        print(f"{model_name} cross-validated accuracy: {cv_accuracy}")
+
+        # Train and evaluate the model on the test set
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        accuracy = accuracy_score(y_test, y_pred)
+        report = classification_report(y_test, y_pred)
+
         print_model_results(model_name, accuracy, report)
         print_top_5_feature_importances(model_name, model, X_train)
 
