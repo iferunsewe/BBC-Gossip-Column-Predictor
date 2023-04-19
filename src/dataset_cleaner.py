@@ -5,6 +5,7 @@ import datetime
 import pandas as pd
 from thefuzz import process
 import locationtagger
+import numpy as np
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import get_data_file_path
@@ -187,6 +188,18 @@ def days_to_next_transfer_window(date_str):
 
     return days_to_next
 
+# Clean market_value column by converting to numerical values
+def clean_market_value(value):
+    if pd.isna(value) or value == '-':
+        return np.nan
+
+    value = value.replace('€', '')
+    if 'm' in value:
+        value = float(value.replace('m', '')) * 1_000_000
+    elif 'k' in value:
+        value = float(value.replace('k', '')) * 1_000
+    return value
+
 def clean_dataset(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
     print("Cleaning dataset...")
 
@@ -203,9 +216,10 @@ def clean_dataset(input_rows, transfer_news_data, football_api_players, transfer
     cleaned_data['nationality'] = cleaned_data.apply(lambda row: row['nationality'] if not pd.isnull(row['nationality']) else find_nationality_in_text(row['raw_text']), axis=1)
     cleaned_data['position'] = cleaned_data.apply(lambda row: row['position'] if not pd.isnull(row['position']) else find_position_in_text(row['raw_text']), axis=1)
     cleaned_data['time_to_transfer_window'] = cleaned_data['date'].apply(days_to_next_transfer_window)
+    cleaned_data['market_value'] = cleaned_data['market_value'].apply(clean_market_value)
     cleaned_data = cleaned_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
 
-    output_path_filename = get_data_file_path("cleaned_structured_data.csv")
+    output_path_filename = get_data_file_path("cleaned_data.csv")
     cleaned_data.to_csv(output_path_filename, index=False)
     print(f"Cleaned dataset saved to {output_path_filename}")
 

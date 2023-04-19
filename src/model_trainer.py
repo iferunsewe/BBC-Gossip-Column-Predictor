@@ -26,24 +26,6 @@ def convert_clubs_mentioned(data):
         lambda x: eval(x) if x.startswith('[') else x.split(', '))
     return data
 
-# Clean market_value column by converting to numerical values
-def clean_market_value(value):
-    if pd.isna(value) or value == '-':
-        return np.nan
-
-    value = value.replace('€', '')
-    if 'm' in value:
-        value = float(value.replace('m', '')) * 1_000_000
-    elif 'k' in value:
-        value = float(value.replace('k', '')) * 1_000
-    return value
-
-# Process market_value column
-def process_market_value(data):
-    data = data.copy()
-    data[data.columns[data.columns.get_loc('market_value')]] = data['market_value'].apply(clean_market_value)
-    return data
-
 # One-hot encode categorical columns
 def encode_columns(data, columns_to_encode):
     encoded_data = []
@@ -66,11 +48,10 @@ def concat_encoded_data(data, encoded_data):
     data_encoded = pd.concat([data] + encoded_data, axis=1)
     return data_encoded
 
-# Preprocess data: drop missing values, convert clubs_mentioned, process market_value, and one-hot encode categorical columns
+# Preprocess data: drop missing values, convert clubs_mentioned and one-hot encode categorical columns
 def preprocess_data(data):
     data = drop_na_veracity(data)
     data = convert_clubs_mentioned(data)
-    data = process_market_value(data)
     columns_to_encode = ['clubs_mentioned', 'nationality', 'position', 'source']
     encoded_data = encode_columns(data, columns_to_encode)
     data_encoded = concat_encoded_data(data, encoded_data)
@@ -155,10 +136,6 @@ def print_top_5_feature_importances(model_name, model, X_train):
 def preprocess_for_visulization(data, x_col, y_col):
     # Drop rows with NaN values in the x_col and y_col columns
     data = data[[x_col, y_col]].dropna()
-
-    if x_col == 'market_value':
-        # Clean market_value column and convert to numeric
-        data[x_col] = data[x_col].apply(clean_market_value)
 
     # Convert 'veracity' column to numeric
     data[y_col] = pd.to_numeric(data[y_col])
