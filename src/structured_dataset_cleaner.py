@@ -94,7 +94,6 @@ def get_transfermarkt_data(player_name, transfermarkt_data):
 
     return player_data
 
-
 def get_api_data(player_name, football_api_players):
     api_row = get_api_row(player_name, football_api_players)
 

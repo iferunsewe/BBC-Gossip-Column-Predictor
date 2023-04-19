@@ -171,6 +171,10 @@ def print_model_results(model_name, accuracy, report, y_test, y_pred):
     report_df = pd.DataFrame(report).transpose()
     report_df = report_df.drop(columns=['support'])
     report_df = report_df.drop(['macro avg', 'weighted avg'])
+    
+    # Round the classification report results
+    report_df = report_df.round(decimals=2)
+    
     print("Classification report table:")
     print(report_df)
 
@@ -186,6 +190,7 @@ def print_model_results(model_name, accuracy, report, y_test, y_pred):
     plt.xlabel("Predicted Label")
     plt.ylabel("True Label")
     plt.show()
+
 
 def plot_boxplot(data, x_col, y_col, title):
     plt.figure()
@@ -320,6 +325,3 @@ if __name__ == '__main__':
     continuous_features_to_analyze = ['age', 'time_to_transfer_window', 'market_value']
     categorical_features_to_analyze = ['nationality', 'position', 'source']
     plot_relationships(data, continuous_features_to_analyze, categorical_features_to_analyze, 'veracity')
-
-
-
