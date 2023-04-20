@@ -77,7 +77,7 @@ def fetch_players_for_season(league_id, season, file_name):
     return players
 
 if __name__ == "__main__":
-    print("Running football_api_scraper.py")
+    print("Running football_api.py")
     api_key = os.environ.get("FOOTBALL_API_KEY")
     if not api_key:
         print("Please set the API_KEY environment variable")
