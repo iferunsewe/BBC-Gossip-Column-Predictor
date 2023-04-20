@@ -44,7 +44,6 @@ def concat_encoded_data(data, encoded_data):
 # Preprocess data: drop missing values, convert clubs_mentioned and one-hot encode categorical columns
 def preprocess_data(data):
     data = drop_na_veracity(data)
-    data = convert_clubs_mentioned(data)
     columns_to_encode = ['clubs_mentioned', 'nationality', 'position', 'source']
     encoded_data = encode_columns(data, columns_to_encode)
     data_encoded = concat_encoded_data(data, encoded_data)
