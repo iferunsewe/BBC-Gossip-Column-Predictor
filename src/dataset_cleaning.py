@@ -200,6 +200,13 @@ def clean_market_value(value):
         value = float(value.replace('k', '')) * 1_000
     return value
 
+# Convert clubs_mentioned column to a list of clubs
+def convert_clubs_mentioned(data):
+    data = data.copy()
+    data.loc[:, 'clubs_mentioned'] = data['clubs_mentioned'].apply(
+        lambda x: eval(x) if x.startswith('[') else x.split(', '))
+    return data
+
 def clean_dataset(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
     print("Cleaning dataset...")
 
@@ -218,6 +225,7 @@ def clean_dataset(input_rows, transfer_news_data, football_api_players, transfer
     cleaned_data['time_to_transfer_window'] = cleaned_data['date'].apply(days_to_next_transfer_window)
     cleaned_data['market_value'] = cleaned_data['market_value'].apply(clean_market_value)
     cleaned_data = cleaned_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
+    cleaned_data = convert_clubs_mentioned(cleaned_data)
 
     output_path_filename = get_data_file_path("cleaned_data.csv")
     cleaned_data.to_csv(output_path_filename, index=False)

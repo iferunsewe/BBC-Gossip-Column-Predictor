@@ -19,13 +19,6 @@ def load_data(filename):
 def drop_na_veracity(data):
     return data.dropna(subset=['veracity'])
 
-# Convert clubs_mentioned column to a list of clubs
-def convert_clubs_mentioned(data):
-    data = data.copy()
-    data.loc[:, 'clubs_mentioned'] = data['clubs_mentioned'].apply(
-        lambda x: eval(x) if x.startswith('[') else x.split(', '))
-    return data
-
 # One-hot encode categorical columns
 def encode_columns(data, columns_to_encode):
     encoded_data = []
