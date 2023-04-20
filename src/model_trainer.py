@@ -293,7 +293,7 @@ def plot_relationships(data, continuous_features, categorical_features, y_col):
 
 
 if __name__ == '__main__':
-    data = load_data("final_data.csv")
+    data = load_data("output_data.csv")
     data_encoded = preprocess_data(data)
     X_train, X_test, y_train, y_test = split_data(data, data_encoded)
     train_and_evaluate_models(X_train, X_test, y_train, y_test)

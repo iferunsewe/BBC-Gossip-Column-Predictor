@@ -61,10 +61,10 @@ def get_veracity(player_found, player_row, clubs_mentioned):
 
 def create_final_csv(cleaned_dataset):
     final_df = cleaned_dataset[["date", "id", "age", "nationality", "position", "clubs_mentioned", "source", "time_to_transfer_window", "market_value", "veracity"]]
-    final_df.to_csv(get_data_file_path("final_data.csv"), index=False)
+    final_df.to_csv(get_data_file_path("output_data.csv"), index=False)
 
 def main():
-    cleaned_dataset = load_csv(get_data_file_path("cleaned_structured_data.csv"))
+    cleaned_dataset = load_csv(get_data_file_path("cleaned_data.csv"))
     transfermarkt_data = load_csv(get_data_file_path("transfermarkt_data.csv"))
 
     veracity_list = []
