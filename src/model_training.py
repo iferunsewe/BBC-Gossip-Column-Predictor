@@ -4,7 +4,6 @@ from sklearn.model_selection import train_test_split, cross_val_score, Stratifie
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from xgboost import XGBClassifier
-from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder
 import utils
 from sklearn.impute import SimpleImputer
 import matplotlib.pyplot as plt
@@ -19,35 +18,10 @@ def load_data(filename):
 def drop_na_veracity(data):
     return data.dropna(subset=['veracity'])
 
-# One-hot encode categorical columns
-def encode_columns(data, columns_to_encode):
-    encoded_data = []
-    for col in columns_to_encode:
-        if col == 'clubs_mentioned':
-            mlb = MultiLabelBinarizer()
-            encoded = mlb.fit_transform(data[col])
-            encoded_df = pd.DataFrame(encoded, columns=mlb.classes_)
-        else:
-            ohe = OneHotEncoder(sparse_output=False)
-            encoded = ohe.fit_transform(data[[col]])
-            encoded_df = pd.DataFrame(encoded, columns=ohe.get_feature_names_out([col]))
-        
-        encoded_data.append(encoded_df)
-    return encoded_data
-
-# Concatenate original data with encoded columns
-def concat_encoded_data(data, encoded_data):
-    data.reset_index(drop=True, inplace=True)
-    data_encoded = pd.concat([data] + encoded_data, axis=1)
-    return data_encoded
-
 # Preprocess data: drop missing values, convert clubs_mentioned and one-hot encode categorical columns
-def preprocess_data(data):
+def clean_data(data):
     data = drop_na_veracity(data)
-    columns_to_encode = ['clubs_mentioned', 'nationality', 'position', 'source']
-    encoded_data = encode_columns(data, columns_to_encode)
-    data_encoded = concat_encoded_data(data, encoded_data)
-    return data_encoded
+    return data
 
 # Drop unnecessary columns
 def drop_columns(data_encoded):
@@ -286,7 +260,7 @@ def plot_relationships(data, continuous_features, categorical_features, y_col):
 
 if __name__ == '__main__':
     data = load_data("output_data.csv")
-    data_encoded = preprocess_data(data)
+    data_encoded = clean_data(data)
     X_train, X_test, y_train, y_test = split_data(data, data_encoded)
     train_and_evaluate_models(X_train, X_test, y_train, y_test)
 

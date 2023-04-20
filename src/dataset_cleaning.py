@@ -6,6 +6,7 @@ import pandas as pd
 from thefuzz import process
 import locationtagger
 import numpy as np
+from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import get_data_file_path
@@ -207,6 +208,28 @@ def convert_clubs_mentioned(data):
         lambda x: eval(x) if x.startswith('[') else x.split(', '))
     return data
 
+# One-hot encode categorical columns
+def encode_columns(data, columns_to_encode):
+    encoded_data = []
+    for col in columns_to_encode:
+        if col == 'clubs_mentioned':
+            mlb = MultiLabelBinarizer()
+            encoded = mlb.fit_transform(data[col])
+            encoded_df = pd.DataFrame(encoded, columns=mlb.classes_)
+        else:
+            ohe = OneHotEncoder(sparse_output=False)
+            encoded = ohe.fit_transform(data[[col]])
+            encoded_df = pd.DataFrame(encoded, columns=ohe.get_feature_names_out([col]))
+        
+        encoded_data.append(encoded_df)
+    return encoded_data
+
+# Concatenate original data with encoded columns
+def concat_encoded_data(data, encoded_data):
+    data.reset_index(drop=True, inplace=True)
+    data_encoded = pd.concat([data] + encoded_data, axis=1)
+    return data_encoded
+
 def clean_dataset(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
     print("Cleaning dataset...")
 
@@ -226,6 +249,9 @@ def clean_dataset(input_rows, transfer_news_data, football_api_players, transfer
     cleaned_data['market_value'] = cleaned_data['market_value'].apply(clean_market_value)
     cleaned_data = cleaned_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
     cleaned_data = convert_clubs_mentioned(cleaned_data)
+    columns_to_encode = ['clubs_mentioned', 'nationality', 'position', 'source']
+    encoded_data = encode_columns(cleaned_data, columns_to_encode)
+    cleaned_data = concat_encoded_data(cleaned_data, encoded_data)
 
     output_path_filename = get_data_file_path("cleaned_data.csv")
     cleaned_data.to_csv(output_path_filename, index=False)
