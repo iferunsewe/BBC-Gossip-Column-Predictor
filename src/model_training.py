@@ -233,9 +233,13 @@ def plot_summary_table(summary):
 
 def plot_categorical_relationship(data, x_col, y_col, title):
     summary, sorted_proportions = calculate_summary_table(data, x_col, y_col)
-    plot_bar_chart(sorted_proportions, title)
-    plot_summary_table(summary)
-
+    
+    # Check if the DataFrame is not empty
+    if not sorted_proportions.empty:
+        plot_bar_chart(sorted_proportions, title)
+        plot_summary_table(summary)
+    else:
+        print(f"Warning: The DataFrame for {x_col} and {y_col} is empty. Skipping the plot.")
 
 def shorten_label(label):
     if len(label) > 15:
