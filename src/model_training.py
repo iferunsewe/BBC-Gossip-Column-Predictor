@@ -12,10 +12,6 @@ from sklearn.impute import SimpleImputer
 def load_data(filename):
     return pd.read_csv(utils.get_data_file_path(filename))
 
-# Drop rows with missing veracity values
-def drop_na_veracity(data):
-    return data.dropna(subset=['veracity'])
-
 # Get X (features) and y (target)
 def get_X_y(data):
     X = data.drop(['veracity', 'nationality', 'position', 'source'], axis=1)
@@ -95,7 +91,10 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test):
         print_top_5_feature_importances(model_name, model, X_train)
         print_confusion_matrix(model_name, y_test, y_pred)
 
-if __name__ == '__main__':
+def main():
     data = load_data("output_data.csv")
     X_train, X_test, y_train, y_test = split_data(data)
     train_and_evaluate_models(X_train, X_test, y_train, y_test)
+
+if __name__ == '__main__':
+    main()

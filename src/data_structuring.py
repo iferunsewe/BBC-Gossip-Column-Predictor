@@ -77,8 +77,7 @@ def process_rows(rows, fieldnames):
 
     return errors
 
-
-if __name__ == "__main__":
+def main():
     csv_headers = ["id", "date", "raw_text", "player_name", "clubs_mentioned"]
     create_csv("structured_data.csv", csv_headers)
     load_api_key()
@@ -93,3 +92,7 @@ if __name__ == "__main__":
 
     # Print errors
     print(f"Errors ({len(errors)}): {errors}")
+
+
+if __name__ == "__main__":
+    main()

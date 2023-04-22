@@ -317,13 +317,5 @@ def main():
     clean_dataset(structured_data_rows, transfer_news_data, football_api_players, transfermarkt_data)
 
 
-if __name__ == "__main__":
-    start_time = time.time()
-    
+if __name__ == "__main__":    
     main()
-
-    end_time = time.time()
-    elapsed_time = end_time - start_time 
-    hours, remainder = divmod(elapsed_time, 3600)
-    minutes, seconds = divmod(remainder, 60)
-    print(f"Elapsed time: {int(hours)} hours, {int(minutes)} minutes, and {seconds:.2f} seconds")  
