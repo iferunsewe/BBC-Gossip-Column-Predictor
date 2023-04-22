@@ -11,7 +11,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Now you can import your module from the parent directory
-from utils import get_data_file_path, create_csv, read_last_date_from_csv
+from utils import get_data_file_path, create_csv, read_last_date_from_csv, load_api_key
 
 def enter_date():
     date = input("> ")
@@ -119,11 +119,8 @@ def search_for_articles(api_key, cx_id, query, article_dates):
 
 def main():
     # Set up the search parameters
-    api_key = os.environ.get("GOOGLE_API_KEY")
-    cx_id = os.environ.get("CX_ID")
-    if not api_key or not cx_id:
-        print("Please set the API_KEY and CX_ID environment variables")
-        return
+    google_api_key = load_api_key("GOOGLE_API_KEY")
+    cx_id = load_api_key("CX_ID")
     
     create_csv('transfer_rumours_articles.csv', ['date', 'link'])
 
@@ -131,7 +128,7 @@ def main():
     article_dates = generate_article_dates()
 
     # Search for articles and write results to CSV file
-    search_for_articles(api_key, cx_id, query, article_dates)
+    search_for_articles(google_api_key, cx_id, query, article_dates)
 
 if __name__ == "__main__":
   main()

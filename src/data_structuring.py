@@ -9,8 +9,8 @@ def read_csv_file(filename):
     reader = csv.DictReader(infile)
     return list(reader)
 
-def load_api_key():
-    api_key = os.getenv("OPENAI_API_KEY")
+def set_api_key():
+    api_key = utils.load_api_key("OPENAI_API_KEY")
     openai.api_key = api_key
 
 def determine_file_mode(filename):
@@ -78,7 +78,7 @@ def process_rows(input_rows, fieldnames):
 def structure_data(input_filename):
     csv_headers = ["id", "date", "raw_text", "player_name", "clubs_mentioned"]
     utils.create_csv("structured_data.csv", csv_headers)
-    load_api_key()
+    set_api_key()
 
     # Read the input file
     print(f"Reading '{input_filename}'...")

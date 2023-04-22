@@ -4,7 +4,7 @@ import csv
 import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils import get_data_file_path, create_csv
+from utils import get_data_file_path, create_csv, load_api_key
 
 def get_player_data(response_data):
     return {
@@ -33,10 +33,11 @@ def write_player_to_csv(file_name, season, player_data):
 
 def get_players_by_league_season(league_id, season, file_name):
     print("Running get_players_by_league_season()")
+    football_api_key = load_api_key("FOOTBALL_API_KEY")
     url = f"https://v3.football.api-sports.io/players?league={league_id}&season={season}"
     headers = {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": os.environ.get("FOOTBALL_API_KEY")
+        "x-rapidapi-key": football_api_key
     }
 
     response = fetch_players(url, headers)
@@ -68,7 +69,7 @@ def player_exists_in_csv(file_name, player_data, season):
                 return True
     return False
 
-def fetch_players_for_season(league_id, season, file_name):
+def fetch_players_for_season(league_id, season, seasons, file_name):
     csv_headers = ["id", "name", "full_name", "age", "nationality", "team_name", "position", "season"]
     if season == seasons[0]:
         create_csv(file_name, csv_headers)
@@ -78,16 +79,12 @@ def fetch_players_for_season(league_id, season, file_name):
 
 def main():
     print("Running football_api.py")
-    api_key = os.environ.get("FOOTBALL_API_KEY")
-    if not api_key:
-        print("Please set the FOOTBALL_API_KEY environment variable")
-        exit(1)
 
     league_id = 39
     seasons = [2021, 2022]
 
     for season in seasons:
-        fetch_players_for_season(league_id, season, "football_api_players.csv")
+        fetch_players_for_season(league_id, season, seasons, "football_api_players.csv")
 
 if __name__ == "__main__":
     main()

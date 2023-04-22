@@ -48,3 +48,11 @@ def scrape_content(url):
     soup = BeautifulSoup(page.content, "html.parser")
 
     return soup
+
+def load_api_key(env_var_name):
+    api_key = os.getenv(env_var_name)
+    print(f"Checking {env_var_name}...")
+    if not api_key:
+        print(f"Please set the {env_var_name} environment variable")
+        exit(1)
+    return api_key
