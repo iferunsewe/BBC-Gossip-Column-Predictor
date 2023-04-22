@@ -2,15 +2,10 @@ import csv
 import openai
 import os
 import json
-import sys
-
-# Add parent directory to sys.path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-from utils import get_data_file_path, create_csv
+import utils
 
 def read_csv_file(filename):
-  with open(get_data_file_path(filename), mode="r", encoding="utf-8") as infile:
+  with open(utils.get_data_file_path(filename), mode="r", encoding="utf-8") as infile:
     reader = csv.DictReader(infile)
     return list(reader)
 
@@ -21,7 +16,7 @@ def load_api_key():
 def write_csv_row(filename, fieldnames, row):
     mode = "a" if os.path.exists(filename) else "w"
 
-    with open(get_data_file_path(filename), mode=mode, encoding="utf-8", newline='') as outfile:
+    with open(utils.get_data_file_path(filename), mode=mode, encoding="utf-8", newline='') as outfile:
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
         if mode == "w":
             writer.writeheader()
@@ -79,7 +74,7 @@ def process_rows(rows, fieldnames):
 
 def main():
     csv_headers = ["id", "date", "raw_text", "player_name", "clubs_mentioned"]
-    create_csv("structured_data.csv", csv_headers)
+    utils.create_csv("structured_data.csv", csv_headers)
     load_api_key()
 
     # Read the 'transfer_news_data.csv' file

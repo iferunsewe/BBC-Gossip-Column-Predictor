@@ -1,16 +1,11 @@
-import os
 import re
-import sys
 import datetime
 import pandas as pd
 from thefuzz import process
 import locationtagger
 import numpy as np
 from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder
-import time
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils import get_data_file_path
+import utils
 
 def is_actual_player(player_name, football_api_players, transfermarkt_data):
     print(f"Checking if {player_name} is an actual player...")
@@ -303,16 +298,16 @@ def clean_dataset(input_rows, transfer_news_data, football_api_players, transfer
     encoded_data = encode_columns(cleaned_data, columns_to_encode)
     cleaned_data = concat_encoded_data(cleaned_data, encoded_data)
 
-    output_path_filename = get_data_file_path("cleaned_data.csv")
+    output_path_filename = utils.get_data_file_path("cleaned_data.csv")
     cleaned_data.to_csv(output_path_filename, index=False)
     print(f"Cleaned dataset saved to {output_path_filename}")
 
 def main():
     print("Loading data...")
-    structured_data_rows = pd.read_csv(get_data_file_path("structured_data.csv"))
-    transfer_news_data = pd.read_csv(get_data_file_path("transfer_news_data.csv"))
-    football_api_players = pd.read_csv(get_data_file_path("football_api_players.csv"))
-    transfermarkt_data = pd.read_csv(get_data_file_path("transfermarkt_data.csv"))
+    structured_data_rows = pd.read_csv(utils.get_data_file_path("structured_data.csv"))
+    transfer_news_data = pd.read_csv(utils.get_data_file_path("transfer_news_data.csv"))
+    football_api_players = pd.read_csv(utils.get_data_file_path("football_api_players.csv"))
+    transfermarkt_data = pd.read_csv(utils.get_data_file_path("transfermarkt_data.csv"))
 
     clean_dataset(structured_data_rows, transfer_news_data, football_api_players, transfermarkt_data)
 

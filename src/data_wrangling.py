@@ -1,11 +1,6 @@
 import pandas as pd
 from thefuzz import fuzz, process
-import os
-import sys
-import time
-
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils import get_data_file_path
+import utils
 
 def load_csv(file_path):
     return pd.read_csv(file_path)
@@ -61,7 +56,7 @@ def get_veracity(player_found, player_row, clubs_mentioned):
         return None
 
 def create_final_csv(cleaned_dataset):
-    cleaned_dataset.to_csv(get_data_file_path("output_data.csv"), index=False)
+    cleaned_dataset.to_csv(utils.get_data_file_path("output_data.csv"), index=False)
 
 def clean_data(data):
     columns_to_exclude = ["raw_text", "player_name", "date", "id", "clubs_mentioned"]
@@ -71,8 +66,8 @@ def clean_data(data):
     return data
 
 def main():
-    cleaned_dataset = load_csv(get_data_file_path("cleaned_data.csv"))
-    transfermarkt_data = load_csv(get_data_file_path("transfermarkt_data.csv"))
+    cleaned_dataset = load_csv(utils.get_data_file_path("cleaned_data.csv"))
+    transfermarkt_data = load_csv(utils.get_data_file_path("transfermarkt_data.csv"))
 
     veracity_list = []
 
