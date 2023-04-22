@@ -7,6 +7,9 @@ import seaborn as sns
 import scipy.stats
 import os
 
+FIGSIZE = (12, 14)
+CATEGORICAL_RESULTS_TO_SHOW = 10
+
 def preprocess_for_visulization(data, x_col, y_col):
     # Drop rows with NaN values in the x_col and y_col columns
     data = data[[x_col, y_col]].dropna()
@@ -17,7 +20,7 @@ def preprocess_for_visulization(data, x_col, y_col):
     return data
 
 def plot_boxplot_figure(data, x_col, y_col, title, save_path):
-    plt.figure()
+    plt.figure(figsize=FIGSIZE)
     sns.boxplot(data=data, x=y_col, y=x_col)
     plt.title(title)
     plt.xlabel(y_col)
@@ -30,10 +33,6 @@ def print_boxplot_statistics(data, x_col, y_col, title):
     print(f"Boxplot statistics for {title}:\n")
     print(boxplot_stats)
 
-def plot_boxplot(data, x_col, y_col, title):
-    plot_boxplot_figure(data, x_col, y_col, title)
-    print_boxplot_statistics(data, x_col, y_col, title)
-
 def convert_column_to_numeric(data, column):
     data[column] = pd.to_numeric(data[column], errors='coerce')
     return data
@@ -42,26 +41,26 @@ def drop_na_rows(data, columns):
     data_no_na = data[columns].dropna()
     return data_no_na
 
-def calculate_point_biserial_correlation(data, x_col, y_col):
-    point_biserial_corr, p_value = scipy.stats.pointbiserialr(data[y_col], data[x_col])
-    return point_biserial_corr, p_value
+def calculate_pearsonr_correlation(data, x_col, y_col):
+    pearsonr, p_value = scipy.stats.pearsonr(data[y_col], data[x_col])
+    return pearsonr, p_value
 
-def interpret_relationship(point_biserial_corr, p_value, x_col, y_col):
-    if point_biserial_corr > 0:
+def interpret_relationship(corr, p_value, x_col, y_col):
+    if corr > 0:
         relationship = "positive"
-    elif point_biserial_corr < 0:
+    elif corr < 0:
         relationship = "negative"
     else:
         relationship = "no"
 
-    if abs(point_biserial_corr) >= 0.7:
+    if abs(corr) >= 0.7:
         strength = "strong"
-    elif abs(point_biserial_corr) >= 0.3:
+    elif abs(corr) >= 0.3:
         strength = "moderate"
     else:
         strength = "weak"
 
-    print(f"The point-biserial correlation of {point_biserial_corr} indicates {relationship} relationship between {x_col} and {y_col} is {strength}.")
+    print(f"The correlation of {corr} indicates {relationship} relationship between {x_col} and {y_col} is {strength}.")
 
     if p_value < 0.05:
         print("The P-value is less than 0.05, which suggests that there is a statistically significant relationship between the two variables.")
@@ -69,44 +68,42 @@ def interpret_relationship(point_biserial_corr, p_value, x_col, y_col):
         print("The P-value is greater than 0.05, which suggests that there is no statistically significant relationship between the two variables.")
 
 def print_correlation(data, x_col, y_col):
-    corr = data[x_col].corr(data[y_col])
-    print(f"The correlation between {x_col} and {y_col} is {corr}.")
+    corr, p_value = calculate_pearsonr_correlation(data, x_col, y_col)
+    interpret_relationship(corr, p_value, x_col, y_col)
 
-def calculate_summary_table(data, x_col, y_col):
+def create_true_rumour_summary_table(data, x_col, y_col):
     true_rumour_counts = data.groupby(x_col)[y_col].sum()
     total_counts = data[x_col].value_counts()
     proportion_true_rumours = (true_rumour_counts / total_counts)
-    filtered_proportions = proportion_true_rumours[(proportion_true_rumours > 0) & (total_counts > 10)]
+    filtered_proportions = proportion_true_rumours[(proportion_true_rumours > 0) & (total_counts >= CATEGORICAL_RESULTS_TO_SHOW)]
     sorted_proportions = filtered_proportions.sort_values(ascending=False)
-
-    summary = pd.concat([total_counts, filtered_proportions], axis=1)
+    percentage_true_rumours = (filtered_proportions * 100).round(2)
+    summary = pd.concat([total_counts, percentage_true_rumours], axis=1)
     summary = summary.loc[sorted_proportions.index]
-    summary.columns = ['Count', 'Proportion of true rumours']
-    summary = summary.sort_values('Proportion of true rumours', ascending=False)
+    summary.columns = ['Count', 'Percentage of true rumours']
+    summary = summary.sort_values('Percentage of true rumours', ascending=False)
     print(f"Relationship summary between {x_col} and {y_col}:\n{summary}")
 
     return summary, sorted_proportions
 
 def plot_bar_chart(sorted_proportions, title, save_path):
-    plt.figure()
+    plt.figure(figsize=FIGSIZE)
     ax1 = plt.gca()
     sorted_proportions.plot(kind='bar', ax=ax1)
     ax1.set_title(title)
-    ax1.set_ylabel('Proportion of true rumours')
+    ax1.set_ylabel('Percentage of true rumours')
     ax1.set_xticklabels([shorten_label(label.get_text()) for label in ax1.get_xticklabels()])
-    plt.setp(ax1.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor", fontsize=10)
+    plt.setp(ax1.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor", fontsize=12)
+    ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}%'))
     plt.savefig(save_path)
     plt.close()
 
-def plot_summary_table(summary, save_path):
-    num_rows = len(summary)
-    table_height = max(min(num_rows * 0.3, 8), 4)
-
-    _, ax2 = plt.subplots(figsize=(12, table_height))
-    ax2.axis('off')
-    table = ax2.table(cellText=summary.values, rowLabels=[shorten_label(label) for label in summary.index], colLabels=summary.columns, cellLoc='center', loc='center')
+def create_matplotlib_table(summary, save_path):
+    _, ax = plt.subplots(figsize=FIGSIZE)
+    ax.axis('off')
+    table = ax.table(cellText=summary.values, rowLabels=[shorten_label(label) for label in summary.index], colLabels=summary.columns, cellLoc='center', loc='center')
     table.auto_set_font_size(False)
-    table.set_fontsize(6)
+    table.set_fontsize(12)
     table.auto_set_column_width(col=list(range(len(summary.columns))))
     table.scale(1, 1.5)
 
@@ -132,7 +129,7 @@ def plot_confusion_matrix(model_name, y_test, y_pred, save_path):
 def plot_feature_importances(model_name, model, X_train, save_path):
     model_importances = sorted(zip(X_train.columns, model.feature_importances_), key=lambda x: x[1], reverse=True)
     importances_df = pd.DataFrame(model_importances, columns=['Feature', 'Importance'])
-    plt.figure()
+    plt.figure(figsize=FIGSIZE)
     sns.barplot(x='Importance', y='Feature', data=importances_df.head(10))
     plt.title(f"{model_name} Feature Importances")
     plt.xlabel('Importance')
@@ -157,7 +154,7 @@ def show_categorical_relationship(data, categorical_features, y_col):
     for feature in categorical_features:
         if feature in data.columns:
             data_categorical = data[[feature, y_col]].dropna()
-            summary, sorted_proportions = calculate_summary_table(data_categorical, feature, y_col)
+            summary, sorted_proportions = create_true_rumour_summary_table(data_categorical, feature, y_col)
 
             # Check if the DataFrame is not empty
             if not sorted_proportions.empty:
@@ -165,7 +162,7 @@ def show_categorical_relationship(data, categorical_features, y_col):
                 plot_bar_chart(sorted_proportions, f"{feature} vs. {y_col}", save_path_bar_chart)
 
                 save_path_summary_table = os.path.join('results', f"{feature}_vs_{y_col}_summary_table.png")
-                plot_summary_table(summary, save_path_summary_table)
+                create_matplotlib_table(summary, save_path_summary_table)
             else:
                 print(f"Warning: The DataFrame for {feature} and {y_col} is empty. Skipping the plot.")
         else:
