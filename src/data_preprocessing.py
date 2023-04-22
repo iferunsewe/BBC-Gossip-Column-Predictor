@@ -7,9 +7,76 @@ import numpy as np
 from sklearn.preprocessing import MultiLabelBinarizer, OneHotEncoder
 import utils
 
+POSITION_MAPPING = {
+    "Goalkeeper": "Goalkeeper",
+    "Centre-Back": "Defender",
+    "Left-Back": "Defender",
+    "Right-Back": "Defender",
+    "Defender": "Defender",
+    "Defensive Midfield": "Midfielder",
+    "Central Midfield": "Midfielder",
+    "Attacking Midfield": "Midfielder",
+    "Left Midfield": "Midfielder",
+    "Right Midfield": "Midfielder",
+    "Midfielder": "Midfielder",
+    "Playmaker": "Midfielder",
+    "Centre-Forward": "Attacker",
+    "Left Winger": "Attacker",
+    "Right Winger": "Attacker",
+    "Second Striker": "Attacker",
+    "Winger": "Attacker",
+    "Striker": "Attacker",
+    "Forward": "Attacker",
+}
+
+CLUB_MAPPING = {
+    # All the clubs above 50 and below my threshold of 75 in the fuzzy matching score so they were pointed out automatically
+    'West Brom': 'West Bromwich Albion',
+    'Newcastle': 'Newcastle United',
+    'West Ham': 'West Ham United',
+    'Tottenham': 'Tottenham Hotspur',
+    'Spurs': 'Tottenham Hotspur',
+    'Blackburn': 'Blackburn Rovers',
+    'Nice': 'OGC Nice',
+    'Roma': 'AS Roma',
+    'Lille': 'LOSC Lille',
+    'Leeds': 'Leeds United',
+    'Brighton': 'Brighton & Hove Albion',
+    'Norwich': 'Norwich City',
+    'Schalke': 'FC Schalke 04',
+    'Sevilla': 'Sevilla FC',
+    'Inter': 'Inter Milan',
+    'Naples': 'SSC Napoli',
+    'Barca': 'Barcelona',
+    'United': 'Manchester United',
+    'Stoke': 'Stoke City',
+    'Atletico': 'Atlético Madrid',
+    'City': 'Manchester City',
+    'Hertha': 'Hertha Berlin',
+    'Metz': 'FC Metz',
+    'The Hammers': 'West Ham United',
+    'Genk': 'KRC Genk',
+    'Mainz': '1.FSV Mainz 05',
+    'Eupen': 'KAS Eupen',
+    'New England Revolution': 'New England',
+    # All the clubs that would not be found would be below 50 in the fuzzy matching score so I manually mapped them
+    'Gunners': 'Arsenal FC',
+    'Cherries': 'AFC Bournemouth',
+    'Reds': 'Liverpool FC',
+    'Blues': 'Chelsea FC',
+    'Saints': 'Southampton FC',
+    'Seagulls': 'Brighton & Hove Albion',
+    'Canaries': 'Norwich City',
+    'Magpies': 'Newcastle United',
+    'Villans': 'Aston Villa',
+    'Eagles': 'Crystal Palace',
+    'Cottagers': 'Fulham FC',
+    'Hornets': 'Watford FC',
+}
+
 def is_actual_player(player_name, football_api_players, transfermarkt_data):
     print(f"Checking if {player_name} is an actual player...")
-    all_names = football_api_players['full_name'].tolist() + football_api_players['name'].tolist() + transfermarkt_data['player_name'].tolist()
+    all_names = set(football_api_players['full_name'].tolist() + football_api_players['name'].tolist() + transfermarkt_data['player_name'].tolist())
 
     if get_best_fuzzy_match(player_name, all_names) is None:
         return False
@@ -51,32 +118,8 @@ def get_api_row(player_name, football_api_players):
 
     return api_row
 
-position_mapping = {
-    "Goalkeeper": "Goalkeeper",
-    "Centre-Back": "Defender",
-    "Left-Back": "Defender",
-    "Right-Back": "Defender",
-    "Defender": "Defender",
-    "Defensive Midfield": "Midfielder",
-    "Central Midfield": "Midfielder",
-    "Attacking Midfield": "Midfielder",
-    "Left Midfield": "Midfielder",
-    "Right Midfield": "Midfielder",
-    "Midfielder": "Midfielder",
-    "Playmaker": "Midfielder",
-    "Centre-Forward": "Attacker",
-    "Left Winger": "Attacker",
-    "Right Winger": "Attacker",
-    "Second Striker": "Attacker",
-    "Winger": "Attacker",
-    "Striker": "Attacker",
-    "Forward": "Attacker",
-}
-
-
-
 def map_to_football_api_position(position):
-    return position_mapping.get(position, "Unknown")
+    return POSITION_MAPPING.get(position, "Unknown")
 
 def get_transfermarkt_data(player_name, transfermarkt_data):
     transfermarkt_row = get_transfermarkt_row(player_name, transfermarkt_data)
@@ -161,10 +204,11 @@ def find_nationality_in_text(raw_text):
     
 def find_position_in_text(raw_text):
     print(f"Finding position in text: {raw_text}")
-    positions = list(position_mapping.keys())
-    
+    positions = list(POSITION_MAPPING.keys())
+    raw_text_lower = raw_text.lower()
+
     for position in positions:
-        if position.lower() in raw_text.lower():
+        if position.lower() in raw_text_lower:
             return map_to_football_api_position(position)
     return None
 
@@ -199,58 +243,13 @@ def clean_market_value(value):
         value = float(value.replace('k', '')) * 1_000
     return value
 
-club_mapping = {
-    # All the clubs above 50 and below my threshold of 75 in the fuzzy matching score so they were pointed out automatically
-    'West Brom': 'West Bromwich Albion',
-    'Newcastle': 'Newcastle United',
-    'West Ham': 'West Ham United',
-    'Tottenham': 'Tottenham Hotspur',
-    'Spurs': 'Tottenham Hotspur',
-    'Blackburn': 'Blackburn Rovers',
-    'Nice': 'OGC Nice',
-    'Roma': 'AS Roma',
-    'Lille': 'LOSC Lille',
-    'Leeds': 'Leeds United',
-    'Brighton': 'Brighton & Hove Albion',
-    'Norwich': 'Norwich City',
-    'Schalke': 'FC Schalke 04',
-    'Sevilla': 'Sevilla FC',
-    'Inter': 'Inter Milan',
-    'Naples': 'SSC Napoli',
-    'Barca': 'Barcelona',
-    'United': 'Manchester United',
-    'Stoke': 'Stoke City',
-    'Atletico': 'Atlético Madrid',
-    'City': 'Manchester City',
-    'Hertha': 'Hertha Berlin',
-    'Metz': 'FC Metz',
-    'The Hammers': 'West Ham United',
-    'Genk': 'KRC Genk',
-    'Mainz': '1.FSV Mainz 05',
-    'Eupen': 'KAS Eupen',
-    'New England Revolution': 'New England',
-    # All the clubs that would not be found would be below 50 in the fuzzy matching score so I manually mapped them
-    'Gunners': 'Arsenal FC',
-    'Cherries': 'AFC Bournemouth',
-    'Reds': 'Liverpool FC',
-    'Blues': 'Chelsea FC',
-    'Saints': 'Southampton FC',
-    'Seagulls': 'Brighton & Hove Albion',
-    'Canaries': 'Norwich City',
-    'Magpies': 'Newcastle United',
-    'Villans': 'Aston Villa',
-    'Eagles': 'Crystal Palace',
-    'Cottagers': 'Fulham FC',
-    'Hornets': 'Watford FC',
-}
-
 # Convert clubs_mentioned column to a list of clubs and map to transfermarkt names
 def convert_clubs_mentioned(data):
     data = data.copy()
     data.loc[:, 'clubs_mentioned'] = data['clubs_mentioned'].apply(
         lambda x: eval(x) if x.startswith('[') else x.split(', '))
     data.loc[:, 'clubs_mentioned'] = data['clubs_mentioned'].apply(
-        lambda clubs: [club_mapping.get(club, club) for club in clubs])
+        lambda clubs: [CLUB_MAPPING.get(club, club) for club in clubs])
     return data
 
 # One-hot encode categorical columns
@@ -275,32 +274,53 @@ def concat_encoded_data(data, encoded_data):
     data_encoded = pd.concat([data] + encoded_data, axis=1)
     return data_encoded
 
-def clean_dataset(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
-    print("Cleaning dataset...")
-
+def filter_actual_players(input_rows, football_api_players, transfermarkt_data):
     input_rows['is_actual_player'] = input_rows['player_name'].apply(lambda x: is_actual_player(x, football_api_players, transfermarkt_data))
-    cleaned_data = input_rows[input_rows['is_actual_player'] & (input_rows['clubs_mentioned'].str.count(',') >= 1)].drop(columns=['is_actual_player'])
+    return input_rows[input_rows['is_actual_player'] & (input_rows['clubs_mentioned'].str.count(',') >= 1)].drop(columns=['is_actual_player'])
 
-    player_data_dicts = [x for x in cleaned_data['player_name'].apply(lambda x: get_player_data(x, transfermarkt_data, football_api_players)).tolist() if x is not None]
+def add_player_data(preprocessed_data, transfermarkt_data, football_api_players):
+    player_data_dicts = [x for x in preprocessed_data['player_name'].apply(lambda x: get_player_data(x, transfermarkt_data, football_api_players)).tolist() if x is not None]
     player_data_df = pd.DataFrame(player_data_dicts)
-    cleaned_data.reset_index(drop=True, inplace=True)
+    preprocessed_data.reset_index(drop=True, inplace=True)
+    return pd.concat([preprocessed_data, player_data_df], axis=1)
 
-    cleaned_data = pd.concat([cleaned_data, player_data_df], axis=1)
+def update_missing_data(preprocessed_data):
+    preprocessed_data['age'] = preprocessed_data.apply(lambda row: row['age'] if not pd.isnull(row['age']) else find_age_in_text(row['raw_text']), axis=1)
+    preprocessed_data['nationality'] = preprocessed_data.apply(lambda row: row['nationality'] if not pd.isnull(row['nationality']) else find_nationality_in_text(row['raw_text']), axis=1)
+    preprocessed_data['position'] = preprocessed_data.apply(lambda row: row['position'] if not pd.isnull(row['position']) else find_position_in_text(row['raw_text']), axis=1)
+    return preprocessed_data
 
-    cleaned_data['age'] = cleaned_data.apply(lambda row: row['age'] if not pd.isnull(row['age']) else find_age_in_text(row['raw_text']), axis=1)
-    cleaned_data['nationality'] = cleaned_data.apply(lambda row: row['nationality'] if not pd.isnull(row['nationality']) else find_nationality_in_text(row['raw_text']), axis=1)
-    cleaned_data['position'] = cleaned_data.apply(lambda row: row['position'] if not pd.isnull(row['position']) else find_position_in_text(row['raw_text']), axis=1)
-    cleaned_data['time_to_transfer_window'] = cleaned_data['date'].apply(days_to_next_transfer_window)
-    cleaned_data['market_value'] = cleaned_data['market_value'].apply(clean_market_value)
-    cleaned_data = cleaned_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
-    cleaned_data = convert_clubs_mentioned(cleaned_data)
+def calculate_days_to_transfer_window(preprocessed_data):
+    preprocessed_data['time_to_transfer_window'] = preprocessed_data['date'].apply(days_to_next_transfer_window)
+    return preprocessed_data
+
+def clean_market_values(preprocessed_data):
+    preprocessed_data['market_value'] = preprocessed_data['market_value'].apply(clean_market_value)
+    return preprocessed_data
+
+def merge_with_transfer_news_data(preprocessed_data, transfer_news_data):
+    return preprocessed_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
+
+def encode_and_concat_columns(preprocessed_data, columns_to_encode):
+    encoded_data = encode_columns(preprocessed_data, columns_to_encode)
+    return concat_encoded_data(preprocessed_data, encoded_data)
+
+def preprocess_data(input_rows, transfer_news_data, football_api_players, transfermarkt_data):
+    print("Preprocessing dataset...")
+
+    preprocessed_data = filter_actual_players(input_rows, football_api_players, transfermarkt_data)
+    preprocessed_data = add_player_data(preprocessed_data, transfermarkt_data, football_api_players)
+    preprocessed_data = update_missing_data(preprocessed_data)
+    preprocessed_data = calculate_days_to_transfer_window(preprocessed_data)
+    preprocessed_data = clean_market_values(preprocessed_data)
+    preprocessed_data = merge_with_transfer_news_data(preprocessed_data, transfer_news_data)
+    preprocessed_data = convert_clubs_mentioned(preprocessed_data)
     columns_to_encode = ['clubs_mentioned', 'nationality', 'position', 'source']
-    encoded_data = encode_columns(cleaned_data, columns_to_encode)
-    cleaned_data = concat_encoded_data(cleaned_data, encoded_data)
+    preprocessed_data = encode_and_concat_columns(preprocessed_data, columns_to_encode)
 
-    output_path_filename = utils.get_data_file_path("cleaned_data.csv")
-    cleaned_data.to_csv(output_path_filename, index=False)
-    print(f"Cleaned dataset saved to {output_path_filename}")
+    output_path_filename = utils.get_data_file_path("preprocessed_data.csv")
+    preprocessed_data.to_csv(output_path_filename, index=False)
+    print(f"Preprocessed dataset saved to {output_path_filename}")
 
 def main():
     print("Loading data...")
@@ -309,7 +329,7 @@ def main():
     football_api_players = pd.read_csv(utils.get_data_file_path("football_api_players.csv"))
     transfermarkt_data = pd.read_csv(utils.get_data_file_path("transfermarkt_data.csv"))
 
-    clean_dataset(structured_data_rows, transfer_news_data, football_api_players, transfermarkt_data)
+    preprocess_data(structured_data_rows, transfer_news_data, football_api_players, transfermarkt_data)
 
 
 if __name__ == "__main__":    

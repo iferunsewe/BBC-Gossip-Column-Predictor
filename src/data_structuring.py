@@ -13,8 +13,11 @@ def load_api_key():
     api_key = os.getenv("OPENAI_API_KEY")
     openai.api_key = api_key
 
+def determine_file_mode(filename):
+    return "a" if os.path.exists(filename) else "w"
+
 def write_csv_row(filename, fieldnames, row):
-    mode = "a" if os.path.exists(filename) else "w"
+    mode = determine_file_mode(filename)
 
     with open(utils.get_data_file_path(filename), mode=mode, encoding="utf-8", newline='') as outfile:
         writer = csv.DictWriter(outfile, fieldnames=fieldnames)
@@ -43,10 +46,10 @@ def structure_data(raw_text):
     print(f"Structured data: {structured_data}")
     return structured_data
 
-def process_rows(rows, fieldnames):
+def process_rows(input_rows, fieldnames):
     errors = []
 
-    for row in rows:
+    for row in input_rows:
         raw_text = row["raw_text"]
         try:
             structured_data = structure_data(raw_text)

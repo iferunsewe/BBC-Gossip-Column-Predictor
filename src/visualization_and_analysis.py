@@ -19,18 +19,22 @@ def preprocess_for_visulization(data, x_col, y_col):
 
     return data
 
-def plot_boxplot(data, x_col, y_col, title):
+def plot_boxplot_figure(data, x_col, y_col, title):
     plt.figure()
     sns.boxplot(data=data, x=y_col, y=x_col)
     plt.title(title)
     plt.xlabel(y_col)
     plt.ylabel(x_col)
     plt.show()
-    
-    # Print boxplot statistics
+
+def print_boxplot_statistics(data, x_col, y_col, title):
     boxplot_stats = data.groupby(y_col)[x_col].describe()
     print(f"Boxplot statistics for {title}:\n")
     print(boxplot_stats)
+
+def plot_boxplot(data, x_col, y_col, title):
+    plot_boxplot_figure(data, x_col, y_col, title)
+    print_boxplot_statistics(data, x_col, y_col, title)
 
 def convert_column_to_numeric(data, column):
     data[column] = pd.to_numeric(data[column], errors='coerce')

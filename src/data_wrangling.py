@@ -55,8 +55,8 @@ def get_veracity(player_found, player_row, clubs_mentioned):
     else:
         return None
 
-def create_final_csv(cleaned_dataset):
-    cleaned_dataset.to_csv(utils.get_data_file_path("output_data.csv"), index=False)
+def create_output_csv(preprocessed_data):
+    preprocessed_data.to_csv(utils.get_data_file_path("output_data.csv"), index=False)
 
 def clean_data(data):
     columns_to_exclude = ["raw_text", "player_name", "date", "id", "clubs_mentioned"]
@@ -66,13 +66,13 @@ def clean_data(data):
     return data
 
 def main():
-    cleaned_dataset = load_csv(utils.get_data_file_path("cleaned_data.csv"))
+    preprocessed_data = load_csv(utils.get_data_file_path("preprocessed_data.csv"))
     transfermarkt_data = load_csv(utils.get_data_file_path("transfermarkt_data.csv"))
 
     veracity_list = []
 
-    for i in range(len(cleaned_dataset)):
-        row = cleaned_dataset.iloc[i]
+    for i in range(len(preprocessed_data)):
+        row = preprocessed_data.iloc[i]
         player_name = extract_player_name(row)
         print(f"Processing player {player_name}...")
         clubs_mentioned = extract_clubs_mentioned(row)
@@ -83,9 +83,9 @@ def main():
         veracity = get_veracity(player_found, player_row, clubs_mentioned)
         veracity_list.append(veracity)
 
-    cleaned_dataset["veracity"] = veracity_list
-    cleaned_dataset = clean_data(cleaned_dataset)
-    create_final_csv(cleaned_dataset)
+    preprocessed_data["veracity"] = veracity_list
+    preprocessed_data = clean_data(preprocessed_data)
+    create_output_csv(preprocessed_data)
 
 if __name__ == "__main__":
     main()
