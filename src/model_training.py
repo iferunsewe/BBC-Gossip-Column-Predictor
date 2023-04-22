@@ -7,11 +7,6 @@ from xgboost import XGBClassifier
 import utils
 from sklearn.impute import SimpleImputer
 
-
-# Load data from a CSV file
-def load_data(filename):
-    return pd.read_csv(utils.get_data_file_path(filename))
-
 # Get X (features) and y (target)
 def get_X_y(data):
     X = data.drop(['veracity', 'nationality', 'position', 'source'], axis=1)
@@ -63,7 +58,9 @@ def print_confusion_matrix(model_name, y_test, y_pred):
     print(f"{model_name} confusion matrix:")
     print(confusion_matrix(y_test, y_pred))
 
-def train_and_evaluate_models(X_train, X_test, y_train, y_test):
+def train_and_evaluate_models(data):
+    X_train, X_test, y_train, y_test = split_data(data)
+
     models = {
         'Random Forest': RandomForestClassifier(random_state=42),
         'AdaBoost': AdaBoostClassifier(random_state=42),
@@ -92,9 +89,9 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test):
         print_confusion_matrix(model_name, y_test, y_pred)
 
 def main():
-    data = load_data("output_data.csv")
-    X_train, X_test, y_train, y_test = split_data(data)
-    train_and_evaluate_models(X_train, X_test, y_train, y_test)
+    output_data = utils.pandas_load_csv("output_data.csv")
+    
+    train_and_evaluate_models(output_data)
 
 if __name__ == '__main__':
     main()
