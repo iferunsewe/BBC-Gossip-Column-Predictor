@@ -80,7 +80,7 @@ def main():
     print("Running football_api.py")
     api_key = os.environ.get("FOOTBALL_API_KEY")
     if not api_key:
-        print("Please set the API_KEY environment variable")
+        print("Please set the FOOTBALL_API_KEY environment variable")
         exit(1)
 
     league_id = 39

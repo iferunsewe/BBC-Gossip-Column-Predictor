@@ -1,7 +1,6 @@
 import os
 import datetime
 import csv
-from csv import reader
 import requests
 from bs4 import BeautifulSoup
 

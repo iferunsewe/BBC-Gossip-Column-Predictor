@@ -25,7 +25,7 @@ def write_csv_row(filename, fieldnames, row):
             writer.writeheader()
         writer.writerow(row)
 
-def structure_data(raw_text):
+def extract_football_info(raw_text):
     prompt = f"Structure the following raw_text into json that includes fields 'player_name' and 'clubs_mentioned': {raw_text}. The result should be an array of objects where each object contains the player_name and clubs_mentioned fields. Only include football clubs in the clubs_mentioned field and not international teams. Only include actual football players in the player_name field and not football managers."
     response = openai.Completion.create(
         engine="text-davinci-002",
@@ -52,7 +52,7 @@ def process_rows(input_rows, fieldnames):
     for row in input_rows:
         raw_text = row["raw_text"]
         try:
-            structured_data = structure_data(raw_text)
+            structured_data = extract_football_info(raw_text)
 
             for data in structured_data:
                 if not data["player_name"]:
@@ -75,22 +75,24 @@ def process_rows(input_rows, fieldnames):
 
     return errors
 
-def main():
+def structure_data(input_filename):
     csv_headers = ["id", "date", "raw_text", "player_name", "clubs_mentioned"]
     utils.create_csv("structured_data.csv", csv_headers)
     load_api_key()
 
-    # Read the 'transfer_news_data.csv' file
-    print("Reading 'transfer_news_data.csv'...")
-    input_rows = read_csv_file("transfer_news_data.csv")
+    # Read the input file
+    print(f"Reading '{input_filename}'...")
+    input_rows = read_csv_file(input_filename)
 
-    # Process each row in 'transfer_news_data.csv'
+    # Process each row in the input file
     print("Processing rows...")
     errors = process_rows(input_rows, csv_headers)
 
     # Print errors
     print(f"Errors ({len(errors)}): {errors}")
 
+def main():
+    structure_data("transfer_news_data.csv")
 
 if __name__ == "__main__":
     main()
