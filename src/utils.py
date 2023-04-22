@@ -3,6 +3,7 @@ import datetime
 import csv
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 def get_data_file_path(filename):
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -56,3 +57,6 @@ def load_api_key(env_var_name):
         print(f"Please set the {env_var_name} environment variable")
         exit(1)
     return api_key
+
+def pandas_load_csv(file_path):
+    return pd.read_csv(get_data_file_path(file_path))

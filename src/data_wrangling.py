@@ -2,9 +2,6 @@ import pandas as pd
 from thefuzz import fuzz, process
 import utils
 
-def load_csv(file_path):
-    return pd.read_csv(file_path)
-
 def extract_player_name(row):
     return row["player_name"]
 
@@ -65,10 +62,7 @@ def clean_data(data):
     data['veracity'] = data['veracity'].astype(int)
     return data
 
-def main():
-    preprocessed_data = load_csv(utils.get_data_file_path("preprocessed_data.csv"))
-    transfermarkt_data = load_csv(utils.get_data_file_path("transfermarkt_data.csv"))
-
+def wrangle_data(preprocessed_data, verified_data):
     veracity_list = []
 
     for i in range(len(preprocessed_data)):
@@ -77,7 +71,7 @@ def main():
         print(f"Processing player {player_name}...")
         clubs_mentioned = extract_clubs_mentioned(row)
 
-        player_row = get_player_row(player_name, transfermarkt_data)
+        player_row = get_player_row(player_name, verified_data)
         player_found = player_row is not None
 
         veracity = get_veracity(player_found, player_row, clubs_mentioned)
@@ -86,6 +80,12 @@ def main():
     preprocessed_data["veracity"] = veracity_list
     preprocessed_data = clean_data(preprocessed_data)
     create_output_csv(preprocessed_data)
+
+def main():
+    preprocessed_data = utils.pandas_load_csv(("preprocessed_data.csv"))
+    verified_data = utils.pandas_load_csv(("transfermarkt_data.csv"))
+
+    wrangle_data(preprocessed_data, verified_data)
 
 if __name__ == "__main__":
     main()
