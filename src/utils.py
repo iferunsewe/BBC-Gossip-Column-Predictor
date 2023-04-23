@@ -4,6 +4,9 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_data_file_path(filename):
     script_dir = os.path.dirname(os.path.realpath(__file__))
@@ -52,6 +55,7 @@ def scrape_content(url):
 
 def load_api_key(env_var_name):
     api_key = os.getenv(env_var_name)
+    print(f"API Key: {api_key}")
     print(f"Checking {env_var_name}...")
     if not api_key:
         print(f"Please set the {env_var_name} environment variable")
