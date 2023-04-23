@@ -64,7 +64,7 @@ To set up the project environment, please follow these steps:
 
 4. Run Jupyter Notebook: `jupyter notebook` which will open up a new browser window containing python scripts in the project
 
-5. Install the required libraries within the Anaconda environment by running the following command: `pip install -r requirements.txt` (Make sure you have a `requirements.txt` file in your project directory with the necessary libraries and their versions listed.)
+5. Install the required libraries within the Anaconda environment by running the following command: `pip install -r requirements.txt` in the command line
 
 ### Usage
 
