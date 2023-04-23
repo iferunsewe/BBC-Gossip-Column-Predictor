@@ -110,6 +110,24 @@ def create_matplotlib_table(summary, save_path):
     plt.savefig(save_path) 
     plt.close()
 
+def calculate_class_proportions(y):
+    class_counts = y.value_counts()
+    total_count = len(y)
+    class_proportions = class_counts / total_count
+    return class_proportions
+
+def plot_class_distribution(y, title='Class Distribution', save_path=None):
+    class_proportions = calculate_class_proportions(y)
+    plt.figure(figsize=FIGSIZE)
+    plt.bar(class_proportions.index, class_proportions.values)
+    plt.xlabel('Class')
+    plt.ylabel('Proportion')
+    plt.xticks([0, 1])
+    plt.title(title)
+
+    if save_path:
+        plt.savefig(save_path)
+
 def shorten_label(label):
     if len(label) > 15:
         return label[:15] + '...'
@@ -173,9 +191,15 @@ def visualize_and_analyze(data, continuous_features, categorical_features, y_col
     if not os.path.exists('results'):
         os.makedirs('results')
 
+    target_col_data = data[y_col]
+    
+    plot_class_distribution(target_col_data, title='Class Distribution in Training Set', save_path=os.path.join('results', 'class_distribution_train.png'))
+
     show_continuous_relationship(data, continuous_features, y_col)
 
     show_categorical_relationship(data, categorical_features, y_col)
+
+    
 
 def main():
     data = utils.pandas_load_csv("output_data.csv")

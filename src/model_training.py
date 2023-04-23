@@ -8,6 +8,7 @@ import utils
 from sklearn.impute import SimpleImputer
 from visualization_and_analysis import create_matplotlib_table, plot_confusion_matrix
 import os
+from imblearn.over_sampling import RandomOverSampler
 
 # Get X (features) and y (target)
 def get_X_y(data):
@@ -22,12 +23,18 @@ def impute_missing_values(X):
     X_imputed = pd.DataFrame(X_imputed, columns=X.columns)
     return X_imputed
 
+def apply_ros(X_train, y_train):
+    ros = RandomOverSampler(random_state=42)
+    X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
+    return X_train_resampled, y_train_resampled
+
 def split_data(data):
     X, y = get_X_y(data)
     X_imputed = impute_missing_values(X)
     X_train, X_test, y_train, y_test = train_test_split(X_imputed, y, test_size=0.4, random_state=42)
-    return X_train, X_test, y_train, y_test
+    X_train_resampled, y_train_resampled = apply_ros(X_train, y_train)
 
+    return X_train_resampled, X_test, y_train_resampled, y_test
 
 def train_and_evaluate_model(model, X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
@@ -50,7 +57,7 @@ def print_top_5_feature_importances(model_name, model, X_train):
     total_features, top_5_features = top_5_feature_importances(model, X_train)
     print(f"\n{model_name} top 5 features out of {total_features} features:")
     for feature, importance in top_5_features:
-        print(f"{feature}: {importance}")
+        print(f"{feature}: {importance:.4f}")
 
 def convert_model_report_to_df(report):
     report_df = pd.DataFrame(report).transpose()
@@ -59,7 +66,7 @@ def convert_model_report_to_df(report):
     return report_df
 
 def print_model_results(model_name, accuracy, report_df):
-    print(f"{model_name} accuracy: {accuracy}")
+    print(f"{model_name} accuracy: {accuracy:.4f}")
     print("Classification report table:")
     print(report_df)
 
@@ -94,7 +101,7 @@ def train_and_evaluate_models(data):
         report['cross_validated_accuracy'] = cv_accuracy
 
         # Remove support column and Macro average and Weighted average rows and convertq to dataframe
-        report_df = convert_model_report_to_df(report)
+        report_df = convert_model_report_to_df(report).round(4)
         print_model_results(model_name, accuracy, report_df)
         report_save_path = os.path.join('results', f'{model_name.lower()}_classification_report.png')
         create_matplotlib_table(report_df, report_save_path)
