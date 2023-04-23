@@ -199,8 +199,6 @@ def visualize_and_analyze(data, continuous_features, categorical_features, y_col
 
     show_categorical_relationship(data, categorical_features, y_col)
 
-    
-
 def main():
     data = utils.pandas_load_csv("output_data.csv")
 

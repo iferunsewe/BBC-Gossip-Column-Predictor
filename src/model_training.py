@@ -24,24 +24,41 @@ def impute_missing_values(X):
     return X_imputed
 
 def apply_ros(X_train, y_train):
+    print("\nApplying Random Over Sampling...")
+    print(f"Before applying ROS, the number of samples in the minority class: {y_train.value_counts()[0]}")
+    print(f"Before applying ROS, the number of samples in the majority class: {y_train.value_counts()[1]}")
+
     ros = RandomOverSampler(random_state=42)
     X_train_resampled, y_train_resampled = ros.fit_resample(X_train, y_train)
+
+    print(f"After applying ROS, the number of samples in the minority class: {y_train_resampled.value_counts()[0]}")
+    print(f"After applying ROS, the number of samples in the majority class: {y_train_resampled.value_counts()[1]}")
+
     return X_train_resampled, y_train_resampled
 
-def split_data(data):
+def split_data(data, oversample=False):
     X, y = get_X_y(data)
     X_imputed = impute_missing_values(X)
     X_train, X_test, y_train, y_test = train_test_split(X_imputed, y, test_size=0.4, random_state=42)
-    X_train_resampled, y_train_resampled = apply_ros(X_train, y_train)
 
-    return X_train_resampled, X_test, y_train_resampled, y_test
+    if oversample:
+        X_train_resampled, y_train_resampled = apply_ros(X_train, y_train)
+        return X_train_resampled, X_test, y_train_resampled, y_test
+    else:
+        return X_train, X_test, y_train, y_test
 
-def train_and_evaluate_model(model, X_train, X_test, y_train, y_test):
+def train_and_evaluate_model(model, X_train, X_test, y_train, y_test, cv):
+    # Train and evaluate the model on the test set
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    report = classification_report(y_test, y_pred)
-    return accuracy, report
+    # Perform k-fold cross-validation and compute mean accuracy
+    cv_accuracy = np.mean(cross_val_score(model, X_train, y_train, cv=cv, scoring='accuracy'))
+    report = classification_report(y_test, y_pred, output_dict=True)
+    # Add cross-validated accuracy to the report dictionary
+    report['cross_validated_accuracy'] = cv_accuracy
+
+    return accuracy, cv_accuracy, report, y_pred
 
 def top_5_feature_importances(model, X_train):
     total_features = len(X_train.columns)
@@ -65,7 +82,8 @@ def convert_model_report_to_df(report):
     report_df = report_df.drop(['macro avg', 'weighted avg'])
     return report_df
 
-def print_model_results(model_name, accuracy, report_df):
+def print_model_results(model_name, accuracy, cv_accuracy, report_df):
+    print(f"\n{model_name} cross-validated accuracy: {cv_accuracy}")
     print(f"{model_name} accuracy: {accuracy:.4f}")
     print("Classification report table:")
     print(report_df)
@@ -73,6 +91,49 @@ def print_model_results(model_name, accuracy, report_df):
 def print_confusion_matrix(model_name, y_test, y_pred):
     print(f"{model_name} confusion matrix:")
     print(confusion_matrix(y_test, y_pred))
+
+def find_best_model(models, X_train, X_test, y_train, y_test, cv):
+    best_model = None
+    best_model_name = None
+    best_accuracy = 0
+
+    for model_name, model in models.items():
+        print(f"\n{model_name} model:")
+        accuracy, cv_accuracy, report, _ = train_and_evaluate_model(model, X_train, X_test, y_train, y_test, cv)
+        show_model_report_results(model_name, accuracy, cv_accuracy, report)
+
+        if accuracy > best_accuracy:
+            best_model = model
+            best_model_name = model_name
+            best_accuracy = accuracy
+
+    print(f"\n===================== Best model: {best_model_name} =====================")
+
+    return best_model, best_model_name
+
+
+def show_model_report_results(model_name, accuracy, cv_accuracy, report, save_path=None):
+    report_df = convert_model_report_to_df(report).round(4)
+    print_model_results(model_name, accuracy, cv_accuracy, report_df)
+    if not save_path:
+        save_path = os.path.join('results', f'{model_name.lower()}_classification_report.png')
+
+    create_matplotlib_table(report_df, save_path)
+
+def show_feature_importance_results(model_name, model, X_train, save_path=None):
+    print_top_5_feature_importances(model_name, model, X_train)
+    top_5_features = top_5_feature_importances(model, X_train)[1]
+    top_5_importances_df = convert_top_5_feature_importances_to_df(top_5_features).round(4)
+    if not save_path:
+        save_path = os.path.join('results', f'{model_name.lower()}_top_5_features.png')
+
+    create_matplotlib_table(top_5_importances_df, save_path)
+
+def show_confusion_matrix_results(model_name, y_test, y_pred, save_path=None):
+    print_confusion_matrix(model_name, y_test, y_pred)
+    if not save_path:
+        save_path = os.path.join('results', f'{model_name.lower()}_confusion_matrix.png')
+    plot_confusion_matrix(model_name, y_test, y_pred, save_path)
 
 def train_and_evaluate_models(data):
     X_train, X_test, y_train, y_test = split_data(data)
@@ -86,37 +147,19 @@ def train_and_evaluate_models(data):
     # Using StratifiedKFold to maintain class distribution across folds
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-    for model_name, model in models.items():
-        # Perform k-fold cross-validation and compute mean accuracy
-        cv_accuracy = np.mean(cross_val_score(model, X_train, y_train, cv=cv, scoring='accuracy'))
-        print(f"{model_name} cross-validated accuracy: {cv_accuracy}")
+    best_model, best_model_name = find_best_model(models, X_train, X_test, y_train, y_test, cv)
 
-        # Train and evaluate the model on the test set
-        model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
-        accuracy = accuracy_score(y_test, y_pred)
-        report = classification_report(y_test, y_pred, output_dict=True)
+    X_train_resampled, X_test, y_train_resampled, y_test = split_data(data, oversample=True)
+    best_accuracy, best_cv_accuracy, best_report, best_y_pred = train_and_evaluate_model(best_model, X_train_resampled, X_test, y_train_resampled, y_test, cv)
 
-        # Add cross-validated accuracy to the report dictionary
-        report['cross_validated_accuracy'] = cv_accuracy
+    best_report_save_path = os.path.join('results', f'{best_model_name.lower()}_classification_report_oversampled_data.png')
+    show_model_report_results(best_model_name, best_accuracy, best_cv_accuracy, best_report, save_path=best_report_save_path)
 
-        # Remove support column and Macro average and Weighted average rows and convertq to dataframe
-        report_df = convert_model_report_to_df(report).round(4)
-        print_model_results(model_name, accuracy, report_df)
-        report_save_path = os.path.join('results', f'{model_name.lower()}_classification_report.png')
-        create_matplotlib_table(report_df, report_save_path)
+    best_feature_importance_save_path = os.path.join('results', f'{best_model_name.lower()}_top_5_features_oversampled_data.png')
+    show_feature_importance_results(best_model_name, best_model, X_train_resampled, save_path=best_feature_importance_save_path)
 
-        print_top_5_feature_importances(model_name, model, X_train)
-
-        top_5_features = top_5_feature_importances(model, X_train)[1]
-        top_5_importances_df = convert_top_5_feature_importances_to_df(top_5_features)
-        top_5_importances_save_path = os.path.join('results', f'{model_name.lower()}_top_5_features.png')
-        create_matplotlib_table(top_5_importances_df, top_5_importances_save_path)
-        
-
-        print_confusion_matrix(model_name, y_test, y_pred)
-        confusion_save_path = os.path.join('results', f'{model_name.lower()}_confusion_matrix.png')
-        plot_confusion_matrix(model_name, y_test, y_pred, confusion_save_path)
+    best_confusion_matrix_save_path = os.path.join('results', f'{best_model_name.lower()}_confusion_matrix_oversampled_data.png')
+    show_confusion_matrix_results(best_model_name, y_test, best_y_pred, save_path=best_confusion_matrix_save_path)
 
 def main():
     output_data = utils.pandas_load_csv("output_data.csv")
