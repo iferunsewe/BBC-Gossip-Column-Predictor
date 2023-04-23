@@ -59,8 +59,8 @@ To set up the project environment, please follow these steps:
     - juypter notebook
 
 3. It is recommended to use Anaconda to manage the project dependencies:
-    a. Create an Anaconda environment: `conda create -n <name of env> python=<python version>`
-    b. Activate the environment: `conda activate <name of env>`
+    1. Create an Anaconda environment: `conda create -n <name of env> python=<python version>`
+    2. Activate the environment: `conda activate <name of env>`
 
 4. Run Jupyter Notebook: `jupyter notebook` which will open up a new browser window containing python scripts in the project
 
