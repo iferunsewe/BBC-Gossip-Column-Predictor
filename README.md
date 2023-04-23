@@ -70,9 +70,9 @@ To set up the project environment, please follow these steps:
 
 To use the project, you have two main options:
 
-1. Run individual scripts from the command line or Jupyter Notebook: You can execute each script in the src directory (except utils.py) either by running python <filepath> in the command line or by pressing the play button in the corresponding .ipynb file in the Jupyter Notebook UI.
+1. Run individual scripts from the command line or Jupyter Notebook: You can execute each script in the src directory (except utils.py) either by running python <filepath> in the command line or in the corresponding .ipynb click on the cell containing the "main" function and pressing the play button in the Jupyter Notebook UI.
 
-2. Run the entire data pipeline by executing the src/pipeline.py file or by pressing the play button in the pipeline.ipynb file in the Jupyter Notebook UI.
+2. Run the entire data pipeline by executing the src/pipeline.py file or in the pipeline.ipynb file click on the cell containing the "main" function and pressing the play button in the Jupyter Notebook UI.
 
     The data pipeline offers various options for running the different steps of the project. You can choose to run all steps at once, run steps interactively, or run only a single step. The available steps are:
 
