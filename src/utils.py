@@ -55,7 +55,6 @@ def scrape_content(url):
 
 def load_api_key(env_var_name):
     api_key = os.getenv(env_var_name)
-    print(f"API Key: {api_key}")
     print(f"Checking {env_var_name}...")
     if not api_key:
         print(f"Please set the {env_var_name} environment variable")
