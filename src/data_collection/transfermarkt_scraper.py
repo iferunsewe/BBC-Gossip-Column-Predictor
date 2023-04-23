@@ -79,8 +79,7 @@ def save_transfer_data_to_csv(transfer_data, filename):
             writer.writerow(transfer)
             print(f"Saved transfer {idx}: {transfer['player_name']} from {transfer['club_left']} to {transfer['club_joined']} in {transfer['season']} season")
 
-
-def main():
+def run():
     seasons = {
         "2021": "https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1/saison_id/2021",
         "2022": "https://www.transfermarkt.com/premier-league/transfers/wettbewerb/GB1/saison_id/2022",
@@ -98,6 +97,9 @@ def main():
     # Save all transfer data to a CSV file
     save_transfer_data_to_csv(all_transfer_data, "transfermarkt_data.csv")
     print("Transfer data saved to transfermarkt_data.csv.")
+
+def main():
+    run()
 
 if __name__ == "__main__":
     main()

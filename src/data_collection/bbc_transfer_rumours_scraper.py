@@ -117,8 +117,8 @@ def search_for_articles(api_key, cx_id, query, article_dates):
 
     print("CSV file generation complete.")
 
-def main():
-    # Set up the search parameters
+def run():
+     # Set up the search parameters
     google_api_key = load_api_key("GOOGLE_API_KEY")
     cx_id = load_api_key("CX_ID")
     
@@ -129,6 +129,9 @@ def main():
 
     # Search for articles and write results to CSV file
     search_for_articles(google_api_key, cx_id, query, article_dates)
+
+def main():
+   run()
 
 if __name__ == "__main__":
   main()

@@ -77,7 +77,7 @@ def fetch_players_for_season(league_id, season, seasons, file_name):
     print(f"Found {len(players)} players in {season} season.")
     return players
 
-def main():
+def run():
     print("Running football_api.py")
 
     league_id = 39
@@ -85,6 +85,9 @@ def main():
 
     for season in seasons:
         fetch_players_for_season(league_id, season, seasons, "football_api_players.csv")
+
+def main():
+    run()
 
 if __name__ == "__main__":
     main()

@@ -63,7 +63,7 @@ def scrape_and_save_data(dates, links):
         print(f"Scraped {date.date()} : {link}. Sleeping for {sleep_time} seconds...")
         time.sleep(sleep_time)
 
-def main():
+def run():
     create_csv("transfer_news_data.csv", ["id", "date", "raw_text", "source", "source_url"])
 
     latest_date = read_last_date_from_csv("transfer_news_data.csv")
@@ -72,6 +72,9 @@ def main():
     dates, links = get_articles(start_date=start_date)
 
     scrape_and_save_data(dates, links)
+
+def main():
+    run()
 
 if __name__ == "__main__":
     main()

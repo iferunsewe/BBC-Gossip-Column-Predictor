@@ -3,11 +3,14 @@ from data_preprocessing import preprocess_data
 from data_wrangling import wrangle_data
 from model_training import train_and_evaluate_models
 from visualization_and_analysis import visualize_and_analyze
+from data_collecting import collect_data
 import utils
 import time
 
 
 def main():
+    collect_data()
+    
     structure_data("transfer_news_data.csv")
     
     structured_data_rows = utils.pandas_load_csv("structured_data.csv")
