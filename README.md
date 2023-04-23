@@ -84,6 +84,3 @@ To use the project, you have two main options:
     6. Visualize and analyze data
 
     The pipeline script allows you to select an option using a simple menu. For example, you can choose to run all steps at once, run steps interactively (you will be prompted whether you want to run each step or not), or run only a single step by entering the corresponding number. The pipeline will execute the selected steps and display the results.
-
-
-
