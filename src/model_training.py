@@ -92,26 +92,6 @@ def print_confusion_matrix(model_name, y_test, y_pred):
     print(f"{model_name} confusion matrix:")
     print(confusion_matrix(y_test, y_pred))
 
-def find_best_model(models, X_train, X_test, y_train, y_test, cv):
-    best_model = None
-    best_model_name = None
-    best_accuracy = 0
-
-    for model_name, model in models.items():
-        print(f"\n{model_name} model:")
-        accuracy, cv_accuracy, report, _ = train_and_evaluate_model(model, X_train, X_test, y_train, y_test, cv)
-        show_model_report_results(model_name, accuracy, cv_accuracy, report)
-
-        if accuracy > best_accuracy:
-            best_model = model
-            best_model_name = model_name
-            best_accuracy = accuracy
-
-    print(f"\n===================== Best model: {best_model_name} =====================")
-
-    return best_model, best_model_name
-
-
 def show_model_report_results(model_name, accuracy, cv_accuracy, report, save_path=None):
     report_df = convert_model_report_to_df(report).round(4)
     print_model_results(model_name, accuracy, cv_accuracy, report_df)
@@ -135,8 +115,32 @@ def show_confusion_matrix_results(model_name, y_test, y_pred, save_path=None):
         save_path = os.path.join('results', f'{model_name.lower()}_confusion_matrix.png')
     plot_confusion_matrix(model_name, y_test, y_pred, save_path)
 
+def evaluate_models_on_data(models, X_train, X_test, y_train, y_test, cv, data_type='Original'):
+    best_model = None
+    best_model_name = None
+    best_accuracy = 0
+    report_save_path = None
+    confusion_save_path = None
+
+    for model_name, model in models.items():
+        print(f"\n{model_name} model ({data_type} data):")
+        accuracy, cv_accuracy, report, y_pred = train_and_evaluate_model(model, X_train, X_test, y_train, y_test, cv)
+        if data_type != "Original":
+            report_save_path = os.path.join('results', f'{model_name.lower()}_{data_type.lower()}_classification_report.png')
+            confusion_save_path = os.path.join('results', f'{model_name.lower()}_{data_type.lower()}_confusion_matrix.png')
+        show_model_report_results(model_name, accuracy, cv_accuracy, report, save_path=report_save_path)
+        show_confusion_matrix_results(model_name, y_test, y_pred, save_path=confusion_save_path)
+
+        if accuracy > best_accuracy and data_type == 'Original':
+            best_model = model
+            best_model_name = model_name
+            best_accuracy = accuracy
+
+    return best_model, best_model_name, best_accuracy
+
 def train_and_evaluate_models(data):
     X_train, X_test, y_train, y_test = split_data(data)
+    X_train_resampled, _, y_train_resampled, _ = split_data(data, oversample=True)
 
     models = {
         'Random Forest': RandomForestClassifier(random_state=42),
@@ -147,19 +151,13 @@ def train_and_evaluate_models(data):
     # Using StratifiedKFold to maintain class distribution across folds
     cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-    best_model, best_model_name = find_best_model(models, X_train, X_test, y_train, y_test, cv)
+    best_model, best_model_name, _ = evaluate_models_on_data(models, X_train, X_test, y_train, y_test, cv, data_type='Original')
+    evaluate_models_on_data(models, X_train_resampled, X_test, y_train_resampled, y_test, cv, data_type='Oversampled')
 
-    X_train_resampled, X_test, y_train_resampled, y_test = split_data(data, oversample=True)
-    best_accuracy, best_cv_accuracy, best_report, best_y_pred = train_and_evaluate_model(best_model, X_train_resampled, X_test, y_train_resampled, y_test, cv)
+    print(f"\n===================== Best model: {best_model_name} =====================")
 
-    best_report_save_path = os.path.join('results', f'{best_model_name.lower()}_classification_report_oversampled_data.png')
-    show_model_report_results(best_model_name, best_accuracy, best_cv_accuracy, best_report, save_path=best_report_save_path)
+    show_feature_importance_results(best_model_name, best_model, X_train)
 
-    best_feature_importance_save_path = os.path.join('results', f'{best_model_name.lower()}_top_5_features_oversampled_data.png')
-    show_feature_importance_results(best_model_name, best_model, X_train_resampled, save_path=best_feature_importance_save_path)
-
-    best_confusion_matrix_save_path = os.path.join('results', f'{best_model_name.lower()}_confusion_matrix_oversampled_data.png')
-    show_confusion_matrix_results(best_model_name, y_test, best_y_pred, save_path=best_confusion_matrix_save_path)
 
 def main():
     output_data = utils.pandas_load_csv("output_data.csv")
