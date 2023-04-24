@@ -147,7 +147,7 @@ def plot_confusion_matrix(model_name, y_test, y_pred, save_path):
 def plot_feature_importances(model_name, model, X_train, save_path):
     model_importances = sorted(zip(X_train.columns, model.feature_importances_), key=lambda x: x[1], reverse=True)
     importances_df = pd.DataFrame(model_importances, columns=['Feature', 'Importance'])
-    plt.figure(figsize=FIGSIZE)
+    plt.figure(figsize=(18, 6))
     sns.barplot(x='Importance', y='Feature', data=importances_df.head(10))
     plt.title(f"{model_name} Feature Importances")
     plt.xlabel('Importance')
@@ -194,9 +194,7 @@ def visualize_and_analyze(data, continuous_features, categorical_features, y_col
     target_col_data = data[y_col]
     
     plot_class_distribution(target_col_data, title='Class Distribution in Training Set', save_path=os.path.join('results', 'class_distribution_train.png'))
-
     show_continuous_relationship(data, continuous_features, y_col)
-
     show_categorical_relationship(data, categorical_features, y_col)
 
 def main():

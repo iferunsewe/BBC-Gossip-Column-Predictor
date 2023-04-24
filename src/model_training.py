@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from xgboost import XGBClassifier
 import utils
 from sklearn.impute import SimpleImputer
-from visualization_and_analysis import create_matplotlib_table, plot_confusion_matrix
+from visualization_and_analysis import create_matplotlib_table, plot_confusion_matrix, plot_feature_importances
 import os
 from imblearn.over_sampling import RandomOverSampler
 
@@ -83,7 +83,7 @@ def convert_model_report_to_df(report):
     return report_df
 
 def print_model_results(model_name, accuracy, cv_accuracy, report_df):
-    print(f"\n{model_name} cross-validated accuracy: {cv_accuracy}")
+    print(f"\n{model_name} cross-validated accuracy: {cv_accuracy:.4f}")
     print(f"{model_name} accuracy: {accuracy:.4f}")
     print("Classification report table:")
     print(report_df)
@@ -100,14 +100,14 @@ def show_model_report_results(model_name, accuracy, cv_accuracy, report, save_pa
 
     create_matplotlib_table(report_df, save_path)
 
-def show_feature_importance_results(model_name, model, X_train, save_path=None):
+def show_feature_importance_results(model_name, model, X_train):
     print_top_5_feature_importances(model_name, model, X_train)
     top_5_features = top_5_feature_importances(model, X_train)[1]
     top_5_importances_df = convert_top_5_feature_importances_to_df(top_5_features).round(4)
-    if not save_path:
-        save_path = os.path.join('results', f'{model_name.lower()}_top_5_features.png')
-
-    create_matplotlib_table(top_5_importances_df, save_path)
+    if_save_path = os.path.join('results', f'{model_name.lower()}_top_5_features.png')
+    create_matplotlib_table(top_5_importances_df, if_save_path)
+    if_bar_chart_save_path = os.path.join('results', f'{model_name.lower()}_top_5_features_bar_chart.png')
+    plot_feature_importances(model_name, model, X_train, if_bar_chart_save_path)
 
 def show_confusion_matrix_results(model_name, y_test, y_pred, save_path=None):
     print_confusion_matrix(model_name, y_test, y_pred)
