@@ -20,7 +20,7 @@ def preprocess_for_visulization(data, x_col, y_col):
     return data
 
 def plot_boxplot_figure(data, x_col, y_col, title, save_path):
-    plt.figure(figsize=FIGSIZE)
+    plt.figure(figsize=(8, 8))
     sns.boxplot(data=data, x=y_col, y=x_col)
     plt.title(title)
     plt.xlabel(y_col)
@@ -75,7 +75,7 @@ def create_true_rumour_summary_table(data, x_col, y_col):
     true_rumour_counts = data.groupby(x_col)[y_col].sum()
     total_counts = data[x_col].value_counts()
     proportion_true_rumours = (true_rumour_counts / total_counts)
-    filtered_proportions = proportion_true_rumours[(proportion_true_rumours > 0) & (total_counts >= CATEGORICAL_RESULTS_TO_SHOW)]
+    filtered_proportions = proportion_true_rumours[(proportion_true_rumours > 0) & (total_counts > CATEGORICAL_RESULTS_TO_SHOW)]
     sorted_proportions = filtered_proportions.sort_values(ascending=False)
     percentage_true_rumours = (filtered_proportions * 100).round(2)
     summary = pd.concat([total_counts, percentage_true_rumours], axis=1)
@@ -94,7 +94,7 @@ def plot_bar_chart(sorted_proportions, title, save_path):
     ax1.set_ylabel('Percentage of true rumours')
     ax1.set_xticklabels([shorten_label(label.get_text()) for label in ax1.get_xticklabels()])
     plt.setp(ax1.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor", fontsize=12)
-    ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.2f}%'))
+    ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{(x*100).round(2)}%'))
     plt.savefig(save_path)
     plt.close()
 
