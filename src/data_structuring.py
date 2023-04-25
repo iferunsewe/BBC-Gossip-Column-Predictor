@@ -16,6 +16,7 @@ def set_api_key():
 def determine_file_mode(filename):
     return "a" if os.path.exists(filename) else "w"
 
+# Writes a row to a CSV file with the given fieldnames
 def write_csv_row(filename, fieldnames, row):
     mode = determine_file_mode(filename)
 
@@ -25,6 +26,7 @@ def write_csv_row(filename, fieldnames, row):
             writer.writeheader()
         writer.writerow(row)
 
+# Extracts structured football info using OpenAI API and returns the result as a dictionary
 def extract_football_info(raw_text):
     prompt = f"Structure the following raw_text into json that includes fields 'player_name' and 'clubs_mentioned': {raw_text}. The result should be an array of objects where each object contains the player_name and clubs_mentioned fields. Only include football clubs in the clubs_mentioned field and not international teams. Only include actual football players in the player_name field and not football managers."
     response = openai.Completion.create(
@@ -46,6 +48,7 @@ def extract_football_info(raw_text):
     print(f"Structured data: {structured_data}")
     return structured_data
 
+# Processes the rows in the input CSV file and writes the structured data to the output CSV file
 def process_rows(input_rows, fieldnames):
     errors = []
 

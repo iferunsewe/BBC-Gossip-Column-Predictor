@@ -74,15 +74,16 @@ CLUB_MAPPING = {
     'Hornets': 'Watford FC',
 }
 
-def is_actual_player(player_name, football_api_players, transfermarkt_data):
+# Checks if a player is an actual player by comparing their name against a list of all known player names.
+def is_actual_player(player_name, known_player_names):
     print(f"Checking if {player_name} is an actual player...")
-    all_names = set(football_api_players['full_name'].tolist() + football_api_players['name'].tolist() + transfermarkt_data['player_name'].tolist())
-
-    if get_best_fuzzy_match(player_name, all_names) is None:
+    
+    if get_best_fuzzy_match(player_name, known_player_names) is None:
         return False
     else:
         return True
-    
+
+# Finds the best fuzzy match for a given player name in a list of names.    
 def get_best_fuzzy_match(player_name, names_list):
     match, score = process.extractOne(player_name, names_list)
     if score >= 90:
@@ -90,7 +91,8 @@ def get_best_fuzzy_match(player_name, names_list):
         return match
     else:
         return None
-    
+
+# Retrieves the row from the Transfermarkt dataset corresponding to a given player.
 def get_transfermarkt_row(player_name, transfermarkt_data):
     player_names = transfermarkt_data['player_name'].tolist()
     best_match = get_best_fuzzy_match(player_name, player_names)
@@ -102,6 +104,7 @@ def get_transfermarkt_row(player_name, transfermarkt_data):
 
     return transfermarkt_row
 
+# Retrieves the row from the Football API dataset corresponding to a given player.
 def get_api_row(player_name, football_api_players):
     full_names = football_api_players['full_name'].tolist()
     short_names = football_api_players['name'].tolist() 
@@ -118,6 +121,7 @@ def get_api_row(player_name, football_api_players):
 
     return api_row
 
+# Maps a player's position to one of the positions recognized by the Football API.
 def map_to_football_api_position(position):
     return POSITION_MAPPING.get(position, "Unknown")
 
@@ -153,6 +157,7 @@ def get_api_data(player_name, football_api_players):
 
     return player_data
 
+# Merges the player data from Transfermarkt and Football API datasets.
 def merge_player_data(transfermarkt_data, api_data):
     merged_data = {}
 
@@ -174,6 +179,7 @@ def get_player_data(player_name, transfermarkt_data, football_api_players):
 
     return player_data
 
+# Finds the player's age in the given text using regular expressions.
 def find_age_in_text(text):
     print(f"Finding age in text: {text}")
     # Match patterns like "27-year-old" or "27 year old"
@@ -192,6 +198,7 @@ def find_age_in_text(text):
 
     return None
 
+# Finds the player's nationality in the given text using the locationtagger library.
 def find_nationality_in_text(raw_text):
     print(f"Finding nationality in text: {raw_text}")
     entities = locationtagger.find_locations(text=raw_text)
@@ -202,6 +209,7 @@ def find_nationality_in_text(raw_text):
     else:
         return None
     
+# Finds the player's position in the given text using the POSITION_MAPPING dictionary.
 def find_position_in_text(raw_text):
     print(f"Finding position in text: {raw_text}")
     positions = list(POSITION_MAPPING.keys())
@@ -212,6 +220,7 @@ def find_position_in_text(raw_text):
             return map_to_football_api_position(position)
     return None
 
+# Calculates the number of days until the next transfer window or the end of current window based on a given date string.
 def days_to_next_transfer_window(date_str):
     date = datetime.datetime.strptime(date_str, "%d %B %Y")
     year = date.year
@@ -274,16 +283,20 @@ def concat_encoded_data(data, encoded_data):
     data_encoded = pd.concat([data] + encoded_data, axis=1)
     return data_encoded
 
+# Filters out the rows of the input dataset that do not correspond to actual players.
 def filter_actual_players(input_rows, football_api_players, transfermarkt_data):
-    input_rows['is_actual_player'] = input_rows['player_name'].apply(lambda x: is_actual_player(x, football_api_players, transfermarkt_data))
+    known_player_names = set(football_api_players['full_name'].tolist() + football_api_players['name'].tolist() + transfermarkt_data['player_name'].tolist())
+    input_rows['is_actual_player'] = input_rows['player_name'].apply(lambda x: is_actual_player(x, known_player_names))
     return input_rows[input_rows['is_actual_player'] & (input_rows['clubs_mentioned'].str.count(',') >= 1)].drop(columns=['is_actual_player'])
 
+# Adds player data to the preprocessed dataset.
 def add_player_data(preprocessed_data, transfermarkt_data, football_api_players):
     player_data_dicts = [x for x in preprocessed_data['player_name'].apply(lambda x: get_player_data(x, transfermarkt_data, football_api_players)).tolist() if x is not None]
     player_data_df = pd.DataFrame(player_data_dicts)
     preprocessed_data.reset_index(drop=True, inplace=True)
     return pd.concat([preprocessed_data, player_data_df], axis=1)
 
+# Updates missing data in the preprocessed dataset.
 def update_missing_data(preprocessed_data):
     preprocessed_data['age'] = preprocessed_data.apply(lambda row: row['age'] if not pd.isnull(row['age']) else find_age_in_text(row['raw_text']), axis=1)
     preprocessed_data['nationality'] = preprocessed_data.apply(lambda row: row['nationality'] if not pd.isnull(row['nationality']) else find_nationality_in_text(row['raw_text']), axis=1)
@@ -301,6 +314,7 @@ def clean_market_values(preprocessed_data):
 def merge_with_transfer_news_data(preprocessed_data, transfer_news_data):
     return preprocessed_data.merge(transfer_news_data[['id', 'source']], on='id', how='left')
 
+# Encodes and concatenates the specified columns.
 def encode_and_concat_columns(preprocessed_data, columns_to_encode):
     encoded_data = encode_columns(preprocessed_data, columns_to_encode)
     return concat_encoded_data(preprocessed_data, encoded_data)
