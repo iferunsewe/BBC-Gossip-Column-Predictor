@@ -10,6 +10,7 @@ import os
 FIGSIZE = (12, 14)
 CATEGORICAL_RESULTS_TO_SHOW = 10
 
+# Preprocess data for visualization by dropping NaNs and converting y_col to numeric
 def preprocess_for_visulization(data, x_col, y_col):
     # Drop rows with NaN values in the x_col and y_col columns
     data = data[[x_col, y_col]].dropna()
@@ -19,6 +20,7 @@ def preprocess_for_visulization(data, x_col, y_col):
 
     return data
 
+# Plot a boxplot figure with specified data, columns, title, and save to a file
 def plot_boxplot_figure(data, x_col, y_col, title, save_path):
     plt.figure(figsize=(8, 8))
     sns.boxplot(data=data, x=y_col, y=x_col)
@@ -28,23 +30,28 @@ def plot_boxplot_figure(data, x_col, y_col, title, save_path):
     plt.savefig(save_path)
     plt.close()
 
+# Print descriptive statistics for boxplot data
 def print_boxplot_statistics(data, x_col, y_col, title):
     boxplot_stats = data.groupby(y_col)[x_col].describe()
     print(f"Boxplot statistics for {title}:\n")
     print(boxplot_stats)
 
+# Convert specified column in data to numeric
 def convert_column_to_numeric(data, column):
     data[column] = pd.to_numeric(data[column], errors='coerce')
     return data
 
+# Drop rows with NaN values in specified columns
 def drop_na_rows(data, columns):
     data_no_na = data[columns].dropna()
     return data_no_na
 
+ # Calculate Pearson correlation and p-value between x_col and y_col
 def calculate_pearsonr_correlation(data, x_col, y_col):
     pearsonr, p_value = scipy.stats.pearsonr(data[y_col], data[x_col])
     return pearsonr, p_value
 
+# Interpret and print correlation and p-value results
 def interpret_relationship(corr, p_value, x_col, y_col):
     if corr > 0:
         relationship = "positive"
@@ -67,10 +74,12 @@ def interpret_relationship(corr, p_value, x_col, y_col):
     else:
         print("The P-value is greater than 0.05, which suggests that there is no statistically significant relationship between the two variables.")
 
+# Calculate, interpret, and print Pearson correlation for specified columns
 def print_correlation(data, x_col, y_col):
     corr, p_value = calculate_pearsonr_correlation(data, x_col, y_col)
     interpret_relationship(corr, p_value, x_col, y_col)
 
+# Create a summary table of true rumour proportions for specified columns
 def create_true_rumour_summary_table(data, x_col, y_col):
     true_rumour_counts = data.groupby(x_col)[y_col].sum()
     total_counts = data[x_col].value_counts()
@@ -86,6 +95,7 @@ def create_true_rumour_summary_table(data, x_col, y_col):
 
     return summary, sorted_proportions
 
+# Plot a bar chart of sorted proportions with specified title and save to a file
 def plot_bar_chart(sorted_proportions, title, save_path):
     plt.figure(figsize=FIGSIZE)
     ax1 = plt.gca()
@@ -98,24 +108,27 @@ def plot_bar_chart(sorted_proportions, title, save_path):
     plt.savefig(save_path)
     plt.close()
 
-def create_matplotlib_table(summary, save_path):
+# Create a table in matplotlib with specified data and save to a file
+def create_matplotlib_table(data, save_path):
     _, ax = plt.subplots(figsize=FIGSIZE)
     ax.axis('off')
-    table = ax.table(cellText=summary.values, rowLabels=[shorten_label(label) for label in summary.index], colLabels=summary.columns, cellLoc='center', loc='center')
+    table = ax.table(cellText=data.values, rowLabels=[shorten_label(label) for label in data.index], colLabels=data.columns, cellLoc='center', loc='center')
     table.auto_set_font_size(False)
     table.set_fontsize(12)
-    table.auto_set_column_width(col=list(range(len(summary.columns))))
+    table.auto_set_column_width(col=list(range(len(data.columns))))
     table.scale(1, 1.5)
 
     plt.savefig(save_path) 
     plt.close()
 
+# Calculate class proportions for a given target variable (y)
 def calculate_class_proportions(y):
     class_counts = y.value_counts()
     total_count = len(y)
     class_proportions = class_counts / total_count
     return class_proportions
 
+# Plot a bar chart of class distribution with optional title and save path
 def plot_class_distribution(y, title='Class Distribution', save_path=None):
     class_proportions = calculate_class_proportions(y)
     plt.figure(figsize=FIGSIZE)
@@ -133,9 +146,9 @@ def shorten_label(label):
         return label[:15] + '...'
     return label
 
+# Plot a bar chart of feature importances with optional title and save path
 def plot_confusion_matrix(model_name, y_test, y_pred, save_path):
     print("\nPlotting confusion matrix...")
-    # Plot the confusion matrix
     cm = confusion_matrix(y_test, y_pred)
     sns.heatmap(cm, annot=True, cmap='Blues', fmt='d')
     plt.title(f"{model_name} Confusion Matrix")
@@ -144,6 +157,7 @@ def plot_confusion_matrix(model_name, y_test, y_pred, save_path):
     plt.savefig(save_path)
     plt.close()
 
+# Plot a bar chart of feature importances with optional title and save path
 def plot_feature_importances(model_name, model, X_train, save_path):
     model_importances = sorted(zip(X_train.columns, model.feature_importances_), key=lambda x: x[1], reverse=True)
     importances_df = pd.DataFrame(model_importances, columns=['Feature', 'Importance'])
@@ -155,6 +169,7 @@ def plot_feature_importances(model_name, model, X_train, save_path):
     plt.savefig(save_path)
     plt.close()
 
+# Visualize and analyze continuous relationships between features and target column
 def show_continuous_relationship(data, continuous_features, y_col):
     for feature in continuous_features:
         if feature in data.columns:
@@ -168,6 +183,7 @@ def show_continuous_relationship(data, continuous_features, y_col):
         data_no_na = drop_na_rows(data, [feature, y_col])
         print_correlation(data_no_na, feature, y_col)
 
+# Visualize and analyze categorical relationships between features and target column
 def show_categorical_relationship(data, categorical_features, y_col):
     for feature in categorical_features:
         if feature in data.columns:
