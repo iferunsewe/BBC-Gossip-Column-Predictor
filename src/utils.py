@@ -61,5 +61,13 @@ def load_api_key(env_var_name):
         exit(1)
     return api_key
 
-def pandas_load_csv(file_path):
-    return pd.read_csv(get_data_file_path(file_path))
+def pandas_load_csv(file_path, ignore_execution_if_no_data=True):
+    pd_data = pd.read_csv(get_data_file_path(file_path))
+    if ignore_execution_if_no_data:
+        skip_execution_if_no_data(pd_data, file_path)
+    return pd_data
+
+def skip_execution_if_no_data(data, filename):
+    if data.empty:
+        print(f"No rows in {filename}. Skipping script execution.")
+        exit(0)
