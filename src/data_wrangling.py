@@ -8,6 +8,7 @@ def extract_player_name(row):
 def extract_clubs_mentioned(row):
     return string_to_list(row["clubs_mentioned"])
 
+# Converts a string to a list
 def string_to_list(my_string):
     try:
         my_list = eval(my_string)
@@ -15,12 +16,14 @@ def string_to_list(my_string):
         my_list = my_string.split(", ")
     return my_list
 
+# Finds the best match between player names and a list of names using fuzzy string matching
 def get_best_match(player_name, names_list):
     return process.extractOne(player_name, names_list, scorer=fuzz.token_sort_ratio)
 
 def is_player_found(best_match, threshold=50):
     return best_match[1] >= threshold
 
+# Gets the player row from transfermarkt_data based on the best match.
 def get_player_row(player_name, transfermarkt_data):
     best_match = get_best_match(player_name, transfermarkt_data["player_name"])
     if is_player_found(best_match):
@@ -31,6 +34,7 @@ def get_player_row(player_name, transfermarkt_data):
 def merge_clubs_left_joined(player_row):
     return pd.concat([player_row["club_left"], player_row["club_joined"]])
 
+# Checks if all clubs mentioned in the transfer news exist in the clubs left and joined by the player
 def check_clubs_exist(clubs_mentioned, clubs_left_joined, threshold=75):
     clubs_mentioned_set = set(clubs_mentioned)
     clubs_found = set()
@@ -44,6 +48,7 @@ def check_clubs_exist(clubs_mentioned, clubs_left_joined, threshold=75):
     
     return len(clubs_found) == len(clubs_mentioned_set)
 
+# Determines the veracity of a transfer rumor based on the player found and the clubs mentioned
 def get_veracity(player_found, player_row, clubs_mentioned):
     if player_found:
         clubs_left_joined = merge_clubs_left_joined(player_row)
@@ -55,6 +60,7 @@ def get_veracity(player_found, player_row, clubs_mentioned):
 def create_output_csv(preprocessed_data):
     preprocessed_data.to_csv(utils.get_data_file_path("output_data.csv"), index=False)
 
+# Removes unnecessary columns and rows with missing values
 def clean_data(data):
     columns_to_exclude = ["raw_text", "player_name", "date", "id", "clubs_mentioned"]
     data = data.drop(columns=columns_to_exclude)
@@ -62,6 +68,7 @@ def clean_data(data):
     data['veracity'] = data['veracity'].astype(int)
     return data
 
+# Wrangles the data by adding a veracity column to the preprocessed data
 def wrangle_data(preprocessed_data, verified_data):
     veracity_list = []
 
