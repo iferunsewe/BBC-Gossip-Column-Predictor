@@ -28,13 +28,13 @@ def main():
             print("Invalid input. Please try again.")
 
 def run_all_steps():
-    steps = [collect_data, structure_data_step, preprocess_data_step, wrangle_data_step, train_and_evaluate_models_step, visualize_and_analyze_step]
+    steps = [collect_data_step, structure_data_step, preprocess_data_step, wrangle_data_step, train_and_evaluate_models_step, visualize_and_analyze_step]
 
     for step in steps:
         step()
 
 def run_steps_interactively():
-    steps = [collect_data, structure_data_step, preprocess_data_step, wrangle_data_step, train_and_evaluate_models_step, visualize_and_analyze_step]
+    steps = [collect_data_step, structure_data_step, preprocess_data_step, wrangle_data_step, train_and_evaluate_models_step, visualize_and_analyze_step]
 
     for step in steps:
         answer = input(f"Do you want to run the step '{step.__name__}'? (y/n): ")
@@ -43,7 +43,7 @@ def run_steps_interactively():
 
 def run_single_step():
     step_mapping = {
-        1: collect_data,
+        1: collect_data_step,
         2: structure_data_step,
         3: preprocess_data_step,
         4: wrangle_data_step,
@@ -58,9 +58,15 @@ def run_single_step():
     choice = int(input("Enter the step number: "))
     step_mapping[choice]()
 
+# Collects data from various sources
+def collect_data_step():
+    collect_data()
+
+# Structures raw data into a structured format
 def structure_data_step():
     structure_data("transfer_news_data.csv")
 
+# Preprocesses structured data for further analysis
 def preprocess_data_step():
     structured_data_rows = utils.pandas_load_csv("structured_data.csv")
     transfer_news_data = utils.pandas_load_csv("transfer_news_data.csv")
@@ -69,16 +75,19 @@ def preprocess_data_step():
 
     preprocess_data(structured_data_rows, transfer_news_data, football_api_players, transfermarkt_data)
 
+# Wrangles preprocessed data into a format suitable for modeling
 def wrangle_data_step():
     preprocessed_data = utils.pandas_load_csv("preprocessed_data.csv")
     transfermarkt_data = utils.pandas_load_csv("transfermarkt_data.csv")
 
     wrangle_data(preprocessed_data, transfermarkt_data)
 
+# Trains and evaluates machine learning models
 def train_and_evaluate_models_step():
     output_data = utils.pandas_load_csv("output_data.csv")
     train_and_evaluate_models(output_data)
 
+# Visualizes and analyzes relationships between features and the target variable
 def visualize_and_analyze_step():
     data = utils.pandas_load_csv("output_data.csv")
 

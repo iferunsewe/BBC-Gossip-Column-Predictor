@@ -23,6 +23,7 @@ def impute_missing_values(X):
     X_imputed = pd.DataFrame(X_imputed, columns=X.columns)
     return X_imputed
 
+# Apply Random Over Sampling
 def apply_ros(X_train, y_train):
     print("\nApplying Random Over Sampling...")
     print(f"Before applying ROS, the number of samples in the minority class: {y_train.value_counts()[0]}")
@@ -36,6 +37,7 @@ def apply_ros(X_train, y_train):
 
     return X_train_resampled, y_train_resampled
 
+# Split data into train and test sets. Oversamples the minority class if needed
 def split_data(data, oversample=False):
     X, y = get_X_y(data)
     X_imputed = impute_missing_values(X)
@@ -47,8 +49,8 @@ def split_data(data, oversample=False):
     else:
         return X_train, X_test, y_train, y_test
 
+# Train and evaluate the model on the test set
 def train_and_evaluate_model(model, X_train, X_test, y_train, y_test, cv):
-    # Train and evaluate the model on the test set
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
@@ -60,6 +62,7 @@ def train_and_evaluate_model(model, X_train, X_test, y_train, y_test, cv):
 
     return accuracy, cv_accuracy, report, y_pred
 
+# Top 5 feature importances for the model from the training set
 def top_5_feature_importances(model, X_train):
     total_features = len(X_train.columns)
     feature_importances = sorted(zip(X_train.columns, model.feature_importances_), key=lambda x: x[1], reverse=True)
@@ -100,6 +103,7 @@ def show_model_report_results(model_name, accuracy, cv_accuracy, report, save_pa
 
     create_matplotlib_table(report_df, save_path)
 
+# Show the feature importances in a bar chart, a table and save them
 def show_feature_importance_results(model_name, model, X_train):
     print_top_5_feature_importances(model_name, model, X_train)
     top_5_features = top_5_feature_importances(model, X_train)[1]
@@ -109,12 +113,14 @@ def show_feature_importance_results(model_name, model, X_train):
     if_bar_chart_save_path = os.path.join('results', f'{model_name.lower()}_top_5_features_bar_chart.png')
     plot_feature_importances(model_name, model, X_train, if_bar_chart_save_path)
 
+# Show the confusion matrix in a table and a plot and save the plot
 def show_confusion_matrix_results(model_name, y_test, y_pred, save_path=None):
     print_confusion_matrix(model_name, y_test, y_pred)
     if not save_path:
         save_path = os.path.join('results', f'{model_name.lower()}_confusion_matrix.png')
     plot_confusion_matrix(model_name, y_test, y_pred, save_path)
 
+# Trains, evaluates, and compares models using given data, cross-validation, and data type, returning the best model and its accuracy.
 def evaluate_models_on_data(models, X_train, X_test, y_train, y_test, cv, data_type='Original'):
     best_model = None
     best_model_name = None
@@ -138,6 +144,7 @@ def evaluate_models_on_data(models, X_train, X_test, y_train, y_test, cv, data_t
 
     return best_model, best_model_name, best_accuracy
 
+# Splits input data, oversamples if needed, and evaluates various classifiers on the data, reporting performance and feature importances.
 def train_and_evaluate_models(data):
     X_train, X_test, y_train, y_test = split_data(data)
     X_train_resampled, _, y_train_resampled, _ = split_data(data, oversample=True)
