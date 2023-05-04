@@ -71,11 +71,11 @@ def main():
     mask_player_names(football_api_players, column_name='full_name')
     mask(preprocessed_data, raw_text_column='raw_text')
 
-    transfermarkt_data.to_csv(utils.get_data_file_path("masked_transfermarkt_data.csv"), index=False)
-    structured_data.to_csv(utils.get_data_file_path("masked_structured_data.csv"), index=False)
-    transfer_news_data.to_csv(utils.get_data_file_path("masked_transfer_news_data.csv"), index=False)
-    football_api_players.to_csv(utils.get_data_file_path("masked_football_api_players.csv"), index=False)
-    preprocessed_data.to_csv(utils.get_data_file_path("masked_preprocessed_data.csv"), index=False)
+    transfermarkt_data.to_csv(utils.get_data_file_path("transfermarkt_data.csv"), index=False)
+    structured_data.to_csv(utils.get_data_file_path("structured_data.csv"), index=False)
+    transfer_news_data.to_csv(utils.get_data_file_path("transfer_news_data.csv"), index=False)
+    football_api_players.to_csv(utils.get_data_file_path("football_api_players.csv"), index=False)
+    preprocessed_data.to_csv(utils.get_data_file_path("preprocessed_data.csv"), index=False)
 
 if __name__ == '__main__':
     main()
