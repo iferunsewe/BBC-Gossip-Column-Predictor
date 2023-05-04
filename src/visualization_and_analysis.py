@@ -9,6 +9,7 @@ import os
 
 FIGSIZE = (12, 14)
 CATEGORICAL_RESULTS_TO_SHOW = 10
+FONTSIZE = 24
 
 # Preprocess data for visualization by dropping NaNs and converting y_col to numeric
 def preprocess_for_visulization(data, x_col, y_col):
@@ -21,12 +22,12 @@ def preprocess_for_visulization(data, x_col, y_col):
     return data
 
 # Plot a boxplot figure with specified data, columns, title, and save to a file
-def plot_boxplot_figure(data, x_col, y_col, title, save_path):
+def plot_boxplot_figure(data, x_col, y_col, title, x_col_label, y_col_label, save_path):
     plt.figure(figsize=(8, 8))
     sns.boxplot(data=data, x=y_col, y=x_col)
-    plt.title(title)
-    plt.xlabel(y_col)
-    plt.ylabel(x_col)
+    plt.title(title, fontsize=FONTSIZE)
+    plt.xlabel(y_col_label, fontsize=FONTSIZE)
+    plt.ylabel(x_col_label, fontsize=FONTSIZE) 
     plt.savefig(save_path)
     plt.close()
 
@@ -96,14 +97,16 @@ def create_true_rumour_summary_table(data, x_col, y_col):
     return summary, sorted_proportions
 
 # Plot a bar chart of sorted proportions with specified title and save to a file
-def plot_bar_chart(sorted_proportions, title, save_path):
-    plt.figure(figsize=FIGSIZE)
+def plot_bar_chart(sorted_proportions, title, x_col_label, y_col_label, save_path):
+    plt.figure(figsize=(34, 40))
     ax1 = plt.gca()
     sorted_proportions.plot(kind='bar', ax=ax1)
-    ax1.set_title(title)
-    ax1.set_ylabel('Percentage of true rumours')
-    ax1.set_xticklabels([shorten_label(label.get_text()) for label in ax1.get_xticklabels()])
-    plt.setp(ax1.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor", fontsize=12)
+    ax1.set_title(title, fontsize=30)
+    ax1.set_ylabel(y_col_label, fontsize=40)
+    ax1.set_xlabel(x_col_label, fontsize=40)
+    ax1.set_xticklabels([shorten_label(label.get_text()) for label in ax1.get_xticklabels()], fontsize=FONTSIZE)
+    plt.setp(ax1.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor", fontsize=FONTSIZE)
+    plt.tick_params(axis='both', which='major', labelsize=30)
     ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{(x*100).round(2)}%'))
     plt.savefig(save_path)
     plt.close()
@@ -133,10 +136,11 @@ def plot_class_distribution(y, title='Class Distribution', save_path=None):
     class_proportions = calculate_class_proportions(y)
     plt.figure(figsize=FIGSIZE)
     plt.bar(class_proportions.index, class_proportions.values)
-    plt.xlabel('Class')
-    plt.ylabel('Proportion')
+    plt.xlabel('Class', fontsize=FONTSIZE)
+    plt.ylabel('Proportion', fontsize=FONTSIZE)
     plt.xticks([0, 1])
-    plt.title(title)
+    plt.title(title, fontsize=FONTSIZE)
+    plt.tick_params(axis='both', which='major', labelsize=FONTSIZE)
 
     if save_path:
         plt.savefig(save_path)
@@ -149,11 +153,13 @@ def shorten_label(label):
 # Plot a bar chart of feature importances with optional title and save path
 def plot_confusion_matrix(model_name, y_test, y_pred, save_path):
     print("\nPlotting confusion matrix...")
+    plt.figure(figsize=FIGSIZE)
     cm = confusion_matrix(y_test, y_pred)
     sns.heatmap(cm, annot=True, cmap='Blues', fmt='d')
-    plt.title(f"{model_name} Confusion Matrix")
-    plt.xlabel("Predicted Label")
-    plt.ylabel("True Label")
+    plt.title(f"{model_name} Confusion Matrix", fontsize=FONTSIZE)
+    plt.xlabel("Predicted Label", fontsize=FONTSIZE)
+    plt.ylabel("True Label", fontsize=FONTSIZE)
+    plt.tick_params(axis='both', which='major', labelsize=FONTSIZE)
     plt.savefig(save_path)
     plt.close()
 
@@ -161,11 +167,12 @@ def plot_confusion_matrix(model_name, y_test, y_pred, save_path):
 def plot_feature_importances(model_name, model, X_train, save_path):
     model_importances = sorted(zip(X_train.columns, model.feature_importances_), key=lambda x: x[1], reverse=True)
     importances_df = pd.DataFrame(model_importances, columns=['Feature', 'Importance'])
-    plt.figure(figsize=(18, 6))
+    plt.figure(figsize=(30, 8))
     sns.barplot(x='Importance', y='Feature', data=importances_df.head(10))
-    plt.title(f"{model_name} Feature Importances")
-    plt.xlabel('Importance')
-    plt.ylabel('Feature')
+    plt.title(f"{model_name} Feature Importances", fontsize=FONTSIZE)
+    plt.xlabel('Importance', fontsize=FONTSIZE)
+    plt.ylabel('Feature', fontsize=FONTSIZE)
+    plt.tick_params(axis='both', which='major', labelsize=18)
     plt.savefig(save_path)
     plt.close()
 
@@ -175,7 +182,14 @@ def show_continuous_relationship(data, continuous_features, y_col):
         if feature in data.columns:
             data_continuous = preprocess_for_visulization(data, feature, y_col)
             save_path = os.path.join('results', f"{feature}_vs_{y_col}_boxplot.png")
-            plot_boxplot_figure(data_continuous, feature, y_col, f"{feature} vs. {y_col}", save_path)
+            if feature == "market_value":
+                x_col_label = "Market Value (in millions)"
+            elif feature == "time_to_transfer_window":
+                x_col_label = "Time to Transfer Window (in days)"
+            else:
+                x_col_label = feature
+    
+            plot_boxplot_figure(data_continuous, feature, y_col, f"{feature} vs. {y_col}", x_col_label, y_col, save_path)
             print_boxplot_statistics(data_continuous, feature, y_col, f"{feature} vs. {y_col}")
         else:
             print(f"Feature not found in the data: {feature}")
@@ -193,7 +207,7 @@ def show_categorical_relationship(data, categorical_features, y_col):
             # Check if the DataFrame is not empty
             if not sorted_proportions.empty:
                 save_path_bar_chart = os.path.join('results', f"{feature}_vs_{y_col}_bar_chart.png")
-                plot_bar_chart(sorted_proportions, f"{feature} vs. {y_col}", save_path_bar_chart)
+                plot_bar_chart(sorted_proportions, f"{feature} vs. {y_col}", feature, 'Percentage of true rumours', save_path_bar_chart)
 
                 save_path_summary_table = os.path.join('results', f"{feature}_vs_{y_col}_summary_table.png")
                 create_matplotlib_table(summary, save_path_summary_table)
