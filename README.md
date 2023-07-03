@@ -97,6 +97,6 @@ Docs on how to obtain API keys for these services can be found in the following 
 
 - [https://platform.openai.com/docs/introduction](https://platform.openai.com/docs/introduction) - Use the key to set the environment variable OPENAI_API_KEY
 - [https://www.api-football.com/documentation-v3#section/Authentication](https://www.api-football.com/documentation-v3#section/Authentication) - Use the key to set the environment variable FOOTBALL_API_KEY
-- [https://developers.google.com/custom-search/v1/overview](https://developers.google.com/ custom-search/v1/overview) - Use the key to set the environment variable GOOGLE_API_KEY and the search engine ID to set the environment variable CX_ID
+- [https://developers.google.com/custom-search/v1/overview](https://developers.google.com/custom-search/v1/overview) - Use the key to set the environment variable GOOGLE_API_KEY and the search engine ID to set the environment variable CX_ID
 
 Keys can be set in the .env file in the root directory of the project. An example .env file is provided in the root directory of the project.
