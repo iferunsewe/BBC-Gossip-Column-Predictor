@@ -89,14 +89,14 @@ To use the project, you have two main options:
 
 The project uses the following APIs:
 
-    - OpenAI GPT-3: [https://platform.openai.com/](https://platform.openai.com/)
-    - API-Football: [https://www.api-football.com/](https://www.api-football.com/)
-    - Google Custom Search: [https://developers.google.com/custom-search](https://developers.google.com/custom-search)
+- OpenAI GPT-3: [https://platform.openai.com/](https://platform.openai.com/)
+- API-Football: [https://www.api-football.com/](https://www.api-football.com/)
+- Google Custom Search: [https://developers.google.com/custom-search](https://developers.google.com/custom-search)
 
 Docs on how to obtain API keys for these services can be found in the following links:
 
-    - [https://platform.openai.com/docs/introduction](https://platform.openai.com/docs/introduction) - Use the key to set the environment variable OPENAI_API_KEY
-    - [https://www.api-football.com/documentation-v3#section/Authentication](https://www.api-football.com/documentation-v3#section/Authentication) - Use the key to set the environment variable FOOTBALL_API_KEY
-    - [https://developers.google.com/custom-search/v1/overview](https://developers.google.com/ custom-search/v1/overview) - Use the key to set the environment variable GOOGLE_API_KEY and the search engine ID to set the environment variable CX_ID
+- [https://platform.openai.com/docs/introduction](https://platform.openai.com/docs/introduction) - Use the key to set the environment variable OPENAI_API_KEY
+- [https://www.api-football.com/documentation-v3#section/Authentication](https://www.api-football.com/documentation-v3#section/Authentication) - Use the key to set the environment variable FOOTBALL_API_KEY
+- [https://developers.google.com/custom-search/v1/overview](https://developers.google.com/ custom-search/v1/overview) - Use the key to set the environment variable GOOGLE_API_KEY and the search engine ID to set the environment variable CX_ID
 
 Keys can be set in the .env file in the root directory of the project. An example .env file is provided in the root directory of the project.
