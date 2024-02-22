@@ -68,6 +68,11 @@ def clean_data(data):
     data['veracity'] = data['veracity'].astype(int)
     return data
 
+def print_veracity_counts(preprocessed_data):
+    veracity_counts = preprocessed_data['veracity'].value_counts()
+    print("\nVeracity Counts:")
+    print(veracity_counts)
+
 # Wrangles the data by adding a veracity column to the preprocessed data
 def wrangle_data(preprocessed_data, verified_data):
     veracity_list = []
@@ -87,6 +92,8 @@ def wrangle_data(preprocessed_data, verified_data):
     preprocessed_data["veracity"] = veracity_list
     preprocessed_data = clean_data(preprocessed_data)
     create_output_csv(preprocessed_data)
+
+    print_veracity_counts(preprocessed_data)
 
 def main():
     preprocessed_data = utils.pandas_load_csv(("preprocessed_data.csv"))

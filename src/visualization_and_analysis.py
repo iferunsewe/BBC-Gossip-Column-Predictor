@@ -52,6 +52,15 @@ def calculate_pearsonr_correlation(data, x_col, y_col):
     pearsonr, p_value = scipy.stats.pearsonr(data[y_col], data[x_col])
     return pearsonr, p_value
 
+def calculate_point_biserial_correlation(data, x_col, y_col):
+    """
+    Calculate and print the point-biserial correlation coefficient and p-value
+    between a continuous variable and the dichotomous 'veracity' variable.
+    """
+    # Calculate point-biserial correlation
+    correlation, p_value = scipy.stats.pointbiserialr(data[y_col], data[x_col])
+    return correlation, p_value
+
 # Interpret and print correlation and p-value results
 def interpret_relationship(corr, p_value, x_col, y_col):
     if corr > 0:
@@ -77,7 +86,7 @@ def interpret_relationship(corr, p_value, x_col, y_col):
 
 # Calculate, interpret, and print Pearson correlation for specified columns
 def print_correlation(data, x_col, y_col):
-    corr, p_value = calculate_pearsonr_correlation(data, x_col, y_col)
+    corr, p_value = calculate_point_biserial_correlation(data, x_col, y_col)
     interpret_relationship(corr, p_value, x_col, y_col)
 
 # Create a summary table of true rumour proportions for specified columns
